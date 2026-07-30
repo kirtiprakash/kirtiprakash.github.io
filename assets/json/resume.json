@@ -77,11 +77,7 @@
       "startDate": "2020-01-01",
       "endDate": "2022-01-01",
       "summary": "Quantitative microscopy and open science.",
-      "highlights": [
-        "Modelled MINFLUX data for structural biology",
-        "Developed correlative imaging frameworks",
-        "Promoted open microscopy standards"
-      ]
+      "highlights": ["Modelled MINFLUX data for structural biology", "Developed correlative imaging frameworks", "Promoted open microscopy standards"]
     },
     {
       "name": "University of Cambridge",
@@ -89,11 +85,7 @@
       "startDate": "2018-01-01",
       "endDate": "2020-01-01",
       "summary": "Spatial transcriptomics and machine learning.",
-      "highlights": [
-        "Built RNAscope-based single-cell pipelines",
-        "Linked morphology to gene expression using ML",
-        "Set up HPC infrastructure"
-      ]
+      "highlights": ["Built RNAscope-based single-cell pipelines", "Linked morphology to gene expression using ML", "Set up HPC infrastructure"]
     }
   ],
 
@@ -105,10 +97,7 @@
       "startDate": "2013-01-01",
       "endDate": "2016-01-01",
       "score": "",
-      "courses": [
-        "Chromatin architecture",
-        "Super-resolution microscopy"
-      ]
+      "courses": ["Chromatin architecture", "Super-resolution microscopy"]
     },
     {
       "institution": "Aalto University & University of Helsinki, Finland",
@@ -117,11 +106,7 @@
       "startDate": "2009-01-01",
       "endDate": "2012-01-01",
       "score": "Distinction",
-      "courses": [
-        "Machine learning",
-        "Boolean modelling",
-        "Bioinformatics"
-      ]
+      "courses": ["Machine learning", "Boolean modelling", "Bioinformatics"]
     },
     {
       "institution": "Uttar Pradesh Technical University, India",
@@ -130,10 +115,7 @@
       "startDate": "2005-01-01",
       "endDate": "2009-01-01",
       "score": "",
-      "courses": [
-        "Neural networks",
-        "Computational biology"
-      ]
+      "courses": ["Neural networks", "Computational biology"]
     }
   ],
 
@@ -180,31 +162,17 @@
     {
       "name": "AI / Machine Learning",
       "level": "Advanced",
-      "keywords": [
-        "Deep Learning",
-        "PyTorch",
-        "TensorFlow",
-        "Causal Inference"
-      ]
+      "keywords": ["Deep Learning", "PyTorch", "TensorFlow", "Causal Inference"]
     },
     {
       "name": "Imaging",
       "level": "Advanced",
-      "keywords": [
-        "Super-resolution microscopy",
-        "Spatial transcriptomics",
-        "Correlative imaging"
-      ]
+      "keywords": ["Super-resolution microscopy", "Spatial transcriptomics", "Correlative imaging"]
     },
     {
       "name": "Programming",
       "level": "Advanced",
-      "keywords": [
-        "Python",
-        "R",
-        "MATLAB",
-        "Unix"
-      ]
+      "keywords": ["Python", "R", "MATLAB", "Unix"]
     }
   ],
 
@@ -218,19 +186,11 @@
   "interests": [
     {
       "name": "Spatial Genome Biology",
-      "keywords": [
-        "3D chromatin",
-        "Epigenetics",
-        "Genome organisation"
-      ]
+      "keywords": ["3D chromatin", "Epigenetics", "Genome organisation"]
     },
     {
       "name": "AI in Biomedicine",
-      "keywords": [
-        "Foundation models",
-        "Causal inference",
-        "Digital pathology"
-      ]
+      "keywords": ["Foundation models", "Causal inference", "Digital pathology"]
     }
   ],
 
@@ -238,11 +198,7 @@
     {
       "name": "Spatial Genome Project",
       "summary": "Developing a 3D reference genome integrating super-resolution imaging with AI models.",
-      "highlights": [
-        "Integration with AlphaFold/AI models",
-        "Applications in cancer and neurodegeneration",
-        "Imaging-genomics fusion"
-      ],
+      "highlights": ["Integration with AlphaFold/AI models", "Applications in cancer and neurodegeneration", "Imaging-genomics fusion"],
       "startDate": "2024-01-01",
       "endDate": "",
       "url": ""
