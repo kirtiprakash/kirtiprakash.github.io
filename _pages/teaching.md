@@ -11,11 +11,9 @@ My teaching is interdisciplinary and example-driven. I connect core ideas in pro
 
 ## Selected teaching
 
-- **Statistical Signal Processing**, TU Delft — course lecturer, 2025
 - **ESRIC Summer School** — invited lecture and hands-on practical workshop, 2024
 - **Hands-on Super-resolution Workshop**, University of Leicester — invited lecturer, 2024
 - **Transforming Health Services with AI**, Coventry University London — invited lecturer, 2023
-- **Machine Learning and Data Analysis**, Institute of Cancer Research — course organiser and lecturer, 2023
 - **Modelling of Biological Systems**, Johannes Gutenberg University Mainz — lecturer, 2017
 - **Advanced Seminar: Biophysics of Genome Structure**, Johannes Gutenberg University Mainz — lecturer, 2015
 - **Biomedical Optics and Medical Physics**, Mainz and Heidelberg — lecturer and teaching assistant, 2014–2015
