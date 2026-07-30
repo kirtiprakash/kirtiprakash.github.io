@@ -6,7 +6,7 @@ subtitle: Interdisciplinary scientist working across artificial intelligence, qu
 
 profile:
   align: right
-  image:
+  image: pic1.jpg
   image_circular: false
   more_info: >
     <p><strong>PhD · FRMS</strong></p>
