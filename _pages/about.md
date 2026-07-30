@@ -9,9 +9,9 @@ profile:
   image: pic1.jpg
   image_circular: false
   more_info: >
-    <p><strong>PhD · FRMS</strong></p>
-    <p>London, United Kingdom</p>
-    <p>Senior Scientist, MHRA</p>
+    <p><strong></strong></p>
+    <p></p>
+    <p></p>
 
 news: true
 selected_papers: true
