@@ -210,11 +210,11 @@
 - title: Selected Publications
   type: time_table
   contents:
-    - title: Quantifying the spatio-temporal resolution
+    - title: Quantifying the spatio-temporal image degradation under motion blur in fluorescence microscopy
       institution: bioRxiv
       year: 2026
       description:
-        - A quantitative framework for evaluating spatial and temporal resolution in imaging.
+        - A quantitative framework for evaluating image degradation caused by motion blur in fluorescence microscopy.
     - title: CLEAR-IT, a framework for contrastive learning to capture the immune composition of tumor microenvironments
       institution: Communications Biology
       year: 2026
