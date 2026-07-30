@@ -8,11 +8,9 @@
     - name: Address
       value: London, United Kingdom
     - name: Contact
-      value: kirtiprakash2.71@gmail.com
-    - name: Nationality
-      value: British
+      value: first.last@aru.ac.uk
     - name: Current Position
-      value: Senior Scientist (SEO), Medicines and Healthcare products Regulatory Agency (MHRA), UK
+      value: Senior Lecturer, Anglia Ruskin University, UK
     - name: Research Areas
       value: Artificial intelligence, causal inference, computational imaging, super-resolution microscopy, mathematical modelling, chromatin biology
     - name: Research Profile
@@ -36,21 +34,7 @@
       description:
         - Graduated with Distinction.
         - Master's research explored the histone code using Boolean models.
-    - title: Bachelor of Technology
-      institution: Uttar Pradesh Technical University, India
-      year: 2005 - 2009
-      description:
-        - Graduated with First Division.
-        - Bachelor's thesis focused on neural networks for protein secondary structure prediction.
 
-- title: Experience
-  type: time_table
-  contents:
-    - title: Senior Scientist (SEO)
-      institution: Medicines and Healthcare products Regulatory Agency (MHRA), UK
-      year: 2025 - Present
-      description:
-        - Establishing a causal inference and AI/ML pipeline to quantify the risk of fluoroquinolones.
     - title: Senior Research Fellow
       institution: TU Delft and University of Edinburgh, Netherlands and UK
       year: 2024 - 2025
