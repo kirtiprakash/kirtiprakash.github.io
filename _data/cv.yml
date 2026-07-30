@@ -6,15 +6,17 @@
     - name: Degrees
       value: PhD, FRMS
     - name: Address
-      value: 28D Fairdene Road, Coulsdon, London, UK, CR5 1RA
+      value: London, United Kingdom
     - name: Contact
-      value: kirtiprakash2.71@gmail.com, +44 (0)7915213717
+      value: kirtiprakash2.71@gmail.com
     - name: Nationality
       value: British
     - name: Current Position
       value: Senior Scientist (SEO), Medicines and Healthcare products Regulatory Agency (MHRA), UK
     - name: Research Areas
-      value: Superresolution microscopy, machine learning, AI, mathematical modelling, chromatin biology, epigenetics
+      value: Artificial intelligence, causal inference, computational imaging, super-resolution microscopy, mathematical modelling, chromatin biology
+    - name: Research Profile
+      value: More than 20 peer-reviewed papers, 1 research monograph, over 1,500 citations, h-index 17
     - name: Profiles
       value: ORCID, Google Scholar, LinkedIn, GitHub, Scopus, ResearchGate, X/Twitter, Bluesky
 
@@ -208,6 +210,16 @@
 - title: Selected Publications
   type: time_table
   contents:
+    - title: Quantifying the spatio-temporal resolution
+      institution: bioRxiv
+      year: 2026
+      description:
+        - A quantitative framework for evaluating spatial and temporal resolution in imaging.
+    - title: CLEAR-IT, a framework for contrastive learning to capture the immune composition of tumor microenvironments
+      institution: Communications Biology
+      year: 2026
+      description:
+        - A self-supervised, label-efficient approach for scalable cell phenotyping in digital pathology.
     - title: Resolution in super-resolution microscopy - definition, trade-offs, and perspectives
       institution: Nature Reviews Molecular Cell Biology
       year: 2024
@@ -218,7 +230,7 @@
       year: 2023
       description:
         - Critically evaluated resolution claims and reliability of MINFLUX for structural biology.
-    - title: Open microscopy in the life sciences: quo vadis?
+    - title: "Open microscopy in the life sciences: quo vadis?"
       institution: Nature Methods
       year: 2022
       description:

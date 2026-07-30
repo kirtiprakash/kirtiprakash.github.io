@@ -1,14 +1,12 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - kirtiprakash
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - kirtiprakash/fastSPDM
+  - kirtiprakash/simple_sim_fusion_demo
+  - kirtiprakash/wholebrain
+  - kirtiprakash/StateModeling
+  - kirtiprakash/live-coding
+  - kirtiprakash/BIDS-lecture-2024
