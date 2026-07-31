@@ -29,29 +29,29 @@ social: true
       <p class="section-kicker">Current directions</p>
       <h2 id="research-heading">Research programmes</h2>
     </div>
-    <a class="text-link" href="{{ '/projects/' | relative_url }}">View all research <span aria-hidden="true">→</span></a>
+    <a class="text-link" href="https://kirtiprakash.github.io/projects/">View all research <span aria-hidden="true">→</span></a>
   </div>
 
   <div class="research-grid">
-    <a class="research-card" href="{{ '/projects/' | relative_url }}">
+    <a class="research-card" href="https://kirtiprakash.github.io/projects/">
       <span class="card-number">01</span>
       <h3>AI & causal inference</h3>
       <p>Trustworthy machine learning, causal modelling, and risk quantification for biomedical and regulatory data.</p>
       <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
     </a>
-    <a class="research-card" href="{{ '/projects/' | relative_url }}">
+    <a class="research-card" href="https://kirtiprakash.github.io/projects/">
       <span class="card-number">02</span>
       <h3>Computational imaging</h3>
       <p>Deep learning for digital pathology, spatial transcriptomics, and high-content microscopy.</p>
       <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
     </a>
-    <a class="research-card" href="{{ '/projects/' | relative_url }}">
+    <a class="research-card" href="https://kirtiprakash.github.io/projects/">
       <span class="card-number">03</span>
       <h3>Spatial genome biology</h3>
       <p>Chromatin folding, the histone code, and structural phenotypes of the genome.</p>
       <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
     </a>
-    <a class="research-card" href="{{ '/projects/' | relative_url }}">
+    <a class="research-card" href="https://kirtiprakash.github.io/projects/">
       <span class="card-number">04</span>
       <h3>Quantitative microscopy</h3>
       <p>Super-resolution methods, localisation precision, correlative imaging, and open microscopy.</p>
@@ -65,7 +65,7 @@ social: true
     <p class="section-kicker">Selected impact</p>
     <h2 id="impact-heading">From new imaging methods to open scientific communities.</h2>
     <p>My work includes papers in <em>Nature Methods</em>, <em>Nature Reviews Molecular Cell Biology</em>, <em>Nature Neuroscience</em>, <em>PNAS</em>, <em>Genome Biology</em>, and <em>Communications Biology</em>.</p>
-    <a class="text-link" href="{{ '/publications/' | relative_url }}">Explore publications <span aria-hidden="true">→</span></a>
+    <a class="text-link" href="https://kirtiprakash.github.io/publications/">Explore publications <span aria-hidden="true">→</span></a>
   </div>
   <div class="impact-evidence">
     <div class="evidence-stat">

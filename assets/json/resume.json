@@ -40,10 +40,7 @@
       "startDate": "2026-06-01",
       "endDate": "",
       "summary": "Developing AI and causal inference pipelines for pharmacovigilance and drug safety.",
-      "highlights": [
-        "Causal inference",
-        "Real-world healthcare data with machine learning",
-      ]
+      "highlights": ["Causal inference", "Real-world healthcare data with machine learning"]
     },
     {
       "name": "TU Delft & University of Edinburgh",
