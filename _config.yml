@@ -11,8 +11,7 @@ description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Kirti Prakash is an interdisciplinary scientist working across artificial intelligence,
   causal inference, quantitative microscopy, computational imaging, and genome biology.
 footer_text: >
-  © Kirti Prakash. Built with <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-  and hosted by <a href="https://pages.github.com/">GitHub Pages</a>.
+  Cambridge, United Kingdom.
 keywords: artificial intelligence, machine learning, causal inference, computational imaging, super-resolution microscopy, chromatin, genome biology
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🔬 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
@@ -48,13 +47,13 @@ rss_icon: false
 # -----------------------------------------------------------------------------
 
 navbar_fixed: true
-footer_fixed: true
+footer_fixed: false
 search_enabled: true
 socials_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 930px
+max_width: 1160px
 
 # TODO: add layout settings (single page vs. multi-page)
 

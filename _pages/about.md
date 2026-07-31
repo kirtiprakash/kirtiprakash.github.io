@@ -2,43 +2,87 @@
 layout: about
 title: about
 permalink: /
-subtitle: Interdisciplinary scientist working across artificial intelligence, quantitative imaging, and genome biology.
+hero_eyebrow: Cambridge, UK · AI × imaging × genome biology
+hero_role: Senior Lecturer in Artificial Intelligence & Applications
+hero_intro: Interdisciplinary scientist developing interpretable AI and quantitative methods for biomedical imaging, medicine safety, and the spatial genome.
 
 profile:
-  align: right
   image: pic1.jpg
-  image_circular: false
-  more_info: >
-    <p><strong></strong></p>
-    <p></p>
-    <p></p>
 
 news: true
 selected_papers: true
 social: true
 ---
 
-I am an interdisciplinary computational scientist with a background in **computer science and biology**. My research combines artificial intelligence, machine learning, mathematical modelling, and advanced microscopy to extract interpretable information from complex biomedical data.
+<section class="home-introduction">
+  <p class="section-kicker">Research with range and a common purpose</p>
+  <h2>Making complex biological data interpretable.</h2>
+  <div class="introduction-grid">
+    <p class="introduction-lead">I work at the boundary of computer science and biology, connecting rigorous quantitative methods to biological, clinical, and regulatory questions.</p>
+    <p>My research spans causal inference for medicine safety, foundation models for digital pathology, spatial transcriptomics, chromatin architecture, and quantitative super-resolution microscopy.</p>
+  </div>
+</section>
 
-My work spans causal inference for medicine safety, foundation models for digital pathology, spatial transcriptomics, chromatin architecture, and the development and critical assessment of super-resolution microscopy. Across these areas, I aim to connect rigorous quantitative methods with biological and clinical questions.
+<section class="research-overview" aria-labelledby="research-heading">
+  <div class="section-title-row">
+    <div>
+      <p class="section-kicker">Current directions</p>
+      <h2 id="research-heading">Research programmes</h2>
+    </div>
+    <a class="text-link" href="{{ '/projects/' | relative_url }}">View all research <span aria-hidden="true">→</span></a>
+  </div>
 
-I have published more than 20 peer-reviewed articles, a research monograph, and five book chapters, with over 1,500 citations and an h-index of 17. My work includes papers in _Nature Methods_, _Nature Reviews Molecular Cell Biology_, _Nature Neuroscience_, _PNAS_, _Genome Biology_, and _Communications Biology_. I was awarded the Springer Best PhD Thesis Prize and elected a Fellow of the Royal Microscopical Society.
+  <div class="research-grid">
+    <a class="research-card" href="{{ '/projects/' | relative_url }}">
+      <span class="card-number">01</span>
+      <h3>AI & causal inference</h3>
+      <p>Trustworthy machine learning, causal modelling, and risk quantification for biomedical and regulatory data.</p>
+      <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="research-card" href="{{ '/projects/' | relative_url }}">
+      <span class="card-number">02</span>
+      <h3>Computational imaging</h3>
+      <p>Deep learning for digital pathology, spatial transcriptomics, and high-content microscopy.</p>
+      <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="research-card" href="{{ '/projects/' | relative_url }}">
+      <span class="card-number">03</span>
+      <h3>Spatial genome biology</h3>
+      <p>Chromatin folding, the histone code, and structural phenotypes of the genome.</p>
+      <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="research-card" href="{{ '/projects/' | relative_url }}">
+      <span class="card-number">04</span>
+      <h3>Quantitative microscopy</h3>
+      <p>Super-resolution methods, localisation precision, correlative imaging, and open microscopy.</p>
+      <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
+    </a>
+  </div>
+</section>
 
-[Download CV]({{ '/assets/pdf/kirti_prakash_cv.pdf' | relative_url }}){: .btn .btn-sm .btn-outline-primary }
-[View publications]({{ '/publications/' | relative_url }}){: .btn .btn-sm .btn-outline-primary }
-[Explore research]({{ '/projects/' | relative_url }}){: .btn .btn-sm .btn-outline-primary }
-
-## Research directions
-
-- **AI and causal inference:** trustworthy machine learning, causal modelling, and risk quantification for biomedical and regulatory data.
-- **Computational imaging:** deep learning for digital pathology, spatial transcriptomics, and high-content microscopy.
-- **Spatial genome biology:** chromatin folding, the histone code, and structural phenotypes of the genome.
-- **Quantitative microscopy:** super-resolution methods, localisation precision, correlative imaging, and open microscopy.
-
-## Selected contributions
-
-- Demonstrated laser-free single-molecule super-resolution microscopy on a conventional epifluorescence platform.
-- Developed structure-based methods to assess the reliability of MINFLUX measurements for quantitative structural biology.
-- Co-developed imaging and analysis pipelines for a single-cell spatial transcriptomic map of cortical astrocytes.
-- Characterised nanoscale epigenetic patterns along individual meiotic chromosomes.
-- Helped establish community initiatives in open microscopy, including Imaging ONEWORLD and Royal Society meetings.
+<section class="impact-section" aria-labelledby="impact-heading">
+  <div class="impact-copy">
+    <p class="section-kicker">Selected impact</p>
+    <h2 id="impact-heading">From new imaging methods to open scientific communities.</h2>
+    <p>My work includes papers in <em>Nature Methods</em>, <em>Nature Reviews Molecular Cell Biology</em>, <em>Nature Neuroscience</em>, <em>PNAS</em>, <em>Genome Biology</em>, and <em>Communications Biology</em>.</p>
+    <a class="text-link" href="{{ '/publications/' | relative_url }}">Explore publications <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="impact-evidence">
+    <div class="evidence-stat">
+      <strong>20+</strong>
+      <span>peer-reviewed articles</span>
+    </div>
+    <div class="evidence-stat">
+      <strong>1,500+</strong>
+      <span>scholarly citations</span>
+    </div>
+    <div class="evidence-stat">
+      <strong>FRMS</strong>
+      <span>Fellow, Royal Microscopical Society</span>
+    </div>
+    <div class="evidence-stat">
+      <strong>Springer</strong>
+      <span>Best PhD Thesis Prize</span>
+    </div>
+  </div>
+</section>
