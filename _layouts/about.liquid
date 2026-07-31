@@ -1,48 +1,60 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+<div class="home-page">
+  <section class="home-hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">{{ page.hero_eyebrow }}</p>
+      <h1 id="hero-title">
+        {{ site.first_name }}
         {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
+      </h1>
+      <p class="hero-role">{{ page.hero_role }}</p>
+      <p class="hero-intro">{{ page.hero_intro }}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ '/projects/' | relative_url }}"> Explore research <span aria-hidden="true">→</span> </a>
+        <a class="button button-secondary" href="{{ '/assets/pdf/kirti_prakash_cv.pdf' | relative_url }}">
+          Download CV <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
 
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
+    {% if page.profile.image %}
+      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+      <div class="hero-portrait">
+        <div class="portrait-frame">
+          {% capture sizes %}(min-width: 992px) 460px, (min-width: 576px) 72vw, 92vw{% endcapture %}
           {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
+            include figure.liquid loading="eager" path=profile_image_path class="img-fluid" sizes=sizes
+            alt="Portrait of Kirti Prakash" cache_bust=true
           %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
+        </div>
+        <p class="portrait-note">Artificial intelligence <span>×</span> imaging <span>×</span> genome biology</p>
       </div>
     {% endif %}
+  </section>
 
-    <div class="clearfix">{{ content }}</div>
+  <section class="focus-strip" aria-label="Research focus">
+    <a class="focus-item" href="{{ '/projects/' | relative_url }}">
+      <span class="focus-index">01</span>
+      <span class="focus-name">Artificial intelligence</span>
+    </a>
+    <a class="focus-item" href="{{ '/projects/' | relative_url }}">
+      <span class="focus-index">02</span>
+      <span class="focus-name">Quantitative imaging</span>
+    </a>
+    <a class="focus-item" href="{{ '/projects/' | relative_url }}">
+      <span class="focus-index">03</span>
+      <span class="focus-name">Genome biology</span>
+    </a>
+  </section>
+
+  <article class="home-content">
+    {{ content }}
 
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
-      <h2>
+      <h2 class="section-heading">
         <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
       </h2>
       {% include news.liquid limit=true %}
@@ -58,7 +70,7 @@ layout: default
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
+      <h2 class="section-heading">
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
       </h2>
       {% include selected_papers.liquid %}
@@ -71,10 +83,6 @@ layout: default
 
         <div class="contact-note">{{ site.contact_note }}</div>
       </div>
-    {% endif %}
-
-    {% if site.newsletter.enabled and site.footer_fixed %}
-      {% include scripts/newsletter.liquid center=true %}
     {% endif %}
   </article>
 </div>

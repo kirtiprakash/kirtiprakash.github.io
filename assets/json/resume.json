@@ -1,10 +1,9 @@
 {
   "basics": {
     "name": "Kirti Prakash",
-    "label": "Senior Scientist | AI, Imaging & Spatial Genome Biology",
+    "label": "Senior Lecturer in AI & Applications",
     "image": "",
-    "email": "kirtiprakash2.71@gmail.com",
-    "phone": "+44 7915 213717",
+    "email": "first.last@aru.ac.uk",
     "url": "",
     "summary": "Interdisciplinary scientist working at the interface of AI/ML, super-resolution microscopy, and genome biology. Developing quantitative and spatial frameworks for understanding chromatin organisation, disease mechanisms, and drug safety using imaging and causal inference.",
     "location": {
@@ -35,17 +34,13 @@
 
   "work": [
     {
-      "name": "Medicines and Healthcare products Regulatory Agency (MHRA)",
-      "position": "Senior Scientist (SEO)",
+      "name": "Anglia Ruskin University (ARU)",
+      "position": "Senior Lecturer",
       "url": "",
-      "startDate": "2025-01-01",
+      "startDate": "2026-06-01",
       "endDate": "",
       "summary": "Developing AI and causal inference pipelines for pharmacovigilance and drug safety.",
-      "highlights": [
-        "Built causal inference framework for fluoroquinolone risk analysis",
-        "Integrated real-world healthcare data with machine learning",
-        "Bridging epidemiology, AI, and regulatory science"
-      ]
+      "highlights": ["Causal inference", "Real-world healthcare data with machine learning"]
     },
     {
       "name": "TU Delft & University of Edinburgh",
@@ -77,11 +72,7 @@
       "startDate": "2020-01-01",
       "endDate": "2022-01-01",
       "summary": "Quantitative microscopy and open science.",
-      "highlights": [
-        "Modelled MINFLUX data for structural biology",
-        "Developed correlative imaging frameworks",
-        "Promoted open microscopy standards"
-      ]
+      "highlights": ["Modelled MINFLUX data for structural biology", "Developed correlative imaging frameworks", "Promoted open microscopy standards"]
     },
     {
       "name": "University of Cambridge",
@@ -89,11 +80,7 @@
       "startDate": "2018-01-01",
       "endDate": "2020-01-01",
       "summary": "Spatial transcriptomics and machine learning.",
-      "highlights": [
-        "Built RNAscope-based single-cell pipelines",
-        "Linked morphology to gene expression using ML",
-        "Set up HPC infrastructure"
-      ]
+      "highlights": ["Built RNAscope-based single-cell pipelines", "Linked morphology to gene expression using ML", "Set up HPC infrastructure"]
     }
   ],
 
@@ -105,10 +92,7 @@
       "startDate": "2013-01-01",
       "endDate": "2016-01-01",
       "score": "",
-      "courses": [
-        "Chromatin architecture",
-        "Super-resolution microscopy"
-      ]
+      "courses": ["Chromatin architecture", "Super-resolution microscopy"]
     },
     {
       "institution": "Aalto University & University of Helsinki, Finland",
@@ -117,23 +101,7 @@
       "startDate": "2009-01-01",
       "endDate": "2012-01-01",
       "score": "Distinction",
-      "courses": [
-        "Machine learning",
-        "Boolean modelling",
-        "Bioinformatics"
-      ]
-    },
-    {
-      "institution": "Uttar Pradesh Technical University, India",
-      "area": "Engineering",
-      "studyType": "BTech",
-      "startDate": "2005-01-01",
-      "endDate": "2009-01-01",
-      "score": "",
-      "courses": [
-        "Neural networks",
-        "Computational biology"
-      ]
+      "courses": ["Machine learning", "Boolean modelling", "Bioinformatics"]
     }
   ],
 
@@ -180,31 +148,17 @@
     {
       "name": "AI / Machine Learning",
       "level": "Advanced",
-      "keywords": [
-        "Deep Learning",
-        "PyTorch",
-        "TensorFlow",
-        "Causal Inference"
-      ]
+      "keywords": ["Deep Learning", "PyTorch", "TensorFlow", "Causal Inference"]
     },
     {
       "name": "Imaging",
       "level": "Advanced",
-      "keywords": [
-        "Super-resolution microscopy",
-        "Spatial transcriptomics",
-        "Correlative imaging"
-      ]
+      "keywords": ["Super-resolution microscopy", "Spatial transcriptomics", "Correlative imaging"]
     },
     {
       "name": "Programming",
       "level": "Advanced",
-      "keywords": [
-        "Python",
-        "R",
-        "MATLAB",
-        "Unix"
-      ]
+      "keywords": ["Python", "R", "MATLAB", "Unix"]
     }
   ],
 
@@ -218,19 +172,11 @@
   "interests": [
     {
       "name": "Spatial Genome Biology",
-      "keywords": [
-        "3D chromatin",
-        "Epigenetics",
-        "Genome organisation"
-      ]
+      "keywords": ["3D chromatin", "Epigenetics", "Genome organisation"]
     },
     {
       "name": "AI in Biomedicine",
-      "keywords": [
-        "Foundation models",
-        "Causal inference",
-        "Digital pathology"
-      ]
+      "keywords": ["Foundation models", "Causal inference", "Digital pathology"]
     }
   ],
 
@@ -238,11 +184,7 @@
     {
       "name": "Spatial Genome Project",
       "summary": "Developing a 3D reference genome integrating super-resolution imaging with AI models.",
-      "highlights": [
-        "Integration with AlphaFold/AI models",
-        "Applications in cancer and neurodegeneration",
-        "Imaging-genomics fusion"
-      ],
+      "highlights": ["Integration with AlphaFold/AI models", "Applications in cancer and neurodegeneration", "Imaging-genomics fusion"],
       "startDate": "2024-01-01",
       "endDate": "",
       "url": ""
