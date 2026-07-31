@@ -86,3 +86,10 @@ social: true
     </div>
   </div>
 </section>
+
+  <footer>
+    <p>
+      Visitors:
+      <img src="https://visitor-badge.laobi.icu/badge?page_id=kirtiprakash.kirtiprakash.github.io" alt="visitor counter">
+    </p>
+  </footer>
