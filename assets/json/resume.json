@@ -1,10 +1,9 @@
 {
   "basics": {
     "name": "Kirti Prakash",
-    "label": "Senior Scientist | AI, Imaging & Spatial Genome Biology",
+    "label": "Senior Lecturer in AI & Applications",
     "image": "",
-    "email": "kirtiprakash2.71@gmail.com",
-    "phone": "+44 7915 213717",
+    "email": "first.last@aru.ac.uk",
     "url": "",
     "summary": "Interdisciplinary scientist working at the interface of AI/ML, super-resolution microscopy, and genome biology. Developing quantitative and spatial frameworks for understanding chromatin organisation, disease mechanisms, and drug safety using imaging and causal inference.",
     "location": {
@@ -35,16 +34,15 @@
 
   "work": [
     {
-      "name": "Medicines and Healthcare products Regulatory Agency (MHRA)",
-      "position": "Senior Scientist (SEO)",
+      "name": "Anglia Ruskin University (ARU)",
+      "position": "Senior Lecturer",
       "url": "",
-      "startDate": "2025-01-01",
+      "startDate": "2026-06-01",
       "endDate": "",
       "summary": "Developing AI and causal inference pipelines for pharmacovigilance and drug safety.",
       "highlights": [
-        "Built causal inference framework for fluoroquinolone risk analysis",
-        "Integrated real-world healthcare data with machine learning",
-        "Bridging epidemiology, AI, and regulatory science"
+        "Causal inference",
+        "Real-world healthcare data with machine learning",
       ]
     },
     {
