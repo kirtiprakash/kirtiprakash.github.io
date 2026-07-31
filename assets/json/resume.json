@@ -105,15 +105,6 @@
       "endDate": "2012-01-01",
       "score": "Distinction",
       "courses": ["Machine learning", "Boolean modelling", "Bioinformatics"]
-    },
-    {
-      "institution": "Uttar Pradesh Technical University, India",
-      "area": "Engineering",
-      "studyType": "BTech",
-      "startDate": "2005-01-01",
-      "endDate": "2009-01-01",
-      "score": "",
-      "courses": ["Neural networks", "Computational biology"]
     }
   ],
 
