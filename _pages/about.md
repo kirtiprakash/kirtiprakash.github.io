@@ -64,7 +64,7 @@ social: true
   <div class="impact-copy">
     <p class="section-kicker">Selected impact</p>
     <h2 id="impact-heading">From new imaging methods to open scientific communities.</h2>
-    <p>My work includes papers in <em>Nature Methods</em>, <em>Nature Reviews Molecular Cell Biology</em>, <em>Nature Neuroscience</em>, <em>PNAS</em>, <em>Genome Biology</em>, and <em>Communications Biology</em>.</p>
+    <p>My work includes papers in <em>Nature Methods</em>, <em>Nature Reviews Molecular Cell Biology</em>, <em>Nature Neuroscience</em>, <em>PNAS</em>, <em>Genome Biology</em>, <em>Journal of Cell Science</em>, and <em>Philosophical Transactions of the Royal Society A</em>.</p>
     <a class="text-link" href="https://kirtiprakash.github.io/publications/">Explore publications <span aria-hidden="true">→</span></a>
   </div>
   <div class="impact-evidence">
