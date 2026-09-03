@@ -3,7 +3,7 @@ layout: about
 title: home
 permalink: /
 hero_eyebrow: AI for Science & Society
-hero_role: Senior Lecturer in Artificial Intelligence & Applications at Anglia Ruskin University (Cambridge, UK)
+hero_role: Senior Lecturer in Artificial Intelligence & Applications at Anglia Ruskin University, Cambridge, UK.
 hero_intro: I develop interpretable AI, mathematical modelling and quantitative imaging methods for biomedical science, genome biology and education systems.
 hero_meta:
   - Artificial Intelligence
