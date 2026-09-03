@@ -146,7 +146,6 @@ social: true
   <div>
     <div class="section-header compact-header">
       <p class="section-kicker">Professional service</p>
-      <h2 id="service-heading">Editorial and community work</h2>
     </div>
     <ul class="clean-list compact-list">
       <li>Scientific Editor, <em>Journal of Microscopy</em>, Microscopy at a Glance poster article series</li>
