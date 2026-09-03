@@ -26,29 +26,7 @@ social: true
   </p>
 </section>
 
-<section class="profile-section" aria-labelledby="snapshot-heading">
-  <div class="section-header">
-    <p class="section-kicker">Profile</p>
-  </div>
-  <div class="info-grid">
-    <div class="info-card">
-      <span>Role</span>
-      <strong>Senior Lecturer in Artificial Intelligence & Applications</strong>
-    </div>
-    <div class="info-card">
-      <span>Faculty</span>
-      <strong>Faculty of Science and Engineering</strong>
-    </div>
-    <div class="info-card">
-      <span>School</span>
-      <strong>Computing and Information Science</strong>
-    </div>
-    <div class="info-card">
-      <span>Supervision</span>
-      <strong>PhD and postdoctoral fellowship enquiries welcome</strong>
-    </div>
-  </div>
-</section>
+
 
 <section class="profile-section" aria-labelledby="research-heading">
   <div class="section-header section-row">
