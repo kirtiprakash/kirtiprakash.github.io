@@ -122,7 +122,6 @@ social: true
     <ul class="clean-list compact-list">
       <li><strong>PhD in Biology</strong>, Ruprecht-Karls-Universität Heidelberg, Germany, 2016</li>
       <li><strong>MSc in Computer Science</strong>, Aalto University with University of Helsinki, Finland, 2012</li>
-      <li><strong>Fellow of the Royal Microscopical Society</strong>, elected 2022</li>
     </ul>
   </div>
 </section>
@@ -148,6 +147,7 @@ social: true
       <p class="section-kicker">Professional service</p>
     </div>
     <ul class="clean-list compact-list">
+      <li><strong>Fellow of the Royal Microscopical Society</strong>, elected 2022</li>
       <li>Scientific Editor, <em>Journal of Microscopy</em>, Microscopy at a Glance poster article series</li>
       <li>Scientific Editor, <em>Applied Physics Letters</em>, Advances in Optical Microscopy for Bioimaging</li>
       <li>Scientific Editor, <em>Philosophical Transactions of the Royal Society A</em>, two special issues</li>
