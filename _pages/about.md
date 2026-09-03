@@ -1,95 +1,63 @@
 ---
 layout: about
-title: about
+title: home
 permalink: /
-hero_eyebrow: Cambridge, UK · AI × imaging × genome biology
-hero_role: Senior Lecturer in Artificial Intelligence & Applications
-hero_intro: Interdisciplinary scientist developing interpretable AI and quantitative methods for biomedical imaging, medicine safety, and the spatial genome.
+hero_role: AI for Science & Society
 
 profile:
   image: pic1.jpg
 
-news: true
+news: false
 selected_papers: true
 social: true
 ---
 
-<section class="home-introduction">
-  <p class="section-kicker">Research with range and a common purpose</p>
-  <h2>Making complex biological data interpretable.</h2>
-  <div class="introduction-grid">
-    <p class="introduction-lead">I work at the boundary of computer science and biology, connecting rigorous quantitative methods to biological, clinical, and regulatory questions.</p>
-    <p>My research spans causal inference for medicine safety, foundation models for digital pathology, spatial transcriptomics, chromatin architecture, and quantitative super-resolution microscopy.</p>
-  </div>
+<section class="duck-intro">
+  <p>Hi, I am Kirti Prakash.</p>
+
+  <p>
+    I work across artificial intelligence, mathematical modelling, super-resolution microscopy,
+    DNA and chromatin architecture, and questions of human agency in science and society.
+  </p>
+
+  <p>
+    My biological research focuses on how structure, information, and computation interact across scales,
+    with applications in cancer, neurodegeneration, biomedical imaging, and the spatial genome.
+  </p>
 </section>
 
-<section class="research-overview" aria-labelledby="research-heading">
-  <div class="section-title-row">
-    <div>
-      <p class="section-kicker">Current directions</p>
-      <h2 id="research-heading">Research programmes</h2>
-    </div>
-    <a class="text-link" href="https://kirtiprakash.github.io/projects/">View all research <span aria-hidden="true">→</span></a>
-  </div>
+<section class="duck-section" aria-labelledby="research-themes-heading">
+  <h2 id="research-themes-heading">Research themes</h2>
 
-  <div class="research-grid">
-    <a class="research-card" href="https://kirtiprakash.github.io/projects/">
-      <span class="card-number">01</span>
-      <h3>AI & causal inference</h3>
-      <p>Trustworthy machine learning, causal modelling, and risk quantification for biomedical and regulatory data.</p>
-      <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="research-card" href="https://kirtiprakash.github.io/projects/">
-      <span class="card-number">02</span>
-      <h3>Computational imaging</h3>
-      <p>Deep learning for digital pathology, spatial transcriptomics, and high-content microscopy.</p>
-      <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="research-card" href="https://kirtiprakash.github.io/projects/">
-      <span class="card-number">03</span>
-      <h3>Spatial genome biology</h3>
-      <p>Chromatin folding, the histone code, and structural phenotypes of the genome.</p>
-      <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="research-card" href="https://kirtiprakash.github.io/projects/">
-      <span class="card-number">04</span>
-      <h3>Quantitative microscopy</h3>
-      <p>Super-resolution methods, localisation precision, correlative imaging, and open microscopy.</p>
-      <span class="card-link">Discover the programme <span aria-hidden="true">→</span></span>
-    </a>
-  </div>
+  <ul class="duck-list duck-theme-list">
+    <li>
+      <strong>Nanoscale Bioimaging</strong><br />
+      Super-resolution microscopy for visualising cellular architecture, structural biomarkers,
+      cancer biology, and neurodegeneration.
+    </li>
+    <li>
+      <strong>AI-Driven Mathematical Modelling</strong><br />
+      Interpretable AI, causal inference, and mathematical models for biological, biomedical,
+      and regulatory systems.
+    </li>
+    <li>
+      <strong>Agency & Education Systems</strong><br />
+      Human agency, free will, university rankings, and mathematics education reform.
+    </li>
+    <li>
+      <strong>DNA & Chromatin Architecture</strong><br />
+      Genome folding, epigenetics, chromatin structure, ageing, cancer, and neurodegenerative disease.
+    </li>
+  </ul>
 </section>
 
-<section class="impact-section" aria-labelledby="impact-heading">
-  <div class="impact-copy">
-    <p class="section-kicker">Selected impact</p>
-    <h2 id="impact-heading">From new imaging methods to open scientific communities.</h2>
-    <p>My work includes papers in <em>Nature Methods</em>, <em>Nature Reviews Molecular Cell Biology</em>, <em>Nature Neuroscience</em>, <em>PNAS</em>, <em>Genome Biology</em>, <em>Journal of Cell Science</em>, and <em>Philosophical Transactions of the Royal Society A</em>.</p>
-    <a class="text-link" href="https://kirtiprakash.github.io/publications/">Explore publications <span aria-hidden="true">→</span></a>
-  </div>
-  <div class="impact-evidence">
-    <div class="evidence-stat">
-      <strong>20+</strong>
-      <span>peer-reviewed articles</span>
-    </div>
-    <div class="evidence-stat">
-      <strong>1,500+</strong>
-      <span>scholarly citations</span>
-    </div>
-    <div class="evidence-stat">
-      <strong>FRMS</strong>
-      <span>Fellow, Royal Microscopical Society</span>
-    </div>
-    <div class="evidence-stat">
-      <strong>Springer</strong>
-      <span>Best PhD Thesis Prize</span>
-    </div>
-  </div>
-</section>
+<section class="duck-section" aria-labelledby="links-heading">
+  <h2 id="links-heading">Links</h2>
 
-  <footer>
-    <p>
-      Visitors:
-      <img src="https://visitor-badge.laobi.icu/badge?page_id=kirtiprakash.kirtiprakash.github.io" alt="visitor counter">
-    </p>
-  </footer>
+  <ul class="duck-list duck-link-list">
+    <li><a href="https://scholar.google.com/citations?user=ZVsv6sAAAAAJ&hl=en">Google Scholar</a></li>
+    <li><a href="https://github.com/kirtiprakash">GitHub</a></li>
+    <li><a href="https://kirtiprakash.github.io/publications/">Publications</a></li>
+    <li><a href="https://kirtiprakash.github.io/assets/pdf/kirti_prakash_cv.pdf">CV PDF</a></li>
+  </ul>
+</section>
