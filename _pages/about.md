@@ -54,7 +54,6 @@ social: true
   <div class="section-header section-row">
     <div>
       <p class="section-kicker">Research interests</p>
-      <h2 id="research-heading">Four connected themes</h2>
     </div>
     <a class="text-link" href="{{ '/projects/' | relative_url }}">View research →</a>
   </div>
@@ -86,7 +85,6 @@ social: true
 <section class="profile-section" aria-labelledby="background-heading">
   <div class="section-header">
     <p class="section-kicker">Background</p>
-    <h2 id="background-heading">Computer science, biology and quantitative microscopy.</h2>
   </div>
   <div class="two-column-copy">
     <p>
@@ -106,7 +104,6 @@ social: true
   <div>
     <div class="section-header compact-header">
       <p class="section-kicker">Teaching</p>
-      <h2 id="teaching-heading">Teaching areas</h2>
     </div>
     <div class="pill-list">
       <span>Artificial Intelligence</span>
@@ -121,7 +118,6 @@ social: true
   <div>
     <div class="section-header compact-header">
       <p class="section-kicker">Qualifications</p>
-      <h2>Training</h2>
     </div>
     <ul class="clean-list compact-list">
       <li><strong>PhD in Biology</strong>, Ruprecht-Karls-Universität Heidelberg, Germany, 2016</li>
@@ -135,7 +131,6 @@ social: true
   <div class="section-header section-row">
     <div>
       <p class="section-kicker">Selected publications</p>
-      <h2 id="publications-heading">Recent research outputs</h2>
     </div>
     <a class="text-link" href="{{ '/publications/' | relative_url }}">All publications →</a>
   </div>
@@ -164,7 +159,6 @@ social: true
   <div>
     <div class="section-header compact-header">
       <p class="section-kicker">Talks and outreach</p>
-      <h2>Recent activity</h2>
     </div>
     <ul class="clean-list compact-list">
       <li>Invited talks at Essex, Isaac Newton Institute, Durham and Southampton.</li>
@@ -177,7 +171,6 @@ social: true
 <section class="profile-section links-section" aria-labelledby="links-heading">
   <div class="section-header">
     <p class="section-kicker">Links</p>
-    <h2 id="links-heading">Profiles and platforms</h2>
   </div>
   <div class="link-grid">
     <a href="https://orcid.org/0000-0002-0325-9988">ORCID</a>
