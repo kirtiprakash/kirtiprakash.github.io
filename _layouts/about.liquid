@@ -2,55 +2,60 @@
 layout: default
 ---
 
-<div class="duck-page">
-  <header class="duck-header" aria-labelledby="site-title">
-    <h1 id="site-title">{{ site.first_name }} {{ site.last_name }}</h1>
-    <p class="duck-subtitle">{{ page.hero_role }}</p>
+<div class="home-page">
+  <section class="home-hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">{{ page.hero_eyebrow }}</p>
+      <h1 id="hero-title">{{ site.first_name }} {{ site.last_name }}</h1>
+      <p class="hero-role">{{ page.hero_role }}</p>
+      <p class="hero-intro">{{ page.hero_intro }}</p>
 
-    <nav class="duck-nav" aria-label="Primary navigation">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/projects/' | relative_url }}">Research</a>
-      <a href="{{ '/publications/' | relative_url }}">Publications</a>
-      <a href="{{ '/cv/' | relative_url }}">CV</a>
-    </nav>
-  </header>
+      {% if page.hero_meta %}
+        <div class="hero-meta" aria-label="Profile details">
+          {% for item in page.hero_meta %}
+            <span>{{ item }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
 
-  <hr class="duck-rule" />
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ '/projects/' | relative_url }}">Explore research <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="{{ '/publications/' | relative_url }}">Publications <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="{{ '/assets/pdf/kirti_prakash_cv.pdf' | relative_url }}">Download CV <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
 
-  <main class="duck-main">
+    {% if page.profile.image %}
+      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+      <div class="hero-portrait">
+        <div class="portrait-frame">
+          {% capture sizes %}(min-width: 992px) 390px, (min-width: 576px) 64vw, 88vw{% endcapture %}
+          {%
+            include figure.liquid loading="eager" path=profile_image_path class="img-fluid" sizes=sizes
+            alt="Portrait of Kirti Prakash" cache_bust=true
+          %}
+        </div>
+        <p class="portrait-note">AI for science, life and society</p>
+      </div>
+    {% endif %}
+  </section>
+
+  <article class="home-content">
     {{ content }}
 
-    {% if page.selected_papers %}
-      <section class="duck-section" aria-labelledby="selected-publications">
-        <h2 id="selected-publications">Selected publications</h2>
-        {% include selected_papers.liquid %}
-      </section>
-    {% endif %}
-
-    {% if site.latest_posts.enabled %}
-      <section class="duck-section" aria-labelledby="latest-posts">
-        <h2 id="latest-posts">Latest posts</h2>
-        {% include latest_posts.liquid %}
-      </section>
-    {% endif %}
-
     {% if page.social %}
-      <section class="duck-section duck-social" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact</h2>
+      <section class="profile-section contact-section" aria-labelledby="contact-heading">
+        <div class="section-header">
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-heading">Connect and collaborate</h2>
+        </div>
+        <p>
+          I welcome conversations with students, researchers, collaborators, prospective PhD students,
+          and postdoctoral researchers interested in international fellowship routes.
+        </p>
         <div class="contact-icons">{% include social.liquid %}</div>
         <div class="contact-note">{{ site.contact_note }}</div>
       </section>
     {% endif %}
-  </main>
-
-  <hr class="duck-rule" />
-
-  <footer class="duck-footer">
-    <p>
-      Visitors:
-      <img src="https://visitor-badge.laobi.icu/badge?page_id=kirtiprakash.kirtiprakash.github.io" alt="visitor counter" />
-    </p>
-    <p>© {{ 'now' | date: '%Y' }} {{ site.first_name }} {{ site.last_name }}</p>
-  </footer>
+  </article>
 </div>
