@@ -3,10 +3,9 @@ layout: about
 title: home
 permalink: /
 hero_eyebrow: AI for Science & Society
-hero_role: Senior Lecturer in Artificial Intelligence & Applications
+hero_role: Senior Lecturer in Artificial Intelligence & Applications at Anglia Ruskin University (Cambridge, UK)
 hero_intro: I develop interpretable AI, mathematical modelling and quantitative imaging methods for biomedical science, genome biology and education systems.
 hero_meta:
-  - Cambridge, UK
   - Artificial Intelligence
   - Microscopy
   - Genome Architecture
@@ -19,7 +18,6 @@ social: true
 <section class="profile-section intro-section" aria-labelledby="intro-heading">
   <div class="section-header">
     <p class="section-kicker">Introduction</p>
-    <h2 id="intro-heading">Making complex biological data interpretable.</h2>
   </div>
   <p class="lead-text">
     Dr Kirti Prakash is an interdisciplinary scientist working at the interface of microscopy,
@@ -31,7 +29,6 @@ social: true
 <section class="profile-section" aria-labelledby="snapshot-heading">
   <div class="section-header">
     <p class="section-kicker">Profile</p>
-    <h2 id="snapshot-heading">At a glance</h2>
   </div>
   <div class="info-grid">
     <div class="info-card">
