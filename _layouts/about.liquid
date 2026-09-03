@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="home-page">
-  <section class="home-hero" aria-labelledby="hero-title">
+  <section class="home-hero no-portrait" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="hero-eyebrow">{{ page.hero_eyebrow }}</p>
       <h1 id="hero-title">{{ site.first_name }} {{ site.last_name }}</h1>
@@ -24,20 +24,6 @@ layout: default
         <a class="button button-secondary" href="{{ '/assets/pdf/kirti_prakash_cv.pdf' | relative_url }}">Download CV <span aria-hidden="true">↓</span></a>
       </div>
     </div>
-
-    {% if page.profile.image %}
-      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-      <div class="hero-portrait">
-        <div class="portrait-frame">
-          {% capture sizes %}(min-width: 992px) 390px, (min-width: 576px) 64vw, 88vw{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class="img-fluid" sizes=sizes
-            alt="Portrait of Kirti Prakash" cache_bust=true
-          %}
-        </div>
-        <p class="portrait-note">AI for science, life and society</p>
-      </div>
-    {% endif %}
   </section>
 
   <article class="home-content">
