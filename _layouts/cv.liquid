@@ -1,33 +1,146 @@
 ---
 layout: default
 ---
-{% unless site.data.resume %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-            ><i class="fa-solid fa-file-pdf"></i
-          ></a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
 
-    <article>
+<style>
+  .cv-page .home-hero {
+    display: block;
+    min-height: auto;
+    margin-bottom: 1.4rem;
+  }
+
+  .cv-page .hero-copy {
+    max-width: 900px;
+  }
+
+  .cv-page .hero-role {
+    margin-top: 1rem;
+  }
+
+  .cv-page .cv-actions {
+    margin-top: 1.7rem;
+  }
+
+  .cv-page .cv-content {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .cv-page .cv-section-card {
+    overflow: hidden;
+  }
+
+  .cv-page .cv-section-card h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cv-page .cv-entry-body {
+    color: var(--kp-ink-soft);
+  }
+
+  .cv-page .cv-entry-body h3,
+  .cv-page .cv-entry-body h4,
+  .cv-page .cv-entry-body h5 {
+    color: var(--kp-ink);
+  }
+
+  .cv-page .cv-entry-body ul,
+  .cv-page .cv-entry-body ol {
+    margin-bottom: 0;
+    padding-left: 1.2rem;
+  }
+
+  .cv-page .cv-entry-body li {
+    margin-bottom: 0.45rem;
+  }
+
+  .cv-page .cv-entry-body table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--kp-ink-soft);
+    font-size: 0.96rem;
+  }
+
+  .cv-page .cv-entry-body table td,
+  .cv-page .cv-entry-body table th {
+    padding: 0.75rem 0.65rem;
+    border-top: 1px solid var(--kp-line);
+    vertical-align: top;
+  }
+
+  .cv-page .cv-entry-body .card,
+  .cv-page .cv-entry-body .list-group-item {
+    border-color: var(--kp-line) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .cv-page .cv-entry-body .badge,
+  .cv-page .cv-entry-body .btn {
+    border-radius: 999px;
+  }
+
+  @media (max-width: 760px) {
+    .cv-page .cv-entry-body table,
+    .cv-page .cv-entry-body tbody,
+    .cv-page .cv-entry-body tr,
+    .cv-page .cv-entry-body td {
+      display: block;
+      width: 100%;
+    }
+
+    .cv-page .cv-entry-body table td,
+    .cv-page .cv-entry-body table th {
+      padding: 0.55rem 0;
+    }
+  }
+</style>
+
+<div class="home-page cv-page">
+  <section class="home-hero cv-hero" aria-labelledby="cv-title">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">{{ page.hero_eyebrow | default: 'Academic CV' }}</p>
+      <h1 id="cv-title">Curriculum Vitae</h1>
+      <p class="hero-role">{{ page.hero_role | default: site.first_name | append: ' ' | append: site.last_name }}</p>
+      {% if page.hero_intro %}
+        <p class="hero-intro">{{ page.hero_intro }}</p>
+      {% elsif page.description %}
+        <p class="hero-intro">{{ page.description }}</p>
+      {% endif %}
+
+      {% if page.hero_meta %}
+        <div class="hero-meta" aria-label="CV summary">
+          {% for item in page.hero_meta %}
+            <span>{{ item }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="hero-actions cv-actions">
+        {% if page.cv_pdf %}
+          <a class="button button-primary" href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}" target="_blank" rel="noopener noreferrer">
+            Download CV <span aria-hidden="true">↓</span>
+          </a>
+        {% endif %}
+        <a class="button button-secondary" href="{{ '/publications/' | relative_url }}">Publications <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="{{ '/' | relative_url }}#contact-heading">Contact <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <article class="home-content cv-content">
+    {% unless site.data.resume %}
       <div class="cv">
         {% for entry in site.data.cv %}
-          <a class="anchor" id="{{ entry.title }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
-            <div>
+          <a class="anchor" id="{{ entry.title | slugify }}"></a>
+          <section class="profile-section cv-section-card" aria-labelledby="{{ entry.title | slugify }}-heading">
+            <div class="section-header section-row">
+              <div>
+                <p class="section-kicker">CV section</p>
+                <h2 id="{{ entry.title | slugify }}-heading">{{ entry.title }}</h2>
+              </div>
+            </div>
+            <div class="cv-entry-body">
               {% if entry.type == 'list' %}
                 {% include cv/list.liquid %}
               {% elsif entry.type == 'map' %}
@@ -42,32 +155,10 @@ layout: default
                 {{ entry.contents }}
               {% endif %}
             </div>
-          </div>
+          </section>
         {% endfor %}
       </div>
-    </article>
-  </div>
-{% else %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-            ><i class="fa-solid fa-file-pdf"></i
-          ></a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
-
-    <article>
+    {% else %}
       <div class="cv">
         {% for data in site.data.resume %}
           {% if site.jsonresume and site.jsonresume.size > 0 %}
@@ -76,10 +167,15 @@ layout: default
             {% endunless %}
           {% endif %}
           {% if data[0] == 'meta' or data[1].size == 0 %} {% continue %} {% endif %}
-          <a class="anchor" id="{{ data[0] }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ data[0] | capitalize }}</h3>
-            <div>
+          <a class="anchor" id="{{ data[0] | slugify }}"></a>
+          <section class="profile-section cv-section-card" aria-labelledby="{{ data[0] | slugify }}-heading">
+            <div class="section-header section-row">
+              <div>
+                <p class="section-kicker">CV section</p>
+                <h2 id="{{ data[0] | slugify }}-heading">{{ data[0] | capitalize }}</h2>
+              </div>
+            </div>
+            <div class="cv-entry-body">
               {% case data[0] %}
                 {% when 'basics' %}
                   {% include resume/basics.liquid %}
@@ -106,12 +202,11 @@ layout: default
                 {% when 'references' %}
                   {% include resume/references.liquid %}
                 {% else %}
-
               {% endcase %}
             </div>
-          </div>
+          </section>
         {% endfor %}
       </div>
-    </article>
-  </div>
-{% endunless %}
+    {% endunless %}
+  </article>
+</div>
