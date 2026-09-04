@@ -1,23 +1,3 @@
-- title: General Information
-  type: map
-  contents:
-    - name: Full Name
-      value: Kirti Prakash
-    - name: Degrees
-      value: PhD, FRMS
-    - name: Address
-      value: London, United Kingdom
-    - name: Contact
-      value: first.last@aru.ac.uk
-    - name: Current Position
-      value: Senior Lecturer, Anglia Ruskin University, UK
-    - name: Research Areas
-      value: Artificial intelligence, causal inference, computational imaging, super-resolution microscopy, mathematical modelling, chromatin biology
-    - name: Research Profile
-      value: More than 20 peer-reviewed papers, over 1,500 citations, h-index 17
-    - name: Profiles
-      value: ORCID, Google Scholar, LinkedIn, GitHub, Scopus, ResearchGate, X/Twitter, Bluesky
-
 - title: Education
   type: time_table
   contents:
