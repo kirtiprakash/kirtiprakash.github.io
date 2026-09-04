@@ -8,45 +8,40 @@
         - Doctoral dissertation nominated as an outstanding PhD thesis.
         - Awarded Springer Best PhD Theses Prize.
         - Research later published as the book "Chromatin Architecture".
-    - title: Master of Science (Tech.)
-      institution: Aalto University (with University of Helsinki), Finland
+
+    - title: Master of Science (Tech.) in Computer Science
+      institution: Aalto University with University of Helsinki, Finland
       year: 2009 - 2012
       description:
         - Graduated with Distinction.
         - Master's research explored the histone code using Boolean models.
 
-    - title: Senior Research Fellow
-      institution: TU Delft and University of Edinburgh, Netherlands and UK
-      year: 2024 - 2025 
+- title: Research and Industrial Experience
+  type: time_table
+  contents:
+    - title: Senior Research Fellow, TU Delft and University of Edinburgh, Netherlands and UK
+      year: 2024 - 2025
 
-    - title: AI/ML Team Lead
-      institution: Institute of Cancer Research (ICR) and Royal Marsden Hospital, UK
+    - title: AI/ML Team Lead, Institute of Cancer Research and Royal Marsden Hospital, UK
       year: 2022 - 2024
 
-    - title: Higher Research Scientist
-      institution: National Physical Laboratory (NPL), UK
+    - title: Higher Research Scientist, National Physical Laboratory, UK
       year: 2020 - 2022
 
-    - title: Research Associate
-      institution: University of Cambridge and Cambridge Stem Cell Institute, UK
+    - title: Research Associate, University of Cambridge and Cambridge Stem Cell Institute, UK
       year: 2018 - 2020
 
-    - title: Visiting Scientist
-      institution: University of Oxford and Oxford Nanoimaging (ONI), UK
+    - title: Visiting Scientist, University of Oxford and Oxford Nanoimaging, UK
       year: 2017 - 2018
 
-    - title: Research Associate
-      institution: Carnegie Institution and Institut Curie
+    - title: Research Associate, Carnegie Institution and Institut Curie
       year: 2016 - 2017
 
-    - title: Research Assistant
-      institution: IMB and Max Planck Institute for Polymer Research, Germany
+    - title: Research Assistant, IMB and Max Planck Institute for Polymer Research, Germany
       year: 2013 - 2016
 
-    - title: Research Assistant
-      institution: Aalto University, Tampere University and University of Helsinki, Finland
+    - title: Research Assistant, Aalto University, Tampere University and University of Helsinki, Finland
       year: 2009 - 2012
-  
 
 - title: Honors and Awards
   type: time_table
@@ -54,11 +49,12 @@
     - year: 2022
       items:
         - Elected Fellow of the Royal Microscopical Society (FRMS)
+
     - year: 2016
       items:
         - Springer Best PhD Thesis Prize
         - Best poster awards at EMBO, JCB, and ICCB
+
     - year: 2010
       items:
         - Honour Student at Aalto University
-
