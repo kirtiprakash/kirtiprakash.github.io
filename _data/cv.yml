@@ -14,7 +14,7 @@
     - name: Research Areas
       value: Artificial intelligence, causal inference, computational imaging, super-resolution microscopy, mathematical modelling, chromatin biology
     - name: Research Profile
-      value: More than 20 peer-reviewed papers, 1 research monograph, over 1,500 citations, h-index 17
+      value: More than 20 peer-reviewed papers, over 1,500 citations, h-index 17
     - name: Profiles
       value: ORCID, Google Scholar, LinkedIn, GitHub, Scopus, ResearchGate, X/Twitter, Bluesky
 
@@ -38,51 +38,35 @@
     - title: Senior Research Fellow
       institution: TU Delft and University of Edinburgh, Netherlands and UK
       year: 2024 - 2025
-      description:
-        - Compiled 200 TB of digital pathology data for foundation AI models for cancer imaging-based markers.
-        - Developed Bayesian Van Trees inequality approaches for localization precision in superresolution microscopy.
+
     - title: AI/ML Team Lead
       institution: Institute of Cancer Research (ICR) and Royal Marsden Hospital, UK
       year: 2022 - 2024
-      description:
-        - Led development of deep learning pipelines for digital pathology.
-        - Worked on rhabdomyosarcoma tissue phenotyping and CD31 vessel segmentation.
-        - Co-organized the Royal Society SIMposium conference.
+
     - title: Higher Research Scientist
       institution: National Physical Laboratory (NPL), UK
       year: 2020 - 2022
-      description:
-        - Pioneered structure-based modelling for MINFLUX data.
-        - Promoted open science and developed correlative cryo-EM and superresolution microscopy frameworks.
+
     - title: Research Associate
       institution: University of Cambridge and Cambridge Stem Cell Institute, UK
       year: 2018 - 2020
-      description:
-        - Set up a confocal-based spatial transcriptomics/RNAscope pipeline for single-cell gene expression.
-        - Developed machine learning pipelines linking morphology to molecular markers.
-        - Set up an HPC cluster.
+
     - title: Visiting Scientist
       institution: University of Oxford and Oxford Nanoimaging (ONI), UK
       year: 2017 - 2018
-      description:
-        - Contributed to Nanoimager development and structured illumination microscopy integration.
+
     - title: Research Associate
       institution: Carnegie Institution and Institut Curie
       year: 2016 - 2017
-      description:
-        - Developed a laser-free super-resolution microscopy approach.
-        - Enabled correlative imaging with STED microscopy on the same fields of view.
+
     - title: Research Assistant
       institution: IMB and Max Planck Institute for Polymer Research, Germany
       year: 2013 - 2016
-      description:
-        - Co-developed UV-induced photoconversion of DNA dyes for single-molecule imaging.
-        - Mapped epigenetic landscapes in meiosis and stress.
+
     - title: Research Assistant
       institution: Aalto University, Tampere University and University of Helsinki, Finland
       year: 2009 - 2012
-      description:
-        - Worked on neural networks, histone code modelling, and birch genome annotation.
+  
 
 - title: Honors and Awards
   type: time_table
@@ -98,226 +82,3 @@
       items:
         - Honour Student at Aalto University
 
-- title: Grants and Funding
-  type: time_table
-  contents:
-    - year: 2025
-      items:
-        - Wellcome Career Development Award application, "The Spatial Genome Project", £3.7M, submitted
-        - Assisted preparation of DeepSIM: Live Tissue Imaging at the Nanoscale
-    - year: 2021
-      items:
-        - Successful funding and purchase of a confocal microscope at NPL, Lead applicant, £300K
-    - year: 2020 - 2021
-      items:
-        - NPL M4R grants with Aurox Ltd, Linkam Stages and CoolLED, Lead applicant, £100K
-    - year: 2020
-      items:
-        - SIM Hackathon funding from Zeiss, Co-applicant, £10K
-    - year: 2019
-      items:
-        - Royal Society grant for SIMposium, Lead applicant
-        - Next Generation Imaging workshop industrial funding, Lead applicant, £10K
-    - year: 2018
-      items:
-        - Funding and setup of a confocal microscope, Lead applicant, £350K
-        - Initiated Horizon 2020 ITN grant, main coordinator for ONI
-
-- title: Teaching and Training
-  type: time_table
-  contents:
-    - title: Statistical Signal Processing
-      institution: TU Delft
-      year: 2025
-      description:
-        - Substitute course lecturer on behalf of Carlas Smith.
-    - title: ESRIC Summer School
-      institution: Invited Lecturer
-      year: 2024
-      description:
-        - Delivered invited talk and hands-on workshop.
-    - title: Hands-on Superresolution Workshop
-      institution: University of Leicester
-      year: 2024
-      description:
-        - Lecturer by invitation.
-    - title: Transforming Health Services with AI
-      institution: Coventry University, London
-      year: 2023
-      description:
-        - Lecturer by invitation.
-    - title: Machine Learning and Data Analysis
-      institution: Institute of Cancer Research
-      year: 2023
-      description:
-        - Course organiser and lecturer.
-    - title: Microscopy Wonderland Outreach
-      institution: National Physical Laboratory
-      year: 2020
-      description:
-        - Delivered 10 talks to 60 schools, reaching approximately 4,500 pupils.
-    - title: Modelling of Biological Systems
-      institution: JGU Mainz
-      year: 2017
-      description:
-        - Lecturer.
-    - title: Biomedical Optics, Medical Physics and Optical Imaging
-      institution: IMB Mainz and Heidelberg University
-      year: 2014 - 2015
-      description:
-        - Lecturer and teaching assistant across several courses.
-
-- title: Mentorship
-  type: time_table
-  contents:
-    - title: Supervisor and Team Lead
-      institution: TU Delft
-      year: 2024 - 2025
-      description:
-        - Supervised 3 MSc students and 3 PhD students.
-    - title: AI/ML Team Lead
-      institution: Institute of Cancer Research
-      year: 2022 - 2024
-      description:
-        - Supervised 2 analytical scientists.
-    - title: Student Supervisor
-      institution: University of Cambridge
-      year: 2018 - 2019
-      description:
-        - Supervised 1 summer student and 3 BSc/MSc students.
-    - title: Student Supervisor
-      institution: IMB/JGU Mainz
-      year: 2013 - 2016
-      description:
-        - Supervised 3 summer students and 5 BSc/MSc students.
-
-- title: Selected Publications
-  type: time_table
-  contents:
-    - title: Quantifying the spatio-temporal image degradation under motion blur in fluorescence microscopy
-      institution: bioRxiv
-      year: 2026
-      description:
-        - A quantitative framework for evaluating image degradation caused by motion blur in fluorescence microscopy.
-    - title: CLEAR-IT, a framework for contrastive learning to capture the immune composition of tumor microenvironments
-      institution: Communications Biology
-      year: 2026
-      description:
-        - A self-supervised, label-efficient approach for scalable cell phenotyping in digital pathology.
-    - title: Resolution in super-resolution microscopy - definition, trade-offs, and perspectives
-      institution: Nature Reviews Molecular Cell Biology
-      year: 2024
-      description:
-        - Viewpoint article clarifying resolution and trade-offs in super-resolution microscopy.
-    - title: Assessment of 3D MINFLUX data for quantitative structural biology in cells
-      institution: Nature Methods
-      year: 2023
-      description:
-        - Critically evaluated resolution claims and reliability of MINFLUX for structural biology.
-    - title: "Open microscopy in the life sciences: quo vadis?"
-      institution: Nature Methods
-      year: 2022
-      description:
-        - Perspective on the challenges and future of open microscopy.
-    - title: Laser-free super-resolution microscopy
-      institution: Philosophical Transactions of the Royal Society A
-      year: 2021
-      description:
-        - Demonstrated single-molecule superresolution microscopy using conventional epifluorescence microscopes.
-    - title: Astrocyte layers in the mammalian cerebral cortex revealed by a single-cell in situ transcriptomic map
-      institution: Nature Neuroscience
-      year: 2020
-      description:
-        - Contributed histology and imaging pipeline development for spatial transcriptomics.
-
-- title: Key Skills
-  type: nested_list
-  contents:
-    - title: Microscopy
-      items:
-        - Home-built and commercial microscopes
-        - Nikon, Aurox, Leica, Olympus, Perkin Elmer Operetta
-    - title: AI and Machine Learning
-      items:
-        - Deep learning
-        - PyTorch
-        - TensorFlow
-        - AlphaFold
-    - title: Genomics
-      items:
-        - ChIP-seq
-        - MNase-seq
-        - Hi-C analysis
-    - title: Modelling
-      items:
-        - Boolean models
-        - Mathematical modelling
-        - Structure-based modelling
-    - title: Software
-      items:
-        - Python
-        - R
-        - MATLAB
-        - Unix
-        - Fiji
-        - Ilastik
-        - QuPath
-    - title: Wet Lab
-      items:
-        - Basic cell culture
-        - Mouse and amphibian chromosome spreads
-
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Spatial genome biology
-      items:
-        - 3D chromatin architecture
-        - Histone code and epigenetic regulation
-        - Chromosome topology
-    - title: Quantitative imaging
-      items:
-        - Superresolution microscopy
-        - Correlative microscopy
-        - Spatial transcriptomics
-    - title: Artificial intelligence in biomedicine
-      items:
-        - Digital pathology
-        - Causal inference
-        - Foundation models for imaging
-    - title: Open and accessible science
-      items:
-        - Open microscopy
-        - Low-cost imaging systems
-        - Global training and outreach
-
-- title: Professional Service
-  type: time_table
-  contents:
-    - title: Lead Scientific Editor
-      institution: Journal of Microscopy
-      year: 2025 - ongoing
-      description:
-        - Leading the Microscopy at a Glance poster article series.
-    - title: Expert Panel Member
-      institution: Fonds Wetenschappelijk Onderzoek, Vlaanderen (FWO)
-      year: 2025
-      description:
-        - Served on Molecular Cellular Biology expert panel.
-    - title: Lead Scientific Editor
-      institution: Philosophical Transactions of the Royal Society
-      year: 2021 - 2022
-      description:
-        - Edited SIMposium special issues, among the most cited and downloaded Royal Society issues in 2022 and 2023.
-    - title: Reviewer
-      institution: Multiple journals
-      year: 2020 - ongoing
-      description:
-        - Reviewer for Nature Communications, PNAS, APL, Scientific Reports, Communications Biology, Journal of Microscopy, and others.
-
-- title: Other Interests
-  type: list
-  contents:
-    - Teaching and mentoring across interdisciplinary science
-    - STEM outreach and public engagement
-    - Community building in microscopy, imaging, and computational biology
