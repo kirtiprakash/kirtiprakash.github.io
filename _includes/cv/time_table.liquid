@@ -6,20 +6,21 @@
       {% endif %}
 
       <div class="cv-simple-main">
-        {% if content.title %}
-          <h3 class="cv-simple-title">{{ content.title }}</h3>
-        {% endif %}
-
-        {% if content.institution %}
-          <p class="cv-simple-place">{{ content.institution }}</p>
-        {% endif %}
-
-        {% if content.department %}
-          <p class="cv-simple-place">{{ content.department }}</p>
-        {% endif %}
-
-        {% if content.location %}
-          <p class="cv-simple-place">{{ content.location }}</p>
+        {% if content.title or content.institution or content.department or content.location %}
+          <h3 class="cv-simple-title">
+            {% if content.title %}
+              <span class="cv-simple-role">{{ content.title }}</span>
+            {% endif %}
+            {% if content.institution %}
+              <span class="cv-simple-place-inline">{% if content.title %}, {% endif %}{{ content.institution }}</span>
+            {% endif %}
+            {% if content.department %}
+              <span class="cv-simple-place-inline">{% if content.title or content.institution %}, {% endif %}{{ content.department }}</span>
+            {% endif %}
+            {% if content.location %}
+              <span class="cv-simple-place-inline">{% if content.title or content.institution or content.department %}, {% endif %}{{ content.location }}</span>
+            {% endif %}
+          </h3>
         {% endif %}
 
         {% if content.maindescription %}
@@ -46,7 +47,7 @@
         {% endif %}
 
         {% if content.items %}
-          <ul class="cv-simple-details">
+          <ul class="cv-simple-details cv-award-list">
             {% for item in content.items %}
               <li>
                 {% if item.contents %}
