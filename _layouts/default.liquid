@@ -13,6 +13,25 @@
       <meta http-equiv="refresh" content="3; url={{ redirect }}">
     {% endif %}
     {% include head.liquid %}
+    <style>
+      .home-hero h1,
+      .home-hero h2,
+      .standard-hero h1,
+      .cv-hero h1 {
+        font-size: clamp(2.15rem, 4.8vw, 3.7rem) !important;
+        letter-spacing: -0.045em !important;
+        line-height: 1.02 !important;
+      }
+
+      @media (max-width: 820px) {
+        .home-hero h1,
+        .home-hero h2,
+        .standard-hero h1,
+        .cv-hero h1 {
+          font-size: clamp(2rem, 11vw, 3.15rem) !important;
+        }
+      }
+    </style>
   </head>
 
   <!-- Body -->
