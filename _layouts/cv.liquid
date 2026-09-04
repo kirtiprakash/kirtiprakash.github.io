@@ -2,121 +2,42 @@
 layout: default
 ---
 
-{% assign fallback_name = site.first_name | append: ' ' | append: site.last_name %}
-
 <div class="home-page cv-page">
   <section class="home-hero no-portrait cv-hero" aria-labelledby="cv-title">
     <div class="hero-copy">
-      <p class="hero-eyebrow">{{ page.hero_eyebrow | default: 'Academic CV' }}</p>
+      <p class="hero-eyebrow">Academic CV</p>
       <h1 id="cv-title">Curriculum Vitae</h1>
-      <p class="hero-role">{{ page.hero_role | default: fallback_name }}</p>
-      {% if page.hero_intro %}
-        <p class="hero-intro">{{ page.hero_intro }}</p>
-      {% elsif page.description %}
-        <p class="hero-intro">{{ page.description }}</p>
-      {% else %}
-        <p class="hero-intro">Academic and professional experience across artificial intelligence, quantitative imaging, genome biology, teaching and scientific leadership.</p>
-      {% endif %}
-
-      {% if page.hero_meta %}
-        <div class="hero-meta" aria-label="CV summary">
-          {% for item in page.hero_meta %}
-            <span>{{ item }}</span>
-          {% endfor %}
-        </div>
-      {% endif %}
-
-      <div class="hero-actions cv-actions">
-        {% if page.cv_pdf %}
-          <a class="button button-primary" href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}" target="_blank" rel="noopener noreferrer">
-            Download CV <span aria-hidden="true">↓</span>
-          </a>
-        {% endif %}
-        <a class="button button-secondary" href="{{ '/publications/' | relative_url }}">Publications <span aria-hidden="true">→</span></a>
-        <a class="button button-secondary" href="{{ '/' | relative_url }}#contact-heading">Contact <span aria-hidden="true">→</span></a>
-      </div>
     </div>
   </section>
 
   <article class="home-content cv-content">
-    {% unless site.data.resume %}
-      <div class="cv">
-        {% for entry in site.data.cv %}
-          <a class="anchor" id="{{ entry.title | slugify }}"></a>
-          <section class="profile-section cv-section-card" aria-labelledby="{{ entry.title | slugify }}-heading">
-            <div class="section-header section-row">
-              <div>
-                <p class="section-kicker">CV section</p>
-                <h2 id="{{ entry.title | slugify }}-heading">{{ entry.title }}</h2>
-              </div>
+    <div class="cv">
+      {% for entry in site.data.cv %}
+        <a class="anchor" id="{{ entry.title | slugify }}"></a>
+        <section class="profile-section cv-section-card" aria-labelledby="{{ entry.title | slugify }}-heading">
+          <div class="section-header section-row">
+            <div>
+              <p class="section-kicker">CV section</p>
+              <h2 id="{{ entry.title | slugify }}-heading">{{ entry.title }}</h2>
             </div>
-            <div class="cv-entry-body">
-              {% if entry.type == 'list' %}
-                {% include cv/list.liquid %}
-              {% elsif entry.type == 'map' %}
-                {% include cv/map.liquid %}
-              {% elsif entry.type == 'nested_list' %}
-                {% include cv/nested_list.liquid %}
-              {% elsif entry.type == 'time_table' %}
-                {% include cv/time_table.liquid %}
-              {% elsif entry.type == 'list_groups' %}
-                {% include cv/list_groups.liquid %}
-              {% else %}
-                {{ entry.contents }}
-              {% endif %}
-            </div>
-          </section>
-        {% endfor %}
-      </div>
-    {% else %}
-      <div class="cv">
-        {% for data in site.data.resume %}
-          {% if site.jsonresume and site.jsonresume.size > 0 %}
-            {% unless site.jsonresume contains data[0] %}
-              {% continue %}
-            {% endunless %}
-          {% endif %}
-          {% if data[0] == 'meta' or data[1].size == 0 %} {% continue %} {% endif %}
-          <a class="anchor" id="{{ data[0] | slugify }}"></a>
-          <section class="profile-section cv-section-card" aria-labelledby="{{ data[0] | slugify }}-heading">
-            <div class="section-header section-row">
-              <div>
-                <p class="section-kicker">CV section</p>
-                <h2 id="{{ data[0] | slugify }}-heading">{{ data[0] | capitalize }}</h2>
-              </div>
-            </div>
-            <div class="cv-entry-body">
-              {% case data[0] %}
-                {% when 'basics' %}
-                  {% include resume/basics.liquid %}
-                {% when 'education' %}
-                  {% include resume/education.liquid %}
-                {% when 'work' %}
-                  {% include resume/work.liquid %}
-                {% when 'volunteer' %}
-                  {% include resume/volunteer.liquid %}
-                {% when 'projects' %}
-                  {% include resume/projects.liquid %}
-                {% when 'awards' %}
-                  {% include resume/awards.liquid %}
-                {% when 'skills' %}
-                  {% include resume/skills.liquid %}
-                {% when 'publications' %}
-                  {% include resume/publications.liquid %}
-                {% when 'languages' %}
-                  {% include resume/languages.liquid %}
-                {% when 'interests' %}
-                  {% include resume/interests.liquid %}
-                {% when 'certificates' %}
-                  {% include resume/certificates.liquid %}
-                {% when 'references' %}
-                  {% include resume/references.liquid %}
-                {% else %}
-              {% endcase %}
-            </div>
-          </section>
-        {% endfor %}
-      </div>
-    {% endunless %}
+          </div>
+          <div class="cv-entry-body">
+            {% if entry.type == 'list' %}
+              {% include cv/list.liquid %}
+            {% elsif entry.type == 'map' %}
+              {% include cv/map.liquid %}
+            {% elsif entry.type == 'nested_list' %}
+              {% include cv/nested_list.liquid %}
+            {% elsif entry.type == 'time_table' %}
+              {% include cv/time_table.liquid %}
+            {% elsif entry.type == 'list_groups' %}
+              {% include cv/list_groups.liquid %}
+            {% else %}
+              {{ entry.contents }}
+            {% endif %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
   </article>
 </div>
