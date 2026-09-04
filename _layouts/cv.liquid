@@ -2,6 +2,106 @@
 layout: default
 ---
 
+<style>
+  .cv-page .cv-hero {
+    margin-bottom: 1rem;
+  }
+
+  .cv-page .cv-section-card {
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+  }
+
+  .cv-page .cv-section-card .section-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .cv-page .cv-section-card .section-kicker {
+    display: none;
+  }
+
+  .cv-page .cv-section-card h2 {
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+  }
+
+  .cv-simple-list {
+    display: grid;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cv-simple-item {
+    display: grid;
+    grid-template-columns: 8.6rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--kp-line);
+  }
+
+  .cv-simple-item:first-child {
+    border-top: 0;
+  }
+
+  .cv-simple-date {
+    color: var(--kp-muted);
+    font-size: 0.92rem;
+    font-weight: 650;
+    line-height: 1.4;
+  }
+
+  .cv-simple-title {
+    margin: 0;
+    color: var(--kp-ink);
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.012em;
+    line-height: 1.35;
+  }
+
+  .cv-simple-place {
+    margin: 0.2rem 0 0;
+    color: var(--kp-muted);
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .cv-simple-details {
+    margin: 0.45rem 0 0;
+    padding-left: 1.05rem;
+    color: var(--kp-muted);
+    font-size: 0.95rem;
+  }
+
+  .cv-simple-details li {
+    margin-bottom: 0.25rem;
+  }
+
+  .cv-simple-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.65rem;
+  }
+
+  .cv-simple-links .button {
+    min-height: 34px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 720px) {
+    .cv-simple-item {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+      padding: 0.8rem 0;
+    }
+  }
+</style>
+
 <div class="home-page cv-page">
   <section class="home-hero no-portrait cv-hero" aria-labelledby="cv-title">
     <div class="hero-copy">
