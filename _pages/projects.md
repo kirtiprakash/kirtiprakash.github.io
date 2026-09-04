@@ -3,8 +3,9 @@ layout: default
 title: research
 permalink: /projects/
 description: Research programmes connecting artificial intelligence, quantitative imaging, and genome biology.
-nav: true
+nav: false
 nav_order: 2
+published: false
 display_categories: [research]
 horizontal: false
 ---
