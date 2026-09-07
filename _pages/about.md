@@ -150,6 +150,7 @@ social: true
     <p class="section-kicker">Links</p>
   </div>
   <div class="link-grid">
+    <a href="https://www.aru.ac.uk/people/kirti-prakash">Official ARU profile</a>
     <a href="https://orcid.org/0000-0002-0325-9988">ORCID</a>
     <a href="https://scholar.google.de/citations?user=rHTbFIoAAAAJ&hl=en">Google Scholar</a>
     <a href="https://www.researchgate.net/profile/Kirti_Prakash2">ResearchGate</a>
