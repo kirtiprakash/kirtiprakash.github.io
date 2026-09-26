@@ -15,7 +15,7 @@ nav_order: 6
   <section class="profile-section" aria-labelledby="featured-collaborators-heading">
     <div class="section-header section-row">
       <div>
-        <p class="section-kicker">Featured collaborators</p>
+        <p class="section-kicker">Current collaborators</p>
         <h2 id="featured-collaborators-heading"></h2>
       </div>
     </div>
