@@ -22,7 +22,7 @@ nav_order: 5
     <div class="section-header section-row">
       <div>
         <p class="section-kicker">Latest news</p>
-        <h2 id="featured-news-heading">Recent highlights.</h2>
+        <h2 id="featured-news-heading"></h2>
       </div>
     </div>
 
