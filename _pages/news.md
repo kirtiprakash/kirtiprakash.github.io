@@ -8,15 +8,6 @@ nav_order: 5
 ---
 
 <div class="home-page news-page">
-  <section class="home-hero no-portrait" aria-labelledby="news-title">
-    <div class="hero-copy">
-      <p class="hero-eyebrow">News and updates</p>
-      <h1 id="news-title">News</h1>
-      <p class="hero-role">Research updates, talks, publications and new collaborations.</p>
-      <p class="hero-intro">
-      </p>
-    </div>
-  </section>
 
   <section class="profile-section" aria-labelledby="featured-news-heading">
     <div class="section-header section-row">
