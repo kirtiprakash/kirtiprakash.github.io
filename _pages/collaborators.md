@@ -4,7 +4,6 @@ permalink: /collaborators/
 title: collaborators
 description: Collaborators, research partners, and shared projects.
 nav: false
-published:false
 nav_order: 6
 ---
 
