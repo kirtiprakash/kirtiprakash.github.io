@@ -14,7 +14,6 @@ nav_order: 5
       <h1 id="news-title">News</h1>
       <p class="hero-role">Research updates, talks, publications and new collaborations.</p>
       <p class="hero-intro">
-        A space for short updates on publications, events, teaching, talks, grants, media comments and new research directions.
       </p>
     </div>
   </section>
@@ -39,7 +38,7 @@ nav_order: 5
         <span class="card-number">September 2026 / Media and outreach</span>
         <h3>Kirti Prakash invited to introduce RMS <em>InFocus</em> feature on responsible AI in microscopy</h3>
         <p>
-          Kirti Prakash was invited to write the introduction for the Royal Microscopical Society's
+          Kirti Prakash and Ian van der Linde were invited to write the introduction for the Royal Microscopical Society's
           <em>InFocus</em> magazine feature, <em>IMC21: The Next Generation – Embracing the Responsible AI Revolution – Your views</em>.
           The piece introduces perspectives from early-career microscopists on how AI is reshaping microscopy,
           while highlighting the need for responsible use, shared quality standards, transparent methods and careful reporting.
@@ -60,33 +59,5 @@ nav_order: 5
     </div>
   </section>
 
-  <section class="profile-section" aria-labelledby="news-categories-heading">
-    <div class="section-header">
-      <p class="section-kicker">News categories</p>
-      <h2 id="news-categories-heading">Suggested update types.</h2>
-    </div>
 
-    <div class="research-grid">
-      <div class="research-card">
-        <span class="card-number">01</span>
-        <h3>Publications</h3>
-        <p>New papers, reviews, preprints and research outputs.</p>
-      </div>
-      <div class="research-card">
-        <span class="card-number">02</span>
-        <h3>Talks and events</h3>
-        <p>Invited lectures, workshops, seminars and conferences.</p>
-      </div>
-      <div class="research-card">
-        <span class="card-number">03</span>
-        <h3>Collaborations</h3>
-        <p>New research partnerships, student projects and institutional links.</p>
-      </div>
-      <div class="research-card">
-        <span class="card-number">04</span>
-        <h3>Media and outreach</h3>
-        <p>Public engagement, commentary, podcasts and science communication.</p>
-      </div>
-    </div>
-  </section>
 </div>
