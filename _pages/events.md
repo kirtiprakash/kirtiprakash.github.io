@@ -3,7 +3,8 @@ layout: default
 permalink: /events/
 title: events
 description: Conference organisation, scientific meetings, workshops and community events.
-nav: true
+nav: false
+published:false
 nav_order: 7
 ---
 
