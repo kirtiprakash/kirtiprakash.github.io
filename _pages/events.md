@@ -1,0 +1,111 @@
+---
+layout: default
+permalink: /events/
+title: events
+description: Conference organisation, scientific meetings, workshops and community events.
+nav: true
+nav_order: 7
+---
+
+<div class="home-page events-page">
+  <section class="home-hero no-portrait" aria-labelledby="events-title">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Conference organisation</p>
+      <h1 id="events-title">Events</h1>
+      <p class="hero-role">Scientific meetings, workshops and interdisciplinary research communities.</p>
+      <p class="hero-intro">
+        A space for conferences, workshops, seminar series and community events organised or co-organised across microscopy,
+        AI, quantitative imaging, genome biology and interdisciplinary science.
+      </p>
+    </div>
+  </section>
+
+  <section class="profile-section" aria-labelledby="featured-event-heading">
+    <div class="section-header section-row">
+      <div>
+        <p class="section-kicker">Featured event</p>
+        <h2 id="featured-event-heading">Event poster and summary</h2>
+      </div>
+    </div>
+
+    <div class="news-feature-card">
+      <div class="news-image-placeholder" aria-label="Poster placeholder">
+        <span>Poster image</span>
+        <small>Add poster to <code>assets/img/</code> and replace this placeholder.</small>
+      </div>
+      <div>
+        <p class="section-kicker">Conference / workshop</p>
+        <h3>Event title</h3>
+        <p>
+          Add a short description of the event, including its scientific scope, location, date, organising partners and intended audience.
+        </p>
+        <ul class="clean-list compact-list">
+          <li><strong>Date:</strong> Month Year</li>
+          <li><strong>Venue:</strong> Institution / city</li>
+          <li><strong>Role:</strong> Organiser / co-organiser / scientific committee</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="profile-section" aria-labelledby="events-list-heading">
+    <div class="section-header">
+      <p class="section-kicker">Selected events</p>
+      <h2 id="events-list-heading">Conference organisation and scientific community building</h2>
+    </div>
+
+    <div class="research-grid">
+      <article class="research-card">
+        <span class="card-number">01</span>
+        <h3>Royal Society meetings</h3>
+        <p>Space for Royal Society Hooke meetings, discussion meetings, satellite meetings and themed workshops.</p>
+      </article>
+      <article class="research-card">
+        <span class="card-number">02</span>
+        <h3>Imaging ONEWORLD</h3>
+        <p>Space for international microscopy seminar series, online events, speakers and community outputs.</p>
+      </article>
+      <article class="research-card">
+        <span class="card-number">03</span>
+        <h3>Workshops and schools</h3>
+        <p>Space for hands-on training, summer schools, tutorials and advanced technical workshops.</p>
+      </article>
+      <article class="research-card">
+        <span class="card-number">04</span>
+        <h3>Interdisciplinary forums</h3>
+        <p>Space for meetings connecting AI, mathematics, physics, engineering, biology and biomedical science.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="profile-section" aria-labelledby="poster-gallery-heading">
+    <div class="section-header">
+      <p class="section-kicker">Poster gallery</p>
+      <h2 id="poster-gallery-heading">Space for event posters</h2>
+    </div>
+
+    <div class="collaborator-grid">
+      <article class="collaborator-card">
+        <div class="collaborator-photo-placeholder">
+          <span>Poster</span>
+        </div>
+        <h3>Event poster 1</h3>
+        <p>Add poster caption, event title and link.</p>
+      </article>
+      <article class="collaborator-card">
+        <div class="collaborator-photo-placeholder">
+          <span>Poster</span>
+        </div>
+        <h3>Event poster 2</h3>
+        <p>Add poster caption, event title and link.</p>
+      </article>
+      <article class="collaborator-card">
+        <div class="collaborator-photo-placeholder">
+          <span>Poster</span>
+        </div>
+        <h3>Event poster 3</h3>
+        <p>Add poster caption, event title and link.</p>
+      </article>
+    </div>
+  </section>
+</div>
