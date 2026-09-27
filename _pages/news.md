@@ -33,10 +33,6 @@ nav_order: 5
         <span class="card-number">September 2026 / Publication</span>
         <h3>Paper published in <em>Biophysical Reports</em> on motion blur in fluorescence microscopy</h3>
         <p>
-          The paper <em>Quantifying the spatio-temporal image degradation under motion blur in fluorescence microscopy</em>
-          has been published in <em>Biophysical Reports</em>. The study investigates how specimen motion degrades spatial
-          resolution and introduces a simulation framework to quantify motion-induced image degradation under translational,
-          diffusive and rotational dynamics.
         </p>
         <p>
           <a class="text-link" href="https://www.cell.com/biophysreports/fulltext/S2667-0747(26)00043-1" target="_blank" rel="noopener noreferrer">Read the paper →</a>
@@ -58,10 +54,6 @@ nav_order: 5
         <span class="card-number">September 2026 / Media and outreach</span>
         <h3>Kirti Prakash invited to introduce RMS <em>InFocus</em> feature on responsible AI in microscopy</h3>
         <p>
-          Kirti Prakash and Ian van der Linde were invited to write the introduction for the Royal Microscopical Society's
-          <em>InFocus</em> magazine feature, <em>IMC21: The Next Generation – Embracing the Responsible AI Revolution – Your views</em>.
-          The piece introduces perspectives from early-career microscopists on how AI is reshaping microscopy,
-          while highlighting the need for responsible use, shared quality standards, transparent methods and careful reporting.
         </p>
         <p>
           <a class="text-link" href="https://www.rms.org.uk/resource/infocus-magazine-issue-83-september-2026.html" target="_blank" rel="noopener noreferrer">Read the RMS <em>InFocus</em> issue →</a>
