@@ -6,7 +6,7 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Kirti
 middle_name:
 last_name: Prakash
-email: kirtiprakash2.71@gmail.com
+email: kirti.prakash@aru.ac.uk
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Kirti Prakash is an interdisciplinary scientist working across artificial intelligence,
   causal inference, quantitative microscopy, computational imaging, and genome biology.
@@ -151,7 +151,7 @@ giscus:
   repo: # <your-github-user-name>/<your-github-repo-name>
   repo_id: # leave empty or specify your repo_id (see https://giscus.app/)
   category: Comments # name of the category under which discussions will be created
-  category_id: # leave empty or specify your category_id (see https://giscus.app/)
+  category_id: # leave empty or specify your category_id
   mapping: title # identify discussions by post title
   strict: 1 # use strict identification mode
   reactions_enabled: 1 # enable (1) or disable (0) emoji reactions

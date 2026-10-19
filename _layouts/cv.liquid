@@ -1,117 +1,157 @@
 ---
 layout: default
 ---
-{% unless site.data.resume %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-            ><i class="fa-solid fa-file-pdf"></i
-          ></a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
 
-    <article>
-      <div class="cv">
-        {% for entry in site.data.cv %}
-          <a class="anchor" id="{{ entry.title }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
+<style>
+  .cv-page .cv-hero {
+    margin-bottom: 1rem;
+  }
+
+  .cv-page .cv-section-card {
+    padding-top: 1.35rem;
+    padding-bottom: 1.35rem;
+  }
+
+  .cv-page .cv-section-card .section-header {
+    margin-bottom: 0.55rem;
+  }
+
+  .cv-page .cv-section-card .section-kicker {
+    display: none;
+  }
+
+  .cv-page .cv-section-card h2 {
+    margin-bottom: 0;
+    font-size: clamp(1.45rem, 2.35vw, 2.05rem);
+    letter-spacing: -0.04em;
+  }
+
+  .cv-simple-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cv-simple-item {
+    display: grid;
+    grid-template-columns: 8rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    padding: 0.78rem 0;
+    border-top: 1px solid var(--kp-line);
+  }
+
+  .cv-simple-item:first-child {
+    border-top: 0;
+  }
+
+  .cv-simple-date {
+    color: var(--kp-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.45;
+    white-space: nowrap;
+  }
+
+  .cv-simple-title {
+    margin: 0;
+    color: var(--kp-ink);
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    font-weight: 450;
+    letter-spacing: -0.01em;
+    line-height: 1.45;
+  }
+
+  .cv-simple-role {
+    color: var(--kp-ink);
+    font-weight: 500;
+  }
+
+  .cv-simple-place-inline {
+    color: var(--kp-muted);
+    font-weight: 400;
+  }
+
+  .cv-simple-details {
+    margin: 0.35rem 0 0;
+    padding-left: 1rem;
+    color: var(--kp-muted);
+    font-size: 0.94rem;
+    font-weight: 400;
+    line-height: 1.55;
+  }
+
+  .cv-simple-details li {
+    margin-bottom: 0.2rem;
+  }
+
+  .cv-award-list {
+    margin-top: 0.35rem;
+  }
+
+  .cv-simple-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.55rem;
+  }
+
+  .cv-simple-links .button {
+    min-height: 34px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 720px) {
+    .cv-simple-item {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+      padding: 0.75rem 0;
+    }
+
+    .cv-simple-date {
+      font-size: 0.84rem;
+    }
+  }
+</style>
+
+<div class="home-page cv-page">
+  <section class="home-hero no-portrait cv-hero" aria-labelledby="cv-title">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Academic CV</p>
+      <h1 id="cv-title">Curriculum Vitae</h1>
+    </div>
+  </section>
+
+  <article class="home-content cv-content">
+    <div class="cv">
+      {% for entry in site.data.cv %}
+        <a class="anchor" id="{{ entry.title | slugify }}"></a>
+        <section class="profile-section cv-section-card" aria-labelledby="{{ entry.title | slugify }}-heading">
+          <div class="section-header section-row">
             <div>
-              {% if entry.type == 'list' %}
-                {% include cv/list.liquid %}
-              {% elsif entry.type == 'map' %}
-                {% include cv/map.liquid %}
-              {% elsif entry.type == 'nested_list' %}
-                {% include cv/nested_list.liquid %}
-              {% elsif entry.type == 'time_table' %}
-                {% include cv/time_table.liquid %}
-              {% elsif entry.type == 'list_groups' %}
-                {% include cv/list_groups.liquid %}
-              {% else %}
-                {{ entry.contents }}
-              {% endif %}
+              <p class="section-kicker">CV section</p>
+              <h2 id="{{ entry.title | slugify }}-heading">{{ entry.title }}</h2>
             </div>
           </div>
-        {% endfor %}
-      </div>
-    </article>
-  </div>
-{% else %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-            ><i class="fa-solid fa-file-pdf"></i
-          ></a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
-
-    <article>
-      <div class="cv">
-        {% for data in site.data.resume %}
-          {% if site.jsonresume and site.jsonresume.size > 0 %}
-            {% unless site.jsonresume contains data[0] %}
-              {% continue %}
-            {% endunless %}
-          {% endif %}
-          {% if data[0] == 'meta' or data[1].size == 0 %} {% continue %} {% endif %}
-          <a class="anchor" id="{{ data[0] }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ data[0] | capitalize }}</h3>
-            <div>
-              {% case data[0] %}
-                {% when 'basics' %}
-                  {% include resume/basics.liquid %}
-                {% when 'education' %}
-                  {% include resume/education.liquid %}
-                {% when 'work' %}
-                  {% include resume/work.liquid %}
-                {% when 'volunteer' %}
-                  {% include resume/volunteer.liquid %}
-                {% when 'projects' %}
-                  {% include resume/projects.liquid %}
-                {% when 'awards' %}
-                  {% include resume/awards.liquid %}
-                {% when 'skills' %}
-                  {% include resume/skills.liquid %}
-                {% when 'publications' %}
-                  {% include resume/publications.liquid %}
-                {% when 'languages' %}
-                  {% include resume/languages.liquid %}
-                {% when 'interests' %}
-                  {% include resume/interests.liquid %}
-                {% when 'certificates' %}
-                  {% include resume/certificates.liquid %}
-                {% when 'references' %}
-                  {% include resume/references.liquid %}
-                {% else %}
-
-              {% endcase %}
-            </div>
+          <div class="cv-entry-body">
+            {% if entry.type == 'list' %}
+              {% include cv/list.liquid %}
+            {% elsif entry.type == 'map' %}
+              {% include cv/map.liquid %}
+            {% elsif entry.type == 'nested_list' %}
+              {% include cv/nested_list.liquid %}
+            {% elsif entry.type == 'time_table' %}
+              {% include cv/time_table.liquid %}
+            {% elsif entry.type == 'list_groups' %}
+              {% include cv/list_groups.liquid %}
+            {% else %}
+              {{ entry.contents }}
+            {% endif %}
           </div>
-        {% endfor %}
-      </div>
-    </article>
-  </div>
-{% endunless %}
+        </section>
+      {% endfor %}
+    </div>
+  </article>
+</div>

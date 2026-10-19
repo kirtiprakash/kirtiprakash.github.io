@@ -1,88 +1,46 @@
 ---
 layout: default
 ---
+
 <div class="home-page">
-  <section class="home-hero" aria-labelledby="hero-title">
+  <section class="home-hero no-portrait" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="hero-eyebrow">{{ page.hero_eyebrow }}</p>
-      <h1 id="hero-title">
-        {{ site.first_name }}
-        {{ site.last_name }}
-      </h1>
+      <h1 id="hero-title">{{ site.first_name }} {{ site.last_name }}</h1>
       <p class="hero-role">{{ page.hero_role }}</p>
       <p class="hero-intro">{{ page.hero_intro }}</p>
+
+      {% if page.hero_meta %}
+        <div class="hero-meta" aria-label="Profile details">
+          {% for item in page.hero_meta %}
+            <span>{{ item }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
       <div class="hero-actions">
-        <a class="button button-primary" href="{{ '/projects/' | relative_url }}"> Explore research <span aria-hidden="true">→</span> </a>
-        <a class="button button-secondary" href="{{ '/assets/pdf/kirti_prakash_cv.pdf' | relative_url }}">
-          Download CV <span aria-hidden="true">↓</span>
-        </a>
+        <a class="button button-primary" href="{{ '/projects/' | relative_url }}">Explore research <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="{{ '/publications/' | relative_url }}">Publications <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="{{ '/assets/pdf/kirti_prakash_cv.pdf' | relative_url }}">Download CV <span aria-hidden="true">↓</span></a>
       </div>
     </div>
-
-    {% if page.profile.image %}
-      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-      <div class="hero-portrait">
-        <div class="portrait-frame">
-          {% capture sizes %}(min-width: 992px) 460px, (min-width: 576px) 72vw, 92vw{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class="img-fluid" sizes=sizes
-            alt="Portrait of Kirti Prakash" cache_bust=true
-          %}
-        </div>
-        <p class="portrait-note">Artificial intelligence <span>×</span> imaging <span>×</span> genome biology</p>
-      </div>
-    {% endif %}
-  </section>
-
-  <section class="focus-strip" aria-label="Research focus">
-    <a class="focus-item" href="{{ '/projects/' | relative_url }}">
-      <span class="focus-index">01</span>
-      <span class="focus-name">Artificial intelligence</span>
-    </a>
-    <a class="focus-item" href="{{ '/projects/' | relative_url }}">
-      <span class="focus-index">02</span>
-      <span class="focus-name">Quantitative imaging</span>
-    </a>
-    <a class="focus-item" href="{{ '/projects/' | relative_url }}">
-      <span class="focus-index">03</span>
-      <span class="focus-name">Genome biology</span>
-    </a>
   </section>
 
   <article class="home-content">
     {{ content }}
 
-    <!-- News -->
-    {% if page.news and site.announcements.enabled %}
-      <h2 class="section-heading">
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if site.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2 class="section-heading">
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
     {% if page.social %}
-      <div class="social">
+      <section class="profile-section contact-section" aria-labelledby="contact-heading">
+        <div class="section-header">
+          <p class="section-kicker">Contact</p>
+        </div>
+        <p>
+          I welcome conversations with students, researchers, prospective PhD students,
+          and postdoctoral researchers interested in fellowship routes.
+        </p>
         <div class="contact-icons">{% include social.liquid %}</div>
-
         <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
+      </section>
     {% endif %}
   </article>
 </div>
