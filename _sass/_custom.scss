@@ -1004,6 +1004,20 @@ body.site-home .hero-first-name,
 body.site-home .hero-last-name { display: block; }
 body.site-home .hero-last-name { margin-top: .04em; }
 body.site-home .hero-dot { color: #c7a64b; }
+/* Explicit text colours for nested name spans (the headline h1 alone is not enough). */
+body.site-home #hero-title > .hero-first-name,
+body.site-home #hero-title > .hero-last-name {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+}
+body.site-home #hero-title .hero-dot {
+  color: #c7a64b !important;
+  -webkit-text-fill-color: #c7a64b;
+}
+body.site-home #navbar .navbar-brand > .font-weight-bold {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+}
 body.site-home .hero-role {
   max-width: 850px;
   margin: clamp(1.45rem, 3vw, 2.15rem) 0 .85rem;
