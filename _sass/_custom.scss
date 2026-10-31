@@ -935,7 +935,7 @@ body.site-home .navbar-toggler .icon-bar { background: #fff !important; }
 body.site-home .navbar-toggler { border-color: rgba(255, 255, 255, .24); }
 
 /* A full-width academic hero with the ARU-CJLU navy/gold visual language. */
-body.site-home .home-page { padding-top: 0; padding-bottom: 4rem; }
+body.site-home .home-page { padding-top: 0 !important; padding-bottom: 4rem; }
 body.site-home .home-hero {
   position: relative;
   isolation: isolate;
