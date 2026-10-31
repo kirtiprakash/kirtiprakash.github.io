@@ -8,12 +8,20 @@ nav_order: 5
 ---
 
 <div class="home-page news-page">
+  <section class="home-hero no-portrait" aria-labelledby="news-title">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Research &amp; community</p>
+      <h1 id="news-title">News</h1>
+      <p class="hero-role">Ideas, discoveries and conversations beyond the lab.</p>
+      <p class="hero-intro">Recent publications, invited contributions and developments across microscopy, biomedical science and artificial intelligence.</p>
+    </div>
+  </section>
 
   <section class="profile-section" aria-labelledby="featured-news-heading">
     <div class="section-header section-row">
       <div>
         <p class="section-kicker">Latest news</p>
-        <h2 id="featured-news-heading"></h2>
+        <h2 id="featured-news-heading">Latest highlights</h2>
       </div>
     </div>
 
