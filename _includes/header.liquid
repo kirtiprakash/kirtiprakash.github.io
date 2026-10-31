@@ -1,23 +1,16 @@
 <header>
   <!-- Nav Bar -->
-  <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
+  <nav id="navbar" class="navbar navbar-light navbar-expand-lg {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      <a class="navbar-brand title" href="{{ site.baseurl }}/" aria-label="Kirti Prakash — home">
-        {% if site.title == 'blank' %}
-          {% if site.first_name %}
-            <span class="font-weight-bold">
-              {{- site.first_name -}}
-            </span>
-          {% endif %}
-          {% if site.middle_name %}
-            {{- site.middle_name -}}
-          {% endif %}
-          {% if site.last_name %}
-            {{- site.last_name -}}
-          {% endif %}
-        {% else %}
-          {{- site.title -}}
-        {% endif %}
+      <a class="navbar-brand title site-logo-brand" href="{{ '/' | relative_url }}" aria-label="Kirti Prakash — home">
+        <img
+          src="{{ '/assets/img/logo3.png' | relative_url | bust_file_cache }}"
+          alt=""
+          width="58"
+          height="58"
+          decoding="async"
+        >
+        <span class="sr-only">Kirti Prakash</span>
       </a>
       <!-- Navbar Toggle -->
       <button
