@@ -32,6 +32,7 @@ social: true
   <div class="section-header section-row">
     <div>
       <p class="section-kicker">Research interests</p>
+      <h2 id="research-heading">Four connected directions.</h2>
     </div>
     <a class="text-link" href="{{ '/projects/' | relative_url }}">View research →</a>
   </div>
@@ -102,6 +103,15 @@ social: true
       <li><strong>MSc in Computer Science</strong>, Aalto University with University of Helsinki, Finland, 2012</li>
     </ul>
   </div>
+</section>
+
+<section class="profile-section home-cross-campus" aria-labelledby="campus-heading">
+  <div class="home-cross-campus-copy">
+    <p class="section-kicker">Teaching across borders</p>
+    <h2 id="campus-heading">Learning without borders.</h2>
+    <p>Explore the shared ARU–China Jiliang University learning space for semantic data technologies, advanced machine learning and deep learning, with course materials, student projects and community stories.</p>
+  </div>
+  <a class="button home-cross-campus-link" href="https://kirtiprakash.github.io/aru-cjlu-ai-2026/">Explore the ARU–CJLU portal <span aria-hidden="true">↗</span></a>
 </section>
 
 <section class="profile-section" aria-labelledby="publications-heading">
