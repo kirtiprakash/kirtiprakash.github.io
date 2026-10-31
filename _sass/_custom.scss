@@ -1379,3 +1379,129 @@ html[data-theme="dark"] body .publication-links .btn {
   body .button,
   body .link-grid a { transition: none; transform: none !important; }
 }
+
+
+/* Logo3 image header, inspired by ARU-CJLU navigation */
+body.fixed-top-nav { padding-top: 86px; }
+#navbar.navbar.navbar-light {
+  min-height: 86px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(223, 192, 128, .16);
+  background: #132545 !important;
+  box-shadow: 0 2px 13px rgba(6, 20, 42, .10);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+#navbar.navbar .container {
+  width: min(100% - 2.5rem, 1400px);
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+}
+#navbar.navbar .site-logo-brand,
+#navbar.navbar.navbar-light .site-logo-brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 102px;
+  height: 70px;
+  min-width: 102px;
+  margin: 0 1.2rem 0 0;
+  padding: 6px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #fff !important;
+  box-shadow: none;
+}
+#navbar.navbar .site-logo-brand img {
+  display: block;
+  width: 58px;
+  height: 58px;
+  max-width: 100%;
+  object-fit: contain;
+}
+#navbar.navbar .navbar-nav {
+  align-items: center;
+  gap: .17rem;
+}
+#navbar.navbar.navbar-light .navbar-nav .nav-item {
+  margin-left: .12rem;
+}
+#navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+  padding: .73rem .89rem;
+  border-radius: 10px;
+  color: #e7ecf5 !important;
+  -webkit-text-fill-color: #e7ecf5;
+  font-size: .88rem;
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  transition: background 150ms ease, color 150ms ease;
+}
+#navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link:hover,
+#navbar.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+  background: rgba(255, 255, 255, .105);
+}
+#navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link::after {
+  display: none;
+}
+#navbar #search-toggle,
+#navbar #light-toggle,
+#navbar #search-toggle .nav-link,
+#navbar #light-toggle i {
+  color: #e7ecf5 !important;
+  -webkit-text-fill-color: #e7ecf5;
+}
+#navbar #search-toggle:hover,
+#navbar #light-toggle:hover { color: #fff !important; }
+#navbar.navbar .navbar-toggler {
+  border: 1px solid rgba(255,255,255,.29);
+  border-radius: 7px;
+  padding: .42rem .62rem;
+}
+#navbar .navbar-toggler .icon-bar { background: #fff !important; }
+html[data-theme="dark"] #navbar.navbar.navbar-light {
+  border-bottom-color: rgba(223, 192, 128, .16);
+  background: #132545 !important;
+}
+html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link,
+html[data-theme="dark"] #navbar #search-toggle,
+html[data-theme="dark"] #navbar #light-toggle {
+  color: #e7ecf5 !important;
+  -webkit-text-fill-color: #e7ecf5;
+}
+html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link,
+html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+}
+@media (max-width: 991.98px) {
+  #navbar.navbar .navbar-collapse {
+    width: 100%;
+    margin-top: 7px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255,255,255,.12);
+    background: #132545 !important;
+  }
+  #navbar.navbar .navbar-nav { align-items: stretch; gap: .22rem; }
+  #navbar.navbar.navbar-light .navbar-nav .nav-item { margin: 0; text-align: left; }
+  #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+    display: block;
+    padding: .72rem .9rem;
+  }
+  #navbar.navbar .navbar-nav .toggle-container { margin: .65rem 0 .1rem; text-align: left; }
+}
+@media (max-width: 560px) {
+  #navbar.navbar.navbar-light { min-height: 74px; padding: 6px 0; }
+  body.fixed-top-nav { padding-top: 74px; }
+  #navbar.navbar .container { width: min(100% - 1.5rem, 1400px) !important; }
+  #navbar.navbar .site-logo-brand {
+    width: 85px;
+    min-width: 85px;
+    height: 60px;
+    padding: 4px;
+  }
+  #navbar.navbar .site-logo-brand img { width: 50px; height: 50px; }
+}
