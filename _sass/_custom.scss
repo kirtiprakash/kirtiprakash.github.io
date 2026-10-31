@@ -1381,14 +1381,16 @@ html[data-theme="dark"] body .publication-links .btn {
 }
 
 
-/* Logo3 image header, inspired by ARU-CJLU navigation */
-body.fixed-top-nav { padding-top: 86px; }
+/* Logo4 header: quiet navy and warm ivory, coordinated with the website. */
+html body.fixed-top-nav { padding-top: 78px !important; }
+
 #navbar.navbar.navbar-light {
-  min-height: 86px;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(223, 192, 128, .16);
-  background: #112344 !important;
-  box-shadow: 0 3px 15px rgba(6, 20, 42, .10);
+  min-height: 78px;
+  padding: 8px 0;
+  border-top: 0;
+  border-bottom: 1px solid rgba(224, 197, 151, .24);
+  background: #203b54 !important;
+  box-shadow: 0 3px 14px rgba(20, 42, 61, .065);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
@@ -1401,22 +1403,23 @@ body.fixed-top-nav { padding-top: 86px; }
 #navbar.navbar .site-logo-brand,
 #navbar.navbar.navbar-light .site-logo-brand {
   display: inline-flex;
-  flex: 0 0 auto;
-  width: 110px;
+  flex: 0 0 66px;
+  width: 66px;
   height: 60px;
-  min-width: 110px;
-  margin: 0 1.2rem 0 0;
-  padding: 6px;
+  min-width: 66px;
+  margin: 0 1.4rem 0 0;
+  padding: 3px;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  background: #fff !important;
-  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, .4);
+  border-radius: 9px;
+  background: #fffdf8 !important;
+  box-shadow: 0 1px 4px rgba(7, 26, 61, .045);
 }
 #navbar.navbar .site-logo-brand img {
   display: block;
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   max-width: 100%;
   object-fit: contain;
 }
@@ -1430,8 +1433,8 @@ body.fixed-top-nav { padding-top: 86px; }
 #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link {
   padding: .7rem .75rem;
   border-radius: 9px;
-  color: #e7edf6 !important;
-  -webkit-text-fill-color: #e7edf6;
+  color: #e8edf2 !important;
+  -webkit-text-fill-color: #e8edf2;
   font-family: Arial, Helvetica, sans-serif;
   font-size: .9rem;
   font-weight: 500;
@@ -1445,47 +1448,44 @@ body.fixed-top-nav { padding-top: 86px; }
 #navbar.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
   color: #fff !important;
   -webkit-text-fill-color: #fff;
-  background: rgba(255, 255, 255, .095);
+  background: rgba(255, 255, 255, .11);
 }
-#navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link::after {
-  display: none;
-}
+#navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link::after { display: none; }
 #navbar #search-toggle,
 #navbar #light-toggle,
 #navbar #search-toggle .nav-link,
 #navbar #light-toggle i {
-  color: #e7ecf5 !important;
-  -webkit-text-fill-color: #e7ecf5;
+  color: #e8edf2 !important;
+  -webkit-text-fill-color: #e8edf2;
 }
-#navbar #search-toggle:hover,
-#navbar #light-toggle:hover { color: #fff !important; }
-#navbar.navbar .navbar-toggler {
-  border: 1px solid rgba(255,255,255,.29);
-  border-radius: 7px;
-  padding: .42rem .62rem;
-}
-#navbar .navbar-toggler .icon-bar { background: #fff !important; }
-html[data-theme="dark"] #navbar.navbar.navbar-light {
-  border-bottom-color: rgba(223, 192, 128, .16);
-  background: #112344 !important;
-}
-html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link,
-html[data-theme="dark"] #navbar #search-toggle,
-html[data-theme="dark"] #navbar #light-toggle {
-  color: #e7ecf5 !important;
-  -webkit-text-fill-color: #e7ecf5;
-}
-html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link,
-html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
-  color: #fff !important;
-  -webkit-text-fill-color: #fff;
-}
-/* Match the ARU × CJLU header's Arial typography across auxiliary controls. */
 #navbar.navbar #search-toggle .nav-link,
 #navbar.navbar .dropdown-menu .dropdown-item {
   font-family: Arial, Helvetica, sans-serif;
   font-size: .9rem;
   font-weight: 500;
+}
+#navbar.navbar #search-toggle:hover,
+#navbar.navbar #light-toggle:hover { color: #fff !important; }
+#navbar.navbar .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 8px;
+  padding: .42rem .62rem;
+}
+#navbar .navbar-toggler .icon-bar { background: #fff !important; }
+html[data-theme="dark"] #navbar.navbar.navbar-light {
+  border-bottom-color: rgba(224, 197, 151, .24);
+  background: #203b54 !important;
+}
+html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link,
+html[data-theme="dark"] #navbar #search-toggle,
+html[data-theme="dark"] #navbar #light-toggle {
+  color: #e8edf2 !important;
+  -webkit-text-fill-color: #e8edf2;
+}
+html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link,
+html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
 }
 @media (max-width: 991.98px) {
   #navbar.navbar .navbar-collapse {
@@ -1493,7 +1493,7 @@ html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-l
     margin-top: 7px;
     padding: 12px 0;
     border-top: 1px solid rgba(255,255,255,.12);
-    background: #112344 !important;
+    background: #203b54 !important;
   }
   #navbar.navbar .navbar-nav { align-items: stretch; gap: .22rem; }
   #navbar.navbar.navbar-light .navbar-nav .nav-item { margin: 0; text-align: left; }
@@ -1501,17 +1501,28 @@ html[data-theme="dark"] #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-l
     display: block;
     padding: .72rem .9rem;
   }
-  #navbar.navbar .navbar-nav .toggle-container { margin: .65rem 0 .1rem; text-align: left; }
+  #navbar.navbar .navbar-nav .toggle-container {
+    margin: .65rem 0 .1rem;
+    text-align: left;
+  }
 }
 @media (max-width: 560px) {
-  #navbar.navbar.navbar-light { min-height: 74px; padding: 6px 0; }
-  body.fixed-top-nav { padding-top: 74px; }
+  html body.fixed-top-nav { padding-top: 72px !important; }
+  #navbar.navbar.navbar-light { min-height: 72px; padding: 7px 0; }
   #navbar.navbar .container { width: min(100% - 1.5rem, 1400px) !important; }
-  #navbar.navbar .site-logo-brand {
-    width: 85px;
-    min-width: 85px;
-    height: 60px;
-    padding: 4px;
+  #navbar.navbar .site-logo-brand,
+  #navbar.navbar.navbar-light .site-logo-brand {
+    flex-basis: 56px;
+    width: 56px;
+    min-width: 56px;
+    height: 54px;
+    margin-right: .85rem;
+    padding: 2px;
   }
   #navbar.navbar .site-logo-brand img { width: 50px; height: 50px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+    transition: none;
+  }
 }
