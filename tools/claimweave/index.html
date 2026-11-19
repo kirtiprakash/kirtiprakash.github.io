@@ -5,18 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Turn receipts, PDFs and Outlook emails into one indexed reimbursement evidence PDF. Documents stay in your browser.">
   <meta name="theme-color" content="#153543">
-  <title>ClaimWeave · Reimbursement evidence, beautifully organised</title>
-  <style>
-:root{--ink:#173944;--navy:#12313d;--deep:#0d2730;--teal:#286e70;--teal-dark:#20595d;--mint:#e2f0e9;--gold:#c19c69;--ivory:#fcfaf6;--surface:#fff;--paper:#f5f5f1;--muted:#667780;--line:#e1e7e5;--warning:#976222;--warning-soft:#fff5e6;--danger:#ac4438;--shadow:0 18px 48px rgba(20,46,52,.055)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ivory);color:var(--ink);font:15px/1.6 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.006em}input,button,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.dropzone:focus-visible{outline:3px solid #b1cfc6;outline-offset:3px}.app-shell{width:100%;overflow:hidden}.masthead{max-width:1310px;min-height:93px;padding:18px 42px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:22px}.identity{display:flex;align-items:center;gap:14px;text-decoration:none}.brandmark{display:grid;place-items:center;width:50px;height:50px;border-radius:14px;color:var(--ink);background:#e5ede8}.identity strong{display:block;font-family:Georgia,'Times New Roman',serif;letter-spacing:-.045em;font-size:26px;font-weight:500;line-height:1}.identity small{display:block;margin-top:6px;letter-spacing:.18em;font-size:8.5px;font-weight:800;color:#71817c}.top-right{display:flex;align-items:center;gap:13px;font-size:11px;font-weight:650;color:#667b78}.privacy-dot{width:8px;height:8px;border-radius:50%;background:#53a083;box-shadow:0 0 0 4px #dfefe7}.nav-help{margin-left:21px;padding:10px 0;border:0;background:transparent;color:var(--ink);font-weight:700;font-size:12px}.nav-help span{margin-left:7px}.hero{background:var(--navy);color:#fff;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(330px,.9fr);min-height:500px;padding:60px max(42px,calc((100vw - 1226px)/2)) 57px;column-gap:48px;overflow:hidden}.hero-main{position:relative;z-index:1}.eyebrow{display:inline-block;font-size:10px;font-weight:850;letter-spacing:.165em;color:var(--teal);line-height:1.5}.hero .eyebrow{color:#9bcab8}.eyebrow-number{color:#799c9b;margin-left:10px}.hero h1{font:400 clamp(48px,5vw,74px)/1.075 Georgia,'Times New Roman',serif;letter-spacing:-.055em;margin:23px 0}.hero h1 em{font-style:italic;font-weight:400;color:#b6d6bd}.hero-text{max-width:590px;color:#bfcccb;font-size:15px;line-height:1.85;margin:0}.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}.hero-chips span{border:1px solid #536a70;border-radius:100px;padding:6px 11px;color:#cedcda;font-size:10px;font-weight:650}.hero-example{position:relative;display:grid;place-items:center;min-height:370px}.decor-orbit{position:absolute;border:1px solid #3b5960;border-radius:50%;pointer-events:none}.orbit-one{width:490px;height:490px}.orbit-two{width:360px;height:360px;transform:translate(22px,24px)}.dossier-card{z-index:1;width:min(370px,95%);background:#fcfaf3;border-radius:13px;box-shadow:0 24px 52px #08181d70;color:var(--ink);padding:27px;transform:rotate(-4deg)}.dossier-head{display:flex;justify-content:space-between;gap:8px;align-items:center}.mini-kicker{font-size:10px;letter-spacing:.18em;font-weight:800}.mini-check{font-size:8px;border-radius:5px;color:#39765f;padding:5px 7px;background:#e8f2e8;font-weight:800;white-space:nowrap}.dossier-lines{padding-top:16px;display:grid;gap:7px}.dossier-lines span{background:#d1dad5;height:7px;border-radius:2px;width:94%}.dossier-lines span:nth-child(2){width:65%}.dossier-lines span:nth-child(3){width:79%}.dossier-docs{padding:18px 0 10px}.dossier-docs>div{display:flex;align-items:center;gap:11px;color:#356c70;font-size:19px;padding:8px 0;border-bottom:1px solid #e2e9e2}.dossier-docs span{flex:1;font-size:12px;color:#425f62}.dossier-docs strong{font-size:10px;color:#97aaa6}.dossier-foot{margin-top:15px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.12em;color:#6b7e7b;font-weight:800}.example-note{position:absolute;bottom:0;right:7%;color:#b3c8c2;font-family:Georgia,serif;font-size:14px;font-style:italic}.workflow-strip{height:74px;background:#eaf0eb;border-bottom:1px solid #d8e2de;display:flex;justify-content:center;align-items:center;gap:60px}.workflow-strip div{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700}.workflow-strip b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid #c6d4cf;color:#51706a;font-size:10px}.workflow-strip>i{height:1px;width:52px;background:#bed0ca}.workspace,.details-section{max-width:1228px;margin:0 auto;padding:82px 34px 30px}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:52px}.section-heading h2{margin:11px 0 5px;font:400 clamp(30px,3.3vw,43px)/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.045em}.section-heading p{margin:6px 0;color:var(--muted);font-size:13px}.text-button{border:0;background:transparent;color:#637a75;font-size:12px;text-decoration:underline;text-underline-offset:4px;font-weight:650}.step-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px;margin:0 0 56px}.step-label{padding-top:11px}.step-no{font-size:11px;color:#43867b;font-weight:850;letter-spacing:.18em}.step-label h3{font:400 26px/1.2 Georgia,serif;letter-spacing:-.04em;margin:16px 0 8px}.step-label p{font-size:12px;max-width:205px;color:#74827f;line-height:1.65}.step-body{min-width:0}.metadata-card{border:1px solid var(--line);padding:28px;background:#fff;border-radius:14px;box-shadow:var(--shadow)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.form-grid label,.wide-label,.expense-fields label{display:flex;flex-direction:column;gap:7px}.form-grid label>span,.wide-label>span,.expense-fields label>span{font-size:11px;font-weight:750;color:#536a69;letter-spacing:.01em}.wide-label{margin-top:19px}.wide-label span small{color:#93a09a;font-weight:400}.form-grid input,.form-grid select,.wide-label textarea,.expense-fields input,.expense-fields select,.assign-select{width:100%;min-width:0;min-height:39px;border:1px solid #d9e1dd;border-radius:7px;background:#fbfdfb;padding:9px 11px;color:var(--ink);font-size:12px;transition:border-color .15s}.wide-label textarea{resize:vertical;min-height:63px}.form-grid input:focus,.form-grid select:focus,.wide-label textarea:focus,.expense-fields input:focus,.expense-fields select:focus,.assign-select:focus{border-color:#78a6a0;outline:0;box-shadow:0 0 0 3px #d5e9e3}.dropzone{display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;min-height:254px;border:1.5px dashed #a6c3b8;border-radius:14px;background:#f3f8f4;cursor:pointer;transition:background .17s,border-color .17s}.dropzone:hover,.dropzone.dragover{background:#e8f2eb;border-color:#347973}.drop-icon{color:#6d9d92;margin-bottom:13px}.dropzone strong{font-size:15px;font-weight:760}.dropzone p{font-size:12px;color:#788783;margin:4px 0 16px}.fake-link{color:#267a72;text-decoration:underline;text-underline-offset:3px;font-weight:800}.accepted{border:1px solid #e0e9e2;padding:5px 12px;border-radius:100px;color:#84968f;font-size:9px;font-weight:800;letter-spacing:.085em;background:#fff}.upload-bottom{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:13px 1px;font-size:11px;color:#7c8884}.switch-line{display:flex;gap:8px;align-items:center;cursor:pointer}.switch-line input{accent-color:var(--teal)}.status-line{padding:11px 13px;background:#e4f0eb;color:#356c62;border-radius:8px;margin:7px 0 13px;font-size:12px}.file-list{display:grid;gap:10px}.file-row{display:grid;grid-template-columns:42px minmax(0,1fr) 125px minmax(145px,.55fr) 30px;gap:13px;align-items:center;border:1px solid var(--line);border-radius:10px;background:#fff;padding:12px 12px;min-width:0}.file-avatar{width:41px;height:42px;border-radius:8px;display:grid;place-items:center;background:#e8efec;color:#3d7774;font-size:18px}.file-row[data-status="error"] .file-avatar{background:#fae7e3;color:#a94c3e}.file-meta{min-width:0}.file-meta strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}.file-meta small{display:block;color:#80908b;font-size:10px;line-height:1.5}.file-meta .file-note{color:#a36c28;white-space:normal}.file-category{border:0;color:#356862;background:transparent;font-size:11px;width:100%;outline:0}.assign-select{min-height:34px;padding:7px;font-size:10px}.delete-file,.delete-expense{border:0;color:#a4aaa5;background:transparent;font-size:20px;border-radius:5px}.delete-file:hover,.delete-expense:hover{color:#b24738;background:#fff0eb}.file-error{font-size:11px;color:var(--danger)}.expenses-header{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}.expenses-header h4{font:400 22px Georgia,serif;margin:0 0 5px}.expenses-header p{font-size:11px;color:#7e8d85;margin:0}.button-outline{background:#fff;border:1px solid #b6cdc2;color:#286e67;border-radius:8px;font-size:12px;font-weight:750;padding:10px 14px;white-space:nowrap}.button-outline:hover{background:#edf7f0}.empty-ledger{padding:24px 25px;border:1px dashed #ced9d2;border-radius:12px;background:#fff;color:#829089;text-align:center;font-size:12px}.expense-list{display:grid;gap:15px}.expense-card{border:1px solid var(--line);border-radius:13px;background:#fff;padding:18px;box-shadow:0 8px 30px rgba(25,60,60,.025)}.expense-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:16px;border-bottom:1px solid #edf0ec;margin-bottom:18px}.expense-top strong{font-size:11px;letter-spacing:.09em;color:#457970}.expense-top small{font-size:10px;color:#86928c}.expense-fields{display:grid;grid-template-columns:minmax(100px,2.2fr) 110px 110px 110px;gap:12px}.expense-fields-secondary{margin-top:12px;grid-template-columns:110px 112px minmax(130px,1.4fr)}.expense-evidence{margin-top:14px;font-size:11px;color:#788781}.expense-evidence strong{color:#517a71}.ledger-footer{margin-top:16px;padding:19px 22px;border-radius:12px;background:#e7f0ea;display:flex;align-items:center;justify-content:space-between;gap:20px}.ledger-footer div{display:flex;gap:22px;align-items:center}.ledger-footer span{font-size:12px;color:#59736a;font-weight:750}.ledger-footer strong{font:400 29px Georgia,serif;letter-spacing:-.035em}.ledger-footer small{color:#7b8e84;max-width:230px;line-height:1.5;font-size:10px}.audit-list{margin-top:16px;display:grid;gap:8px}.audit-item{display:flex;gap:10px;align-items:flex-start;border-radius:8px;padding:11px 13px;font-size:11px}.audit-item.warn{color:#8c692f;background:#fff6e8;border:1px solid #f0dbb9}.audit-item.good{background:#ecf7ef;color:#42735a;border:1px solid #d4e8d9}.export-card{display:flex;align-items:center;justify-content:space-between;gap:30px;border-radius:15px;background:var(--navy);padding:30px;color:#fff}.export-card>div:first-child{flex:1}.export-card .eyebrow{color:#b8d8bc}.export-card h3{font:400 26px Georgia,serif;margin:10px 0}.export-card p{font-size:11px;line-height:1.75;color:#c2d1d0;max-width:560px}.export-controls{min-width:196px;display:flex;flex-direction:column;gap:12px;align-items:stretch}.button-primary{border:0;border-radius:9px;background:#bfe0c8;color:#173b36;font-size:12px;font-weight:850;padding:15px 21px;white-space:nowrap}.button-primary:hover{background:#d1eed6}.button-primary:disabled{background:#789891;color:#e1e9e4;cursor:not-allowed}.button-primary span{margin-left:14px}.export-controls small{font-size:10px;color:#b6cbcb;text-align:center}.export-status{font-size:10px;color:#c7d5d2;margin-top:15px}.export-status.error{color:#ffb6a3}.export-status.success{color:#c9eacc}.details-section{padding-top:60px;padding-bottom:84px}.section-heading.compact{margin-bottom:35px}.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.feature-grid article{border:1px solid var(--line);background:#fff;border-radius:12px;padding:25px 25px 24px;min-height:185px}.feature-icon{font-size:10px;font-weight:850;letter-spacing:.15em;color:#499582}.feature-grid h3{margin:18px 0 8px;font:400 20px Georgia,serif}.feature-grid p{margin:0;font-size:11px;color:#7c8985;line-height:1.7}.ethics-section{background:#e9f0e9;border-top:1px solid #d7e3d9;border-bottom:1px solid #d7e3d9;padding:40px max(40px,calc((100vw - 1158px)/2));display:flex;gap:27px;align-items:center}.privacy-icon{width:57px;height:57px;display:grid;place-items:center;flex-shrink:0;border:1px solid #aec8b7;border-radius:50%;color:#4a8470;font-size:43px}.ethics-section>div:nth-child(2){flex:1}.ethics-section h3{margin:0 0 6px;font:400 23px Georgia,serif}.ethics-section p{margin:0;color:#70837a;line-height:1.7;font-size:11px;max-width:760px}.privacy-tag{font-size:9px;font-weight:850;letter-spacing:.11em;color:#5a8d73;border:1px solid #b2cbb9;padding:9px 11px;border-radius:6px;white-space:nowrap}.site-footer{min-height:110px;max-width:1228px;margin:auto;padding:25px 34px;display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-brand{display:grid;gap:3px}.footer-brand b{font:400 21px Georgia,serif}.footer-brand span,.site-footer>span,.site-footer p{color:#83918c;font-size:10px}.site-footer p{max-width:360px}dialog{width:min(580px,calc(100% - 28px));border:0;border-radius:16px;padding:28px 31px 31px;box-shadow:0 26px 100px #0a262b5c;color:var(--ink)}dialog::backdrop{background:#0b1e29a8}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.dialog-head h2{font:400 27px Georgia,serif;margin:0}.dialog-head button{border:0;background:transparent;font-size:27px;color:#697c74}dialog ol{padding-left:19px;color:#586f67;font-size:12px;line-height:1.8}dialog li{margin:12px 0}dialog p{color:#697a71;font-size:11px;line-height:1.7;margin:22px 0}.file-row .hide{display:none}.hidden{display:none!important}@media(max-width:1080px){.hero{grid-template-columns:1fr .8fr;column-gap:15px;padding:60px 42px}.hero h1{font-size:55px}.step-grid{grid-template-columns:180px minmax(0,1fr);gap:25px}.expense-fields{grid-template-columns:minmax(130px,1.6fr) 110px 100px 100px}.expense-fields-secondary{grid-template-columns:90px 100px minmax(130px,1fr)}}@media(max-width:840px){.hero{grid-template-columns:1fr}.hero-example{display:none}.hero{min-height:auto;padding:65px 34px}.hero h1{font-size:clamp(44px,7vw,65px)}.workflow-strip{gap:25px}.workflow-strip>i{width:20px}.workspace,.details-section{padding-left:25px;padding-right:25px}.step-grid{grid-template-columns:1fr;gap:13px;margin-bottom:42px}.step-label{display:grid;grid-template-columns:35px 1fr;column-gap:8px;align-items:baseline}.step-label h3{font-size:23px;margin:5px 0}.step-label p{grid-column:2;max-width:none;margin:0 0 10px}.step-no{grid-row:1}.file-row{grid-template-columns:40px minmax(0,1fr) 110px 32px}.file-row .assign-select{grid-column:2/4;grid-row:2}.feature-grid{grid-template-columns:repeat(2,1fr)}.ethics-section{padding:35px 25px}}@media(max-width:600px){.masthead{padding:14px 18px;min-height:74px}.identity strong{font-size:22px}.identity small{font-size:7px}.brandmark{width:41px;height:41px}.brandmark svg{width:31px;height:31px}.top-right .privacy-dot,.top-right>span:not(.privacy-dot){display:none}.nav-help{margin-left:0;font-size:11px}.hero{padding:49px 22px 48px}.hero h1{font-size:clamp(37px,10.3vw,53px);line-height:1.13}.hero-text{font-size:13px}.workflow-strip{height:auto;gap:8px;padding:18px 10px;justify-content:space-around}.workflow-strip div{font-size:9px;gap:5px}.workflow-strip b{width:23px;height:23px;font-size:9px}.workflow-strip>i{width:8px}.workspace,.details-section{padding:57px 16px 18px}.section-heading{align-items:start;margin-bottom:33px}.section-heading h2{font-size:31px}.section-heading p{font-size:11px}.text-button{font-size:11px}.metadata-card{padding:18px}.form-grid{grid-template-columns:1fr;gap:13px}.dropzone{min-height:220px;padding:12px}.dropzone strong{font-size:13px}.dropzone p{font-size:11px}.upload-bottom{flex-wrap:wrap}.file-row{grid-template-columns:37px minmax(0,1fr) 23px;gap:9px}.file-row .file-category{grid-column:2;grid-row:2}.file-row .assign-select{grid-column:2/3;grid-row:3}.file-row .delete-file{grid-column:3;grid-row:1}.expenses-header{align-items:start}.expenses-header h4{font-size:20px}.expenses-header p{font-size:10px}.button-outline{padding:10px 9px;font-size:10px}.expense-card{padding:13px}.expense-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.expense-fields label:first-child{grid-column:1/-1}.expense-fields-secondary{grid-template-columns:repeat(2,minmax(0,1fr))}.expense-fields-secondary label:last-child{grid-column:1/-1}.ledger-footer{align-items:start;gap:10px;padding:17px}.ledger-footer div{display:grid;gap:2px}.ledger-footer strong{font-size:24px}.ledger-footer small{max-width:120px;font-size:9px}.export-card{flex-direction:column;padding:25px 21px;align-items:stretch}.export-controls{min-width:0}.feature-grid{grid-template-columns:1fr}.details-section{padding-bottom:55px}.ethics-section{display:grid;grid-template-columns:50px 1fr;gap:17px}.privacy-icon{width:50px;height:50px}.ethics-section>div:nth-child(2){grid-column:2;grid-row:1/3}.privacy-tag{grid-column:2;justify-self:start}.site-footer{padding:24px 18px;flex-wrap:wrap}.site-footer p{order:2;width:100%}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
-
-.include-control{display:inline-flex;align-items:center;gap:5px;margin-top:3px;font-size:10px;font-weight:650;color:#548074;white-space:nowrap}.include-control input{width:13px;height:13px;accent-color:#2b8072;margin:0}
-
-.paste-email-btn{background:transparent;border:0;color:#377e75;font-size:11px;text-decoration:underline;text-underline-offset:3px;font-weight:750;white-space:nowrap}.upload-bottom{flex-wrap:wrap;justify-content:flex-start;gap:12px 24px}.upload-bottom .switch-line{margin-left:auto}#paste-email-dialog .form-grid{margin-top:18px}#paste-email-dialog .wide-label textarea{min-height:180px}#paste-email-dialog .button-primary{margin-top:20px}@media(max-width:600px){.paste-email-btn{width:100%;text-align:left}.upload-bottom .switch-line{margin-left:0}}
-
-  </style>
+  <title>ClaimWeave 3.0 · Reconciled reimbursement evidence</title>
+  <link rel="stylesheet" href="styles.css">
   <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
-
+  <script defer src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
+  <script defer src="core.js"></script>
+  <script defer src="pdf.js"></script>
+  <script defer src="case.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -31,9 +28,9 @@
       <section class="hero">
         <div class="hero-main">
           <span class="eyebrow">THE REIMBURSEMENT EVIDENCE STUDIO <span class="eyebrow-number">/ 01</span></span>
-          <h1>From expense chaos<br>to <em>one clear claim.</em></h1>
+          <h1>From scattered files<br>to <em>a reconciled claim.</em></h1>
           <p class="hero-text">Receipts in photos. Tickets in PDFs. Approvals buried in Outlook. Bring them together, match the evidence, and create one professionally indexed PDF for BW or another expenses portal.</p>
-          <div class="hero-chips"><span>JPG & PNG</span><span>PDF</span><span>Outlook .MSG</span><span>Email .EML</span><span>One PDF output</span></div>
+          <div class="hero-chips"><span>JPG & PNG</span><span>PDF</span><span>Outlook .MSG</span><span>Email .EML</span><span>Searchable PDF</span><span>Private encrypted case files</span></div>
         </div>
         <aside class="hero-example" aria-label="Evidence dossier illustration">
           <div class="decor-orbit orbit-one"></div><div class="decor-orbit orbit-two"></div>
@@ -77,6 +74,7 @@
             </div>
             <div class="upload-bottom"><button type="button" id="paste-email-btn" class="paste-email-btn">+ Paste an Outlook email instead</button><div class="upload-counter" id="upload-count">No evidence added yet</div><label class="switch-line"><input id="extract-attachments" type="checkbox" checked><span>Include compatible email attachments</span></label></div>
             <div id="upload-progress" class="status-line" role="status" aria-live="polite" hidden></div>
+            <div class="import-extras"><span>Images need manual checking; use optional local OCR when available.</span><button type="button" id="ocr-all-btn" class="button-outline">Read image text (optional)</button></div>
             <div id="file-list" class="file-list" aria-live="polite"></div>
           </div>
         </div>
@@ -87,475 +85,32 @@
             <div class="expenses-header"><div><h4>Expense ledger</h4><p>One row per reimbursable cost. Amounts are never treated as confirmed unless you review them.</p></div><button type="button" id="add-expense" class="button-outline">+ Add expense</button></div>
             <div id="expense-list" class="expense-list"></div>
             <div class="ledger-footer"><div><span>GBP amount claimed</span><strong id="total-claim">£0.00</strong></div><small>Original currencies remain visible in the PDF. Exchange rates are user supplied.</small></div>
+            <div class="insights-panel"><div class="insights-title"><strong>Reconciliation suggestions</strong><span>Nothing is merged automatically</span></div><div id="suggestion-list" class="suggestion-list" aria-live="polite"></div></div>
+            <div class="insights-panel"><div class="insights-title"><strong>Candidate approvals from email</strong><span>Check the original message before relying on one</span></div><div id="approval-list" class="suggestion-list" aria-live="polite"></div></div>
+            <div class="audit-heading"><strong>Submission checks</strong><span id="readiness-count">Checks appear after adding evidence</span></div>
             <div id="audit-list" class="audit-list" aria-live="polite"></div>
           </div>
         </div>
 
         <div class="step-grid export-grid">
           <div class="step-label"><div class="step-no">04</div><h3>One finished PDF</h3><p>An index, expense-by-expense evidence, then general approvals.</p></div>
-          <div class="step-body export-card"><div><span class="eyebrow">READY WHEN YOU ARE</span><h3>Make the paper trail make sense.</h3><p>The pack will preserve your uploaded PDF pages, insert full-page receipt images and format email conversations with subject, sender, recipients and dates. You'll get one downloadable file.</p><div id="export-status" class="export-status">Add files and an expense to begin.</div></div><div class="export-controls"><button type="button" class="button-primary" id="export-btn">Create my PDF <span aria-hidden="true">↗</span></button><small id="export-hint">Review the ledger and any warnings first.</small></div></div>
+          <div class="step-body export-card"><div><span class="eyebrow">READY WHEN YOU ARE</span><h3>Make the paper trail make sense.</h3><p>The pack will preserve your uploaded PDF pages, insert full-page receipt images and format email conversations with subject, sender, recipients and dates. You'll get one downloadable file.</p><div id="export-status" class="export-status">Add files and an expense to begin.</div></div><div class="export-controls">
+              <label class="export-option"><input id="redact-email" type="checkbox"> Hide incidental email addresses and phone numbers in rendered email pages</label>
+              <label class="export-option"><input id="include-manifest" type="checkbox"> Include a detailed evidence manifest with hashes in a separate JSON download</label>
+              <label class="font-option"><span>Optional font for searchable Chinese/Hindi text (.ttf/.otf)</span><input id="unicode-font" type="file" accept=".ttf,.otf" aria-label="Optional Unicode font"></label>
+              <div class="export-buttons"><button type="button" class="button-primary" id="export-btn">Export submission-ready PDF</button><button type="button" class="button-outline" id="draft-btn">Download watermarked draft</button></div>
+              <div class="export-buttons smaller"><button type="button" class="button-outline" id="save-case-btn">Save encrypted working case</button><button type="button" class="button-outline" id="restore-case-btn">Restore encrypted case</button><input id="restore-case-file" type="file" accept=".cwc,.json" hidden><button type="button" class="text-button" id="manifest-btn">Download evidence manifest</button></div>
+              <small id="export-hint">Submission-ready export requires resolved blocking checks and verified expense lines. Drafts retain all warnings.</small><small id="offline-indicator" class="offline-status">Offline availability depends on previously loaded libraries.</small>
+              </div></div>
         </div>
       </section>
 
-      <section class="details-section"><div class="section-heading compact"><div><span class="eyebrow">BUILT FOR REAL-WORLD EXPENSES</span><h2>Because receipts are rarely tidy.</h2></div></div><div class="feature-grid"><article><div class="feature-icon">01</div><h3>Multiple currencies</h3><p>Preserve RMB, INR, EUR or USD receipts alongside a manually verified GBP claim amount. No invented FX rates.</p></article><article><div class="feature-icon">02</div><h3>Approval trails</h3><p>Connect a supervisor's email to the cost it authorises. MSG and EML become readable evidence pages.</p></article><article><div class="feature-icon">03</div><h3>Duplicate detection</h3><p>Flag identical uploads so the same receipt is not accidentally included twice.</p></article><article><div class="feature-icon">04</div><h3>Missing proof</h3><p>Spot expenses without evidence, zero amounts, failed email imports or missing exchange-rate notes.</p></article><article><div class="feature-icon">05</div><h3>Complex journeys</h3><p>Group taxis, accommodation, flights, bookings and corresponding approvals into one indexed narrative.</p></article><article><div class="feature-icon">06</div><h3>No account required</h3><p>No login, no server-side claim storage. Everything lives in this browser session until you download the PDF.</p></article></div></section>
-      <section class="ethics-section"><div class="privacy-icon">⌁</div><div><h3>Your claim stays yours.</h3><p>Files are read and assembled locally in your browser. This website does not transmit documents to a server or save your claim. It loads code libraries from third-party CDNs, so for institutionally sensitive records, use only with your organisation's approval. Verify the content and your employer's document-size rules before submission.</p></div><div class="privacy-tag">NO FILE UPLOAD API</div></section>
+      <section class="details-section"><div class="section-heading compact"><div><span class="eyebrow">BUILT FOR REAL-WORLD EXPENSES</span><h2>Because receipts are rarely tidy.</h2></div></div><div class="feature-grid"><article><div class="feature-icon">01</div><h3>Multiple currencies</h3><p>Preserve RMB, INR, EUR or USD receipts alongside a manually verified GBP claim amount. No invented FX rates.</p></article><article><div class="feature-icon">02</div><h3>Approval trails</h3><p>Connect a supervisor's email to the cost it authorises. MSG and EML become readable evidence pages.</p></article><article><div class="feature-icon">03</div><h3>Duplicate detection</h3><p>Flag identical uploads so the same receipt is not accidentally included twice.</p></article><article><div class="feature-icon">04</div><h3>Missing proof</h3><p>Spot expenses without evidence, zero amounts, failed email imports or missing exchange-rate notes.</p></article><article><div class="feature-icon">05</div><h3>Complex journeys</h3><p>Group taxis, accommodation, flights, bookings and corresponding approvals into one indexed narrative.</p></article><article><div class="feature-icon">06</div><h3>No account required</h3><p>No login or server-side claim storage. Save an optional passphrase-encrypted working case when needed.</p></article></div></section>
+      <section class="ethics-section"><div class="privacy-icon">⌁</div><div><h3>Your claim stays yours.</h3><p>Files are processed in browser memory. The app has no document-upload endpoint and does not write claims to browser storage. Save and restore an AES-GCM encrypted case only when you choose. Libraries and optional OCR language models come from pinned third-party CDNs and can be cached for later offline use; this is not a guarantee of fully offline operation. Use only with university approval for sensitive records. Check the evidence and employer-specific requirements before submitting.</p></div><div class="privacy-tag">NO FILE UPLOAD API</div></section>
     </main>
     <footer class="site-footer"><div class="footer-brand"><b>ClaimWeave</b><span>Evidence, intelligently arranged.</span></div><p>Independent prototype · Not an official ARU or BW service · Financial and email data require human verification</p><span>Built for clarity, not bureaucracy.</span></footer>
   </div>
   <dialog id="paste-email-dialog"><div class="dialog-head"><h2>Paste an approval or email</h2><button id="close-paste" aria-label="Close email form">×</button></div><p>Use this when Outlook won’t export an email. The text is saved only in this browser session and is clearly labelled as a manually copied message.</p><div class="form-grid"><label><span>Subject</span><input id="paste-subject" placeholder="Approval for taxi reimbursement"></label><label><span>Date</span><input id="paste-date" placeholder="19 Nov 2026"></label><label><span>From</span><input id="paste-from" placeholder="sender@university.ac.uk"></label><label><span>To</span><input id="paste-to" placeholder="you@university.ac.uk"></label></div><label class="wide-label"><span>Message body (paste from Outlook)</span><textarea rows="10" id="paste-body" placeholder="Paste the complete email or approval chain, including relevant wording…"></textarea></label><button type="button" class="button-primary" id="save-paste">Add copied email</button></dialog>
-  <dialog id="help-dialog"><div class="dialog-head"><h2>How ClaimWeave works</h2><button id="close-help" aria-label="Close help">×</button></div><ol><li><strong>Enter the claim context.</strong> Add your name, trip and optional BW reference.</li><li><strong>Upload everything together.</strong> PDFs and images become evidence pages; MSG and EML are parsed into readable email pages.</li><li><strong>Check each expense.</strong> Set the expense name, original amount, original currency and GBP claim. Assign every file to an expense or to “General approvals”.</li><li><strong>Review the warnings.</strong> Amount extraction is only a suggestion. Scanned images do not have automatic OCR. Email attachments can be included automatically.</li><li><strong>Export one PDF.</strong> Review it locally before uploading it to BW. No claim content is sent to this website's server.</li></ol><p><b>Limitations:</b> Encrypted PDFs, unusual Outlook MSG variants, image-only receipt text, non-image email attachments and very large packs may require conversion first. A failed MSG/EML import is excluded rather than silently omitted from a supposed complete pack.</p><button class="button-primary" id="close-help-bottom">Got it</button></dialog>
-  <script>
-/* ClaimWeave — browser-only reimbursement evidence assembler.
- * All uploaded data remains in memory. No fetch/XHR is made with file contents.
- * External libraries are used for local parsing and PDF composition.
- */
-'use strict';
-(() => {
-  const $ = (id) => document.getElementById(id);
-  const state = { files: [], expenses: [], processing: false, exporting: false, sequence: 0 };
-  const ALLOWED = ['jpg','jpeg','png','pdf','eml','msg'];
-  const ATTACHABLE = new Set(['jpg','jpeg','png','pdf']);
-  const KINDS = ['Receipt','Invoice','Booking / ticket','Approval','Correspondence','Statement','Other'];
-  const CURRENCIES = ['GBP','CNY','INR','EUR','USD','HKD','JPY','AED','SGD','Other'];
-  const number = v => Number.isFinite(Number(v)) ? Number(v) : 0;
-  const asMoney = v => new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(number(v));
-  const ext = name => (name.split('.').pop() || '').toLowerCase();
-  const esc = value => String(value ?? '').replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
-  const id = () => `f${++state.sequence}`;
-  const setStatus = (text, error = false) => { const node = $('export-status'); node.textContent = text; node.classList.toggle('error', error); node.classList.toggle('success', !error && /complete|ready|downloaded/i.test(text)); };
-  const shortName = name => name.length > 74 ? name.slice(0, 36) + '…' + name.slice(-34) : name;
-  const fileSize = n => n > 1024*1024 ? (n/(1024*1024)).toFixed(1)+' MB' : Math.max(1,Math.round(n/1024))+' KB';
-
-  function categoryFor(fileName, type) {
-    const n = fileName.toLowerCase();
-    if (type === 'eml' || type === 'msg') return /approv|authoris|authoriz|permission|consent|confirm|reimburse/i.test(n) ? 'Approval' : 'Correspondence';
-    if (/approv|authoriz|authoris|permission/i.test(n)) return 'Approval';
-    if (/invoice|bill|folio/i.test(n)) return 'Invoice';
-    if (/boarding|reservation|ticket|itinerary|booking/i.test(n)) return 'Booking / ticket';
-    if (/statement|bank/i.test(n)) return 'Statement';
-    return 'Receipt';
-  }
-  function inferCurrency(text) {
-    const a = String(text || '').slice(0,6000);
-    if (/\b(?:CNY|RMB)\b|[¥￥]/i.test(a)) return 'CNY';
-    if (/\bINR\b|₹/i.test(a)) return 'INR';
-    if (/\bEUR\b|€/i.test(a)) return 'EUR';
-    if (/\bUSD\b|\bUS\s*\$|\bUS\$/.test(a)) return 'USD';
-    if (/\bHKD\b/.test(a)) return 'HKD';
-    if (/\bJPY\b/i.test(a)) return 'JPY';
-    if (/\bAED\b/i.test(a)) return 'AED';
-    if (/\bSGD\b/i.test(a)) return 'SGD';
-    if (/\bGBP\b|£/.test(a)) return 'GBP';
-    if (/\$(?=\s*\d)/.test(a)) return 'USD';
-    return 'GBP';
-  }
-  function suggestedAmount(text) {
-    const lines = String(text || '').replace(/\r/g,'').split(/\n/);
-    const amount = /(?:£|\$|€|¥|₹|\b(?:GBP|CNY|RMB|INR|EUR|USD)\b)?\s*(\d{1,7}(?:,\d{3})*(?:\.\d{2})?)(?!\d)/ig;
-    for (const line of lines) {
-      if (!/\b(?:grand total|total due|total paid|amount paid|amount charged|total amount|payment total|total|balance due|fare paid)\b/i.test(line)) continue;
-      const amounts = [...line.matchAll(amount)].map(x => x[1]).filter(x => x && !/^\d{5,}$/.test(x));
-      if (amounts.length) return amounts[amounts.length-1].replace(/,/g,'');
-    }
-    return '';
-  }
-  function suggestedDate(text) {
-    const match = String(text || '').match(/\b(20\d{2})[-/.](0?[1-9]|1[012])[-/.](0?[1-9]|[12]\d|3[01])\b|\b(0?[1-9]|[12]\d|3[01])[-/.](0?[1-9]|1[012])[-/.](20\d{2})\b/);
-    if (!match) return '';
-    const y = match[1] || match[6], m = match[2] || match[5], d = match[3] || match[4];
-    return `${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
-  }
-  function cleanHtml(html) {
-    const doc = new DOMParser().parseFromString(String(html||''),'text/html');
-    doc.querySelectorAll('script,style,iframe,svg,object,canvas,form,noscript').forEach(n => n.remove());
-    doc.querySelectorAll('br').forEach(n => n.replaceWith('\n'));
-    doc.querySelectorAll('p,div,li,tr,blockquote').forEach(n => n.append('\n'));
-    return (doc.body?.textContent || '').replace(/[\t ]+\n/g,'\n').replace(/\n{4,}/g,'\n\n\n').trim();
-  }
-  async function sha256(file) {
-    if (!globalThis.crypto?.subtle) return null;
-    const result = await crypto.subtle.digest('SHA-256', await file.arrayBuffer());
-    return [...new Uint8Array(result)].map(b=>b.toString(16).padStart(2,'0')).join('');
-  }
-  async function readPdfText(file) {
-    const lib = window.pdfjsLib;
-    if (!lib) return { text:'',note:'Text reading unavailable; the PDF can still be merged.' };
-    try {
-      lib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
-      const data = new Uint8Array(await file.arrayBuffer());
-      const doc = await lib.getDocument({data}).promise;
-      const pageCount = doc.numPages;
-      let text = '';
-      for(let pageNo=1;pageNo<=Math.min(pageCount,12);pageNo++){
-        const page=await doc.getPage(pageNo);
-        const content=await page.getTextContent();
-        text += '\n'+content.items.map(item=>item.str||'').join(' ');
-      }
-      return {text,note:pageCount>12?'Text preview limited to first 12 pages; all pages will be preserved.':text.trim()?'':'Scanned PDF: enter details manually (OCR is not enabled).',pages:pageCount};
-    } catch(e) { return {text:'',note:'PDF text could not be read, but the original pages will be included.'}; }
-  }
-  async function readEmail(file, kind) {
-    if (kind === 'eml') {
-      const mod = await import('https://esm.sh/postal-mime@2.7.4');
-      const PostalMime = mod.default || mod.PostalMime || mod;
-      if(typeof PostalMime.parse !== 'function') throw new Error('EML parser could not load. Check your connection.');
-      const email = await PostalMime.parse(await file.arrayBuffer());
-      const addresses = val => Array.isArray(val) ? val.map(x=>x.address || x.name || '').filter(Boolean).join(', ') : val?.address || val?.name || '';
-      return {subject:email.subject || file.name,from:addresses(email.from),to:addresses(email.to),cc:addresses(email.cc),date:email.date || '',body:(email.text || cleanHtml(email.html) || '').trim(),attachments:(email.attachments||[]).filter(a=>a.content && a.filename).map(a=>({name:a.filename,content:a.content,type:a.mimeType||''}))};
-    }
-    const mod = await import('https://esm.sh/@kenjiuno/msgreader@1.28.0?bundle');
-    const MsgReader = mod.default || mod.MsgReader;
-    if(typeof MsgReader!=='function') throw new Error('Outlook MSG reader could not load. Check your connection.');
-    const reader=new MsgReader(await file.arrayBuffer());
-    const data=reader.getFileData();
-    if(!data || data.error) throw new Error(data?.error || 'Cannot decode this Outlook MSG file.');
-    const items=[];
-    for(const a of data.attachments||[]) {
-      try {const att=reader.getAttachment(a);if(att?.content)items.push({name:att.fileName||a.fileName||'attachment',content:att.content,type:''});}catch(e) { /* Attachment issues recorded below via an explicit warning. */ }
-    }
-    const recipients=(data.recipients||[]).filter(x=>!x.recipType || x.recipType==='to').map(r=>r.email||r.name).filter(Boolean).join(', ');
-    return {subject:data.subject||file.name,from:data.senderEmail||data.senderName||'',to:recipients,cc:(data.recipients||[]).filter(x=>x.recipType==='cc').map(r=>r.email||r.name).join(', '),date:data.clientSubmitTime||data.messageDeliveryTime||data.creationTime||'',body:(data.body||cleanHtml(data.bodyHTML||data.html)||'').trim(),attachments:items,attachmentWarning:(data.attachments||[]).length!==items.length};
-  }
-  function findMatchingExpense(doc) {
-    if(!doc.suggestedAmount) return null;
-    return state.expenses.find(e => e.amount && Math.abs(Number(e.amount)-Number(doc.suggestedAmount))<.01 && e.currency===doc.suggestedCurrency && (!doc.suggestedDate || !e.date || doc.suggestedDate===e.date));
-  }
-  function makeExpense(name='New expense',sug={}) {
-    const ex={id:id(),title:name,date:sug.date||'',amount:sug.amount||'',currency:sug.currency||'GBP',fxRate:'',claimedGBP:sug.currency==='GBP' ? (sug.amount||''):'',rateSource:'',note:'',suggested:Boolean(sug.amount)};
-    state.expenses.push(ex);return ex;
-  }
-  async function addFiles(files, sourceEmailId=null) {
-    if(state.processing) return;
-    state.processing=true;
-    $('upload-progress').hidden=false;
-    const list=Array.from(files);
-    const errors=[];
-    for(let i=0;i<list.length;i++){
-      const f=list[i];
-      $('upload-progress').textContent=`Reading ${i+1} of ${list.length}: ${shortName(f.name)}`;
-      if(!ALLOWED.includes(ext(f.name))){errors.push(`${f.name}: unsupported format`);continue;}
-      try{await addFile(f,sourceEmailId);}catch(e){errors.push(`${f.name}: ${e.message}`);}
-    }
-    state.processing=false;
-    $('upload-progress').textContent=errors.length?`Finished with ${errors.length} issue(s). ${errors.slice(0,2).join(' · ')}`:`Added ${list.length} file(s). Review assignments and amounts below.`;
-    render();
-  }
-  async function addFile(file,sourceEmailId=null) {
-    const e=ext(file.name), type=(e==='jpeg'?'jpg':e);
-    const doc={id:id(),file,name:file.name,extension:type,kind:categoryFor(file.name,type),expenseId:'general',include:true,status:'ready',note:'',hash:null,sourceEmailId,parsedText:'',email:null,pages:null,suggestedAmount:'',suggestedCurrency:'GBP',suggestedDate:''};
-    state.files.push(doc);
-    try{
-      doc.hash=await sha256(file);
-      const prev=doc.hash && state.files.find(x=>x.id!==doc.id && x.hash===doc.hash);
-      if(prev){doc.include=false;doc.note=`Duplicate of ${prev.name}. Excluded unless re-enabled.`;doc.expenseId=prev.expenseId;}
-      if(type==='pdf'){
-        const out=await readPdfText(file);doc.parsedText=out.text;doc.note ||= out.note;doc.pages=out.pages;
-      }else if(type==='eml'||type==='msg'){
-        doc.email=await readEmail(file,type);
-        doc.parsedText=[doc.email.subject,doc.email.body].join('\n');
-        doc.kind=/approv|permission|authoris|authoriz|agree|confirm/i.test(doc.email.subject+' '+doc.email.body.slice(0,350))?'Approval':'Correspondence';
-        if(doc.email.attachmentWarning)doc.note='Some embedded attachments could not be read. Please check original MSG.';
-      }else{doc.note ||='Image receipt: enter amount and date manually (no automatic OCR).';}
-      const inferenceText=(doc.parsedText ? doc.parsedText.slice(0,7500) : '')+'\n'+file.name;
-      doc.suggestedAmount=suggestedAmount(doc.parsedText);
-      doc.suggestedCurrency=inferCurrency(inferenceText);
-      doc.suggestedDate=suggestedDate(inferenceText);
-      if(doc.include && ['Receipt','Invoice','Booking / ticket'].includes(doc.kind)){
-        const matched=findMatchingExpense(doc);
-        const e=matched||makeExpense(file.name.replace(/\.[a-z0-9]+$/i,'').replace(/[_-]+/g,' ').slice(0,70),{amount:doc.suggestedAmount,currency:doc.suggestedCurrency,date:doc.suggestedDate});
-        doc.expenseId=e.id;
-      }
-      if(doc.email && $('extract-attachments').checked){
-        for(const att of doc.email.attachments.slice(0,60)){
-          if(!ATTACHABLE.has(ext(att.name)))continue;
-          try{
-            const data=att.content instanceof ArrayBuffer ? att.content : att.content instanceof Uint8Array ? att.content : new Uint8Array(att.content);
-            const embeddedFile=new File([data],att.name,{type:att.type||''});
-            await addFile(embeddedFile,doc.id);
-          }catch(err){doc.note='One email attachment failed to import. Check original email.';}
-        }
-      }
-    }catch(err){doc.status='error';doc.include=false;doc.note=String(err.message||err);}
-    return doc;
-  }
-  function updateExpense(e,key,value){
-    e[key]=value;
-    if(key==='currency' && value==='GBP' && e.amount && !e.fxRate) e.claimedGBP=e.amount;
-    if(key==='amount' && e.currency==='GBP' && !e.fxRate) e.claimedGBP=value;
-    if((key==='amount'||key==='fxRate') && e.currency!=='GBP' && number(e.fxRate)>0 && number(e.amount)>0) e.claimedGBP=(number(e.amount)*number(e.fxRate)).toFixed(2);
-    render();
-  }
-  function renderFiles(){
-    $('upload-count').textContent=state.files.length ? `${state.files.length} file(s) · ${fileSize(state.files.reduce((s,x)=>s+x.file.size,0))} total`:'No evidence added yet';
-    const expOptions=`<option value="general">General approvals / unassigned</option>`+state.expenses.map((e,i)=>`<option value="${e.id}">${String(i+1).padStart(2,'0')} · ${esc(e.title)}</option>`).join('');
-    $('file-list').innerHTML=state.files.map(f=>`<div class="file-row" data-id="${f.id}" data-status="${f.status}"><div class="file-avatar" aria-hidden="true">${f.extension==='pdf'?'▤':['eml','msg'].includes(f.extension)?'✉':'▧'}</div><div class="file-meta"><strong title="${esc(f.name)}">${esc(shortName(f.name))}</strong><small>${esc(f.extension.toUpperCase())} · ${fileSize(f.file.size)}${f.pages?` · ${f.pages} page(s)`:''}${f.sourceEmailId?' · from email attachment':''}</small>${f.note?`<small class="file-note">${esc(f.note)}</small>`:''}<label class="include-control"><input type="checkbox" data-role="include" ${f.include?'checked':''} ${f.status==='error'?'disabled':''}> Include in PDF</label></div><select class="file-category" data-role="kind" aria-label="Evidence type for ${esc(f.name)}">${KINDS.map(k=>`<option ${k===f.kind?'selected':''}>${esc(k)}</option>`).join('')}</select><select class="assign-select" data-role="expense" aria-label="Assign ${esc(f.name)} to expense">${expOptions.replace(`value="${f.expenseId}"`,`value="${f.expenseId}" selected`)}</select><button class="delete-file" data-role="delete" aria-label="Remove ${esc(f.name)}">×</button></div>`).join('');
-    $('file-list').querySelectorAll('.file-row').forEach(row=>{
-      const f=state.files.find(x=>x.id===row.dataset.id);
-      row.querySelector('[data-role="kind"]').addEventListener('change',ev=>{f.kind=ev.target.value;render();});
-      row.querySelector('[data-role="include"]').addEventListener('change',ev=>{f.include=ev.target.checked;render();});
-      row.querySelector('[data-role="expense"]').addEventListener('change',ev=>{f.expenseId=ev.target.value;render();});
-      row.querySelector('[data-role="delete"]').addEventListener('click',()=>{state.files=state.files.filter(x=>x.id!==f.id);render();});
-    });
-  }
-  function renderExpenses(){
-    const box=$('expense-list');
-    if(!state.expenses.length){box.innerHTML='<div class="empty-ledger">Expense rows appear here when you add receipts, or add one manually to get started.</div>';return;}
-    box.innerHTML=state.expenses.map((e,i)=>{
-      const assigned=state.files.filter(f=>f.expenseId===e.id&&f.include&&f.status==='ready').length;
-      const makeField=(key,label,attrs='')=>`<label><span>${label}</span><input aria-label="${label} for expense ${i+1}" data-field="${key}" value="${esc(e[key])}" ${attrs}></label>`;
-      return `<article class="expense-card" data-id="${e.id}"><div class="expense-top"><div><strong>EXPENSE ${String(i+1).padStart(2,'0')}</strong><small> · ${e.suggested?'Suggested fields, please verify':'Manual entry'}</small></div><button type="button" class="delete-expense" data-action="remove" aria-label="Remove expense ${i+1}">×</button></div><div class="expense-fields">${makeField('title','Cost description','maxlength="120"')}${makeField('date','Date','type="date"')}<label><span>Currency</span><select data-field="currency" aria-label="Currency for expense ${i+1}">${CURRENCIES.map(c=>`<option ${e.currency===c?'selected':''}>${c}</option>`).join('')}</select></label>${makeField('amount','Original amount','type="number" min="0" step="0.01" placeholder="0.00"')}</div><div class="expense-fields expense-fields-secondary">${makeField('fxRate','GBP per unit','type="number" step="any" min="0" placeholder="If not GBP"')}${makeField('claimedGBP','GBP claim','type="number" step="0.01" min="0" placeholder="0.00"')}${makeField('rateSource','Rate reference / note','placeholder="Bank rate, card charge, date…" maxlength="160"')}</div><div class="expense-fields expense-fields-secondary">${makeField('note','Reason / explanation','placeholder="Why this cost was necessary" maxlength="350"')}</div><div class="expense-evidence"><strong>${assigned}</strong> linked evidence file(s). Assign receipts and approval emails in the upload list above.</div></article>`;
-    }).join('');
-    box.querySelectorAll('.expense-card').forEach(row=>{
-      const e=state.expenses.find(x=>x.id===row.dataset.id);
-      row.querySelectorAll('[data-field]').forEach(input=>input.addEventListener('change',event=>updateExpense(e,event.target.dataset.field,event.target.value)));
-      row.querySelector('[data-action="remove"]').addEventListener('click',()=>{
-        state.expenses=state.expenses.filter(x=>x.id!==e.id);state.files.filter(x=>x.expenseId===e.id).forEach(f=>f.expenseId='general');render();
-      });
-    });
-  }
-  function getAudit(){
-    const a=[];
-    const included=state.files.filter(x=>x.include && x.status==='ready');
-    if(!state.files.length)a.push('Add at least one receipt, approval email or other evidence file.');
-    if(!state.expenses.length)a.push('Add at least one expense before exporting.');
-    for(const [i,e] of state.expenses.entries()){
-      const label=`Expense ${i+1} (${e.title || 'unnamed'})`;
-      if(!e.title.trim())a.push(`${label}: add a description.`);
-      if(!number(e.amount))a.push(`${label}: enter and verify the original cost.`);
-      if(!number(e.claimedGBP))a.push(`${label}: enter the amount being claimed in GBP.`);
-      if(!included.some(f=>f.expenseId===e.id))a.push(`${label}: no supporting evidence is linked.`);
-      if(e.currency!=='GBP' && !e.fxRate && !e.rateSource.trim())a.push(`${label}: add your currency conversion or card-statement reference.`);
-      if(e.currency!=='GBP' && number(e.fxRate)>0 && number(e.claimedGBP)>0 && Math.abs(number(e.amount)*number(e.fxRate)-number(e.claimedGBP))>.06)a.push(`${label}: conversion rate and claimed GBP do not reconcile.`);
-    }
-    state.files.filter(f=>f.status==='error').forEach(f=>a.push(`${f.name}: cannot be converted and will not be included. ${f.note}`));
-    state.files.filter(f=>!f.include&&f.status==='ready').forEach(f=>a.push(`${f.name}: duplicate or excluded evidence will not be included.`));
-    if(state.files.reduce((s,f)=>s+f.file.size,0)>100*1024*1024)a.push('Large input pack: your browser may run out of memory. Consider splitting the claim.');
-    return a;
-  }
-  function renderAudit(){
-    const issues=getAudit();
-    $('audit-list').innerHTML=issues.length ? issues.map(x=>`<div class="audit-item warn"><span aria-hidden="true">⚑</span><span>${esc(x)}</span></div>`).join(''):'<div class="audit-item good">✓ No obvious missing evidence or amount issues detected. Check the documents before submission.</div>';
-  }
-  function render(){
-    renderFiles();renderExpenses();
-    $('total-claim').textContent=asMoney(state.expenses.reduce((s,e)=>s+number(e.claimedGBP),0));
-    renderAudit();
-    $('export-btn').disabled=state.exporting||state.processing||!state.files.some(x=>x.include&&x.status==='ready')||!state.expenses.length;
-    if(!state.exporting) setStatus(state.files.length? `${state.files.filter(f=>f.include&&f.status==='ready').length} file(s) to compile · ${getAudit().length} review item(s)`:'Add files and an expense to begin.');
-  }
-
-  // The generated pages are drawn onto a browser canvas to preserve international
-  // characters in Outlook threads. Original PDF pages are copied without rasterising.
-  const W=1190,H=1684,PAD=112;
-  const palette={navy:'#173944',muted:'#69817b',teal:'#357f73',cream:'#fbfaf5',line:'#dae5dc',gold:'#c29c69'};
-  function sheet(){
-    const c=document.createElement('canvas');c.width=W;c.height=H;
-    const ctx=c.getContext('2d',{alpha:false});ctx.fillStyle=palette.cream;ctx.fillRect(0,0,W,H);
-    ctx.fillStyle=palette.navy;ctx.fillRect(0,0,W,16);ctx.strokeStyle=palette.line;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(PAD,H-126);ctx.lineTo(W-PAD,H-126);ctx.stroke();
-    ctx.textAlign='left';ctx.fillStyle=palette.teal;ctx.font='700 22px Arial, sans-serif';ctx.fillText('CLAIMWEAVE / EVIDENCE DOSSIER',PAD,78);
-    ctx.fillStyle=palette.muted;ctx.font='20px Arial, sans-serif';ctx.fillText('Locally assembled · Review before submission',PAD,H-81);
-    ctx.textAlign='right';ctx.fillText(new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'}),W-PAD,H-81);ctx.textAlign='left';
-    return {c,ctx};
-  }
-  function wrap(ctx,text,maxWidth){
-    const out=[];
-    for(const raw of String(text||'').replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n')){
-      if(!raw.trim()){out.push('');continue;}
-      let line='';
-      const pieces=raw.split(/(\s+)/).filter(Boolean);
-      for(let piece of pieces){
-        if(ctx.measureText(line+piece).width<=maxWidth){line+=piece;continue;}
-        if(line.trim()) {out.push(line.trimEnd());line='';}
-        while(ctx.measureText(piece).width>maxWidth && piece.length>1){
-          let count=1;while(count<piece.length && ctx.measureText(piece.slice(0,count+1)).width<=maxWidth)count++;
-          out.push(piece.slice(0,count));piece=piece.slice(count);
-        }
-        line=piece;
-      }
-      out.push(line.trimEnd());
-    }
-    return out;
-  }
-  function heading(ctx,title,sub){ctx.fillStyle=palette.navy;ctx.font='normal 59px Georgia, serif';const lines=wrap(ctx,title,W-2*PAD);let y=188;for(const line of lines){ctx.fillText(line,PAD,y);y+=67;}ctx.fillStyle=palette.muted;ctx.font='25px Arial, sans-serif';if(sub)for(const line of wrap(ctx,sub,W-2*PAD)){ctx.fillText(line,PAD,y+4);y+=35;}return y+43;}
-  async function addCanvas(pdf,canvas,page=null){const jpg=canvas.toDataURL('image/jpeg',.89);const image=await pdf.embedJpg(jpg);const p=page||pdf.addPage([595,842]);p.drawImage(image,{x:0,y:0,width:595,height:842});return p;}
-  function drawLine(ctx,label,value,y,opts={}){
-    ctx.fillStyle=palette.muted;ctx.font='bold 20px Arial, sans-serif';ctx.fillText(label.toUpperCase(),PAD,y);
-    ctx.fillStyle=palette.navy;ctx.font='25px Arial, sans-serif';const lines=wrap(ctx,value||'Not provided',W-2*PAD);
-    let yy=y+35;for(const line of lines){ctx.fillText(line,PAD,yy);yy+=34;}return yy+20;
-  }
-  async function textPages(pdf,doc,section){
-    const title=doc.email.subject || doc.name;
-    const headers=[['Source integrity',doc.manualPaste?'Manual copy supplied by claimant, not an original email file':'Imported original email file'],['From',doc.email.from],['To',doc.email.to],['Cc',doc.email.cc],['Date',doc.email.date],['Source file',doc.name]];
-    let {c,ctx}=sheet();let y=heading(ctx,`Email: ${title}`,doc.manualPaste?'Manually copied message · verify against original before submission':'Outlook correspondence · converted to readable evidence pages');
-    for(const [k,v] of headers){if(!v)continue;if(y>H-330){await addCanvas(pdf,c);({c,ctx}=sheet());y=142;}y=drawLine(ctx,k,v,y);}
-    ctx.strokeStyle=palette.line;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(PAD,y+4);ctx.lineTo(W-PAD,y+4);ctx.stroke();y+=55;
-    const body=doc.email.body||'[No plain-text message body available. Please verify this email against the original.]';
-    const paragraphs=body.replace(/\t/g,'    ').split('\n');
-    let pages=0;
-    function bodyFont(){ctx.fillStyle=palette.navy;ctx.font='26px Arial, sans-serif';}
-    bodyFont();
-    for(const paragraph of paragraphs){
-      const lines=wrap(ctx,paragraph,W-2*PAD);
-      for(const line of lines){
-        if(y>H-175){await addCanvas(pdf,c);if(++pages>120)throw new Error(`Email is too long: ${doc.name}. Split it into shorter messages.`);({c,ctx}=sheet());y=151;bodyFont();}
-        if(line){ctx.fillText(line,PAD,y);}y+=39;
-      }
-    }
-    if(doc.email.attachments.length){
-      if(y>H-300){await addCanvas(pdf,c);({c,ctx}=sheet());y=160;}
-      y+=20;ctx.fillStyle=palette.teal;ctx.font='bold 22px Arial, sans-serif';ctx.fillText('ORIGINAL EMAIL ATTACHMENTS',PAD,y);y+=36;
-      bodyFont();for(const a of doc.email.attachments){if(y>H-190){await addCanvas(pdf,c);({c,ctx}=sheet());y=155;bodyFont();}ctx.fillText('• '+a.name.slice(0,84),PAD,y);y+=35;}
-    }
-    await addCanvas(pdf,c);
-  }
-  async function labelPage(pdf,title,subtitle,fields,items){
-    let {c,ctx}=sheet();let y=heading(ctx,title,subtitle);
-    for(const [k,v] of fields){if(!v)continue;if(y>H-300){await addCanvas(pdf,c);({c,ctx}=sheet());y=160;}y=drawLine(ctx,k,String(v),y);}
-    if(items?.length){
-      if(y>H-360){await addCanvas(pdf,c);({c,ctx}=sheet());y=160;}
-      ctx.fillStyle=palette.teal;ctx.font='bold 21px Arial, sans-serif';ctx.fillText('SUPPORTING FILES IN THIS SECTION',PAD,y+18);y+=61;
-      for(let i=0;i<items.length;i++){
-        const lines=wrap(ctx,`${String(i+1).padStart(2,'0')}   ${items[i].name}`,W-2*PAD-30);
-        for(const line of lines){
-          if(y>H-200){await addCanvas(pdf,c);({c,ctx}=sheet());y=150;}
-          ctx.fillStyle=palette.navy;ctx.font='24px Arial, sans-serif';ctx.fillText(line,PAD,y);y+=37;
-        }
-        y+=11;
-      }
-    }
-    await addCanvas(pdf,c);
-  }
-  async function imagePages(pdf,doc){
-    const bytes=await doc.file.arrayBuffer();
-    let bmp;
-    try {bmp=await createImageBitmap(new Blob([bytes],{type:doc.extension==='png'?'image/png':'image/jpeg'}));}
-    catch(err){throw new Error(`Cannot decode image ${doc.name}. Try opening and re-saving the image first.`);}
-    try{
-      const {c,ctx}=sheet();const area={x:PAD,y:210,w:W-2*PAD,h:H-410};
-      const factor=Math.min(area.w/bmp.width,area.h/bmp.height);
-      const w=Math.round(bmp.width*factor),h=Math.round(bmp.height*factor);
-      ctx.fillStyle='#ffffff';ctx.fillRect(area.x,area.y,area.w,area.h);
-      ctx.drawImage(bmp,area.x+(area.w-w)/2,area.y+(area.h-h)/2,w,h);
-      ctx.fillStyle=palette.navy;ctx.font='bold 27px Arial, sans-serif';ctx.fillText('IMAGE RECEIPT',PAD,154);
-      ctx.fillStyle=palette.muted;ctx.font='20px Arial, sans-serif';ctx.fillText(doc.name.slice(0,90),PAD,H-165);
-      await addCanvas(pdf,c);
-    }finally{bmp.close?.();}
-  }
-  async function appendFile(pdf,doc){
-    if(doc.extension==='pdf'){
-      const bytes=await doc.file.arrayBuffer();
-      let source;
-      try{source=await window.PDFLib.PDFDocument.load(bytes);}catch(e){throw new Error(`Cannot merge ${doc.name}. The PDF may be encrypted, corrupted or unsupported; save a new unprotected PDF and retry.`);}
-      const pages=await pdf.copyPages(source,source.getPageIndices());
-      for(const page of pages)pdf.addPage(page);
-    }else if(doc.extension==='jpg'||doc.extension==='png')await imagePages(pdf,doc);
-    else if(doc.email)await textPages(pdf,doc);
-    else throw new Error(`Unsupported document type: ${doc.name}`);
-  }
-  async function drawCover(pdf,page,records,issues,claim,used){
-    const {c,ctx}=sheet();ctx.fillStyle=palette.teal;ctx.font='bold 22px Arial, sans-serif';ctx.fillText('EXPENSE EVIDENCE / FINAL DOCUMENT',PAD,174);
-    ctx.fillStyle=palette.navy;ctx.font='normal 78px Georgia, serif';ctx.fillText('Reimbursement',PAD,279);ctx.fillText('evidence pack',PAD,370);
-    ctx.fillStyle=palette.muted;ctx.font='27px Arial, sans-serif';for(const [i,line] of wrap(ctx,claim.title,W-2*PAD).slice(0,3).entries())ctx.fillText(line,PAD,435+i*37);
-    const boxY=545;ctx.fillStyle='#e8f0e9';ctx.fillRect(PAD,boxY,W-2*PAD,205);
-    ctx.fillStyle=palette.teal;ctx.font='bold 18px Arial, sans-serif';ctx.fillText('TOTAL GBP CLAIMED',PAD+31,boxY+46);
-    ctx.fillStyle=palette.navy;ctx.font='normal 71px Georgia, serif';ctx.fillText(asMoney(claim.total),PAD+31,boxY+132);
-    ctx.fillStyle=palette.muted;ctx.font='22px Arial, sans-serif';ctx.fillText(`${records.length} expense sections   ·   ${used.length} evidence file(s)`,PAD+34,boxY+176);
-    let y=835;y=drawLine(ctx,'Claimant',claim.claimant||'Not provided',y);y=drawLine(ctx,'Reference / trip',claim.ref||'Not provided',y);y=drawLine(ctx,'Prepared for',claim.destination,y);
-    if(claim.context)y=drawLine(ctx,'Business purpose',claim.context.slice(0,450),y);
-    if(issues.length){
-      y=Math.min(y+18,H-420);ctx.fillStyle='#fbefe0';ctx.fillRect(PAD,y,W-2*PAD,160);ctx.fillStyle='#97652a';ctx.font='bold 21px Arial, sans-serif';ctx.fillText(`${issues.length} ITEM(S) TO VERIFY`,PAD+20,y+43);ctx.font='19px Arial, sans-serif';for(const [i,x] of issues.slice(0,2).entries())ctx.fillText(('• '+x).slice(0,100),PAD+20,y+84+i*27);
-    }
-    await addCanvas(pdf,c,page);
-  }
-  async function drawIndex(pdf,pages,records,general){
-    const entries=[...records.map((r,i)=>({title:`${String(i+1).padStart(2,'0')}  ${r.title}`,summary:`${r.original} · GBP ${r.claimed}`,start:r.start,end:r.end})),...(general? [{title:'General approvals and correspondence',summary:`${general.count} file(s)`,start:general.start,end:general.end}]:[])];
-    const chunk=19;
-    for(let p=0;p<pages.length;p++){
-      const {c,ctx}=sheet();let y=heading(ctx,'Evidence index','Sections are organised by expense. Original receipt PDFs are preserved.');
-      y+=10;ctx.fillStyle=palette.teal;ctx.font='bold 18px Arial, sans-serif';ctx.fillText('SECTION',PAD,y);ctx.textAlign='right';ctx.fillText('PAGES',W-PAD,y);ctx.textAlign='left';y+=25;
-      ctx.strokeStyle=palette.line;ctx.beginPath();ctx.moveTo(PAD,y);ctx.lineTo(W-PAD,y);ctx.stroke();y+=48;
-      for(const item of entries.slice(p*chunk,(p+1)*chunk)){
-        ctx.fillStyle=palette.navy;ctx.font='23px Arial, sans-serif';
-        const lines=wrap(ctx,item.title,W-2*PAD-180);
-        for(const line of lines){ctx.fillText(line,PAD,y);y+=31;}
-        ctx.fillStyle=palette.muted;ctx.font='19px Arial, sans-serif';ctx.fillText(item.summary,PAD,y);ctx.textAlign='right';ctx.fillStyle=palette.teal;ctx.font='bold 20px Arial, sans-serif';ctx.fillText(item.start===item.end?`${item.start}`:`${item.start}–${item.end}`,W-PAD,y-16);ctx.textAlign='left';y+=65;
-        ctx.strokeStyle=palette.line;ctx.beginPath();ctx.moveTo(PAD,y-27);ctx.lineTo(W-PAD,y-27);ctx.stroke();
-      }
-      await addCanvas(pdf,c,pages[p]);
-    }
-  }
-  function claimData(){return {title:$('claim-title').value.trim()||'Reimbursement claim',claimant:$('claimant').value.trim(),ref:$('claim-ref').value.trim(),context:$('claim-context').value.trim(),destination:$('destination').value,total:state.expenses.reduce((n,e)=>n+number(e.claimedGBP),0)};}
-  async function createPdf(){
-    if(state.exporting)return;
-    const used=state.files.filter(f=>f.include&&f.status==='ready');
-    if(!used.length||!state.expenses.length){setStatus('Add at least one expense and one readable evidence file.',true);return;}
-    const issues=getAudit();
-    if(issues.length && !window.confirm(`The claim has ${issues.length} review item(s). Create a draft PDF anyway?\n\n${issues.slice(0,6).map(x=>'• '+x).join('\n')}`))return;
-    if(!window.PDFLib?.PDFDocument){setStatus('PDF engine is unavailable. Check your internet connection or allow the PDF library CDN.',true);return;}
-    state.exporting=true;render();$('export-btn').textContent='Compiling…';setStatus('Creating the evidence index and assembling original documents…');
-    let completionMessage='', failureMessage='';
-    try{
-      const pdf=await window.PDFLib.PDFDocument.create();pdf.setTitle(`Reimbursement evidence · ${claimData().title}`);pdf.setAuthor(claimData().claimant||'Claimant');pdf.setSubject('Claim evidence compiled locally by ClaimWeave');
-      const cover=pdf.addPage([595,842]);
-      const groups=state.expenses.map(e=>({expense:e,documents:used.filter(f=>f.expenseId===e.id)}));
-      const generalDocs=used.filter(f=>f.expenseId==='general'||!state.expenses.some(e=>e.id===f.expenseId));
-      const entryCount=groups.length+(generalDocs.length?1:0);
-      const indexPages=Array.from({length:Math.max(1,Math.ceil(entryCount/19))},()=>pdf.addPage([595,842]));
-      const records=[];
-      for(const [i,group] of groups.entries()){
-        const e=group.expense,start=pdf.getPageCount()+1;
-        $('export-status').textContent=`Compiling expense ${i+1} of ${groups.length}: ${shortName(e.title)}`;
-        await labelPage(pdf,`Expense ${String(i+1).padStart(2,'0')}`,e.title,[['Original cost',`${e.currency} ${e.amount||'Not entered'}`],['GBP claimed',asMoney(e.claimedGBP)],['Date',e.date],['Currency / FX note',[e.fxRate&&`GBP per unit: ${e.fxRate}`,e.rateSource].filter(Boolean).join(' · ')],['Business reason',e.note||'Not supplied']],group.documents);
-        for(const doc of group.documents)await appendFile(pdf,doc);
-        const end=pdf.getPageCount();
-        records.push({title:e.title,original:`${e.currency} ${e.amount||'—'}`,claimed:asMoney(e.claimedGBP),start,end});
-      }
-      let general=null;
-      if(generalDocs.length){const start=pdf.getPageCount()+1;await labelPage(pdf,'General approvals','Travel authorisation, policy correspondence and shared supporting evidence',[],generalDocs);for(const doc of generalDocs)await appendFile(pdf,doc);general={count:generalDocs.length,start,end:pdf.getPageCount()};}
-      await drawIndex(pdf,indexPages,records,general);
-      await drawCover(pdf,cover,records,issues,claimData(),used);
-      const blob=new Blob([await pdf.save({useObjectStreams:true})],{type:'application/pdf'});
-      const url=URL.createObjectURL(blob);
-      const name=(claimData().ref||claimData().title||'reimbursement').replace(/[^\w.-]+/g,'_').replace(/^_+|_+$/g,'').slice(0,65);
-      const link=document.createElement('a');link.href=url;link.download=`${name}_evidence_pack.pdf`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),120000);
-      completionMessage=`PDF prepared; download started · ${pdf.getPageCount()} pages · ${fileSize(blob.size)} · ${used.length} evidence files`;
-      if(blob.size>20*1024*1024) $('export-hint').textContent='Large PDF. Check BW upload-size limits before submission.';
-    }catch(err){failureMessage=`Could not finish the PDF: ${err.message||err}`;}
-    finally{state.exporting=false;$('export-btn').innerHTML='Create my PDF <span aria-hidden="true">↗</span>';render();if(completionMessage)setStatus(completionMessage);if(failureMessage)setStatus(failureMessage,true);}
-  }
-  function bind(){
-    const zone=$('dropzone'),input=$('file-input');
-    zone.addEventListener('click',()=>input.click());zone.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();input.click();}});
-    input.addEventListener('change',async()=>{await addFiles(input.files);input.value='';});
-    for(const name of ['dragenter','dragover'])zone.addEventListener(name,e=>{e.preventDefault();zone.classList.add('dragover');});
-    for(const name of ['dragleave','drop'])zone.addEventListener(name,e=>{e.preventDefault();zone.classList.remove('dragover');});
-    zone.addEventListener('drop',e=>{if(e.dataTransfer?.files?.length)addFiles(e.dataTransfer.files);});
-    $('add-expense').addEventListener('click',()=>{makeExpense();render();});
-    $('reset-btn').addEventListener('click',()=>{if(window.confirm('Clear all in-memory documents, expenses and claim details?')){state.files=[];state.expenses=[];['claimant','claim-ref','claim-context'].forEach(k=>$(k).value='');render();}});
-    $('export-btn').addEventListener('click',createPdf);
-    $('paste-email-btn').addEventListener('click',()=>$('paste-email-dialog').showModal());
-    $('close-paste').addEventListener('click',()=>$('paste-email-dialog').close());
-    $('save-paste').addEventListener('click',()=>{
-      const subject=$('paste-subject').value.trim(),body=$('paste-body').value.trim();
-      if(!subject||!body){window.alert('Please add both the email subject and message text.');return;}
-      const info={subject,body,from:$('paste-from').value.trim(),to:$('paste-to').value.trim(),date:$('paste-date').value.trim(),cc:'',attachments:[]};
-      const source=['Subject: '+subject,'From: '+info.from,'To: '+info.to,'Date: '+info.date,'','MANUALLY COPIED EMAIL - CHECK ORIGINAL','',body].join('\n');
-      const safeName=subject.replace(/[^a-z0-9 ._-]/gi,'').replace(/\s+/g,'_').slice(0,55)||'email';
-      const file=new File([source],`Copied_${safeName}.eml`,{type:'message/rfc822'});
-      const doc={id:id(),file,name:file.name,extension:'eml',kind:/approv|authoris|authoriz|consent|permission/i.test(subject+' '+body.slice(0,200))?'Approval':'Correspondence',expenseId:'general',include:true,status:'ready',note:'Manual copy: verify against original email.',hash:null,sourceEmailId:null,parsedText:source,email:info,pages:null,suggestedAmount:'',suggestedCurrency:'GBP',suggestedDate:'',manualPaste:true};
-      state.files.push(doc);$('paste-email-dialog').close();
-      for(const field of ['paste-subject','paste-body','paste-from','paste-to','paste-date'])$(field).value='';
-      render();
-    });
-    $('how-btn').addEventListener('click',()=>$('help-dialog').showModal());
-    $('close-help').addEventListener('click',()=>$('help-dialog').close());
-    $('close-help-bottom').addEventListener('click',()=>$('help-dialog').close());
-  }
-  bind();render();
-  // No application storage is used; this object is exposed solely for local QA tests.
-  window.__claimWeaveDiagnostics = {counts:()=>({files:state.files.length,expenses:state.expenses.length,issues:getAudit().length}), currency:inferCurrency, amount:suggestedAmount};
-})();
-
-  </script>
+  <dialog id="help-dialog"><div class="dialog-head"><h2>How ClaimWeave works</h2><button id="close-help" aria-label="Close help">×</button></div><ol><li><strong>Enter the claim context.</strong> Add your name, trip and optional BW reference.</li><li><strong>Upload everything together.</strong> PDFs and images become evidence pages; MSG and EML are parsed into readable email pages.</li><li><strong>Check each expense.</strong> Set the expense name, original amount, original currency and GBP claim. Assign every file to an expense or to “General approvals”.</li><li><strong>Review the warnings.</strong> Amount extraction is only a suggestion. Scanned images do not have automatic OCR. Email attachments can be included automatically.</li><li><strong>Export one PDF.</strong> Review it locally before uploading it to BW. No claim content is intentionally sent to this website's server. Pinned third-party libraries still need an online first load.</li></ol><p><b>Limitations:</b> Encrypted PDFs, unusual Outlook MSG variants, image-only receipt text, non-image email attachments and very large packs may require conversion first. A failed MSG/EML import is excluded rather than silently omitted from a supposed complete pack.</p><button class="button-primary" id="close-help-bottom">Got it</button></dialog>
 </body>
 </html>
