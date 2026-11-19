@@ -118,3 +118,30 @@ dialog{color:var(--ink);border-top:5px solid var(--aru-red)}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,
 textarea:focus-visible,.dropzone:focus-visible{outline-color:var(--gold)}
 @media(max-width:600px){.masthead{padding-left:18px;padding-right:18px}}
+
+
+/* Export panel legibility: dark shared form colours must not carry onto navy. */
+.export-card .export-option,
+.export-card .export-option label,
+.export-card .font-option,
+.export-card .font-option label,
+.export-card .offline-status,
+.export-card .export-status,
+.export-card #export-hint,
+.export-card .export-controls>small,
+.export-card .export-controls>span,
+.export-card .export-controls p{
+  color:#e8eff9;
+}
+.export-card .font-option input[type="file"]{color:#e8eff9;color-scheme:dark}
+.export-card .font-option input[type="file"]::file-selector-button{
+  background:#fff;color:#071a3d;border:1px solid #d9dde4;
+  border-radius:5px;padding:6px 10px;margin-right:10px;cursor:pointer;
+}
+.export-card .export-option input[type="checkbox"]{accent-color:#c7a64b}
+.export-card .export-status.error{color:#ffc0b8}
+.export-card .export-status.success{color:#dbf2d0}
+.export-card .export-buttons .button-outline{color:#071a3d;background:#fff}
+.export-card .export-buttons .button-outline:hover{background:#dce8f3}
+.export-card .export-buttons .button-outline:disabled{opacity:.55}
+.export-card .export-buttons .text-button{color:#e8eff9}
