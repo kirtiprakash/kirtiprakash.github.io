@@ -30,3 +30,91 @@
 .file-note{display:block;overflow-wrap:anywhere}
 @media (max-width:780px){.export-buttons,.suggestion,.import-extras{align-items:stretch}.export-buttons>*{flex:1}.insights-panel{padding:13px}.export-buttons{display:grid;grid-template-columns:1fr}.export-buttons.smaller{grid-template-columns:1fr 1fr}.suggestion .button-outline{width:100%}}
 @media (max-width:420px){.export-buttons.smaller{grid-template-columns:1fr}}
+
+
+/* ARU-CJLU visual identity. Palette derived from docs/assets/css/site.css
+   in kirtiprakash/aru-cjlu-ai-2026. Presentation only: no workflow changes. */
+:root{
+  --ink:#17243b;--navy:#071a3d;--deep:#061e4a;
+  --teal:#102a56;--teal-dark:#071a3d;
+  --mint:#dce8f3;--gold:#c7a64b;
+  --ivory:#fffdf8;--surface:#fffdf8;--paper:#f7f2e8;
+  --muted:#5b6678;--line:#d9dde4;
+  --warning:#976222;--warning-soft:#fff5e6;--danger:#b3262c;
+  --shadow:0 18px 48px rgba(7,26,61,.09);
+  --aru-red:#d71920;--aru-sky:#dce8f3;--aru-pink:#f5dfe2;
+}
+body{background:var(--ivory);color:var(--ink)}
+.masthead{
+  max-width:none;padding-left:max(25px,calc((100vw - 1226px)/2));
+  padding-right:max(25px,calc((100vw - 1226px)/2));
+  background:var(--navy);color:#fff;border-top:5px solid var(--aru-red);
+  box-shadow:0 4px 18px rgba(7,26,61,.11)
+}
+.identity,.nav-help{color:#fff}
+.identity small{color:#cbd5e6}
+.brandmark{background:var(--gold);color:var(--navy)}
+.top-right{color:#e1e8f2}
+.privacy-dot{background:#84c8a7;box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+.hero{
+  position:relative;background:
+    radial-gradient(circle at 78% 44%,rgba(199,166,75,.16),transparent 24%),
+    radial-gradient(circle at 85% 70%,rgba(215,25,32,.16),transparent 28%),
+    linear-gradient(125deg,#061e4a 0%,#071a3d 58%,#1b1229 100%)
+}
+.hero .eyebrow,.hero h1 em{color:var(--gold)}
+.hero .eyebrow-number{color:#bdcde4}
+.hero-text{color:#e1e8f2}
+.hero-chips span{border-color:#ffffff55;color:#e7edf6;background:#ffffff0b}
+.decor-orbit{border-color:#ffffff2e}
+.dossier-card{background:var(--ivory);box-shadow:0 24px 52px rgba(7,26,61,.45)}
+.dossier-docs>div{color:var(--navy)}
+.dossier-docs span{color:var(--ink)}
+.dossier-foot{color:var(--muted)}
+.example-note{color:#e1e8f2}
+.workflow-strip{background:var(--paper);border-bottom-color:var(--line)}
+.workflow-strip b{border-color:#b7c4d6;color:var(--navy);background:#fff}
+.workflow-strip>i{background:#b7c4d6}
+.section-heading h2,.step-label h3,.expenses-header h4,.feature-grid h3,
+.ethics-section h3,.export-card h3{color:var(--navy)}
+.eyebrow,.step-no,.feature-icon{color:var(--aru-red)}
+.form-grid input:focus,.form-grid select:focus,.wide-label textarea:focus,
+.expense-fields input:focus,.expense-fields select:focus,.assign-select:focus{
+  border-color:#456aa2;box-shadow:0 0 0 3px var(--aru-sky)
+}
+.dropzone{background:#f1f5fb;border-color:#a5b8d5}
+.dropzone:hover,.dropzone.dragover{background:#e6eef9;border-color:#355b90}
+.drop-icon,.fake-link,.paste-email-btn,.file-category,.text-button{color:var(--navy)}
+.accepted{border-color:#c8d4e5;color:#51647f}
+.status-line{background:var(--aru-sky);color:var(--navy)}
+.file-avatar{background:var(--aru-sky);color:var(--navy)}
+.include-control{color:var(--navy)}
+.include-control input,.switch-line input,.verify-line input,.approve-check input,
+.export-option input{accent-color:var(--aru-red)}
+.button-outline{color:var(--navy);border-color:#a7bad5;background:white}
+.button-outline:hover{background:var(--aru-sky)}
+.ledger-footer{background:var(--aru-sky)}
+.ledger-footer span,.ledger-footer small{color:#435775}
+.ledger-footer strong{color:var(--navy)}
+.expense-top strong,.expense-evidence strong{color:var(--navy)}
+.insights-panel{background:#f3f6fb;border-color:#d5dfed}
+.insights-title span{color:var(--muted)}
+.suggestion{border-color:#d9dde4}
+.verify-line{background:#eef3fa;border-color:#d4e0ee}
+.audit-item.info{background:#eff4fb;border-color:#d8e2f0;color:#435775}
+.audit-item.good{background:#eff4fb;border-color:#d8e2f0;color:#304d72}
+.export-card{background:var(--navy);border-top:4px solid var(--aru-red)}
+.export-card .eyebrow{color:var(--gold)}
+.export-card h3{color:#fff}
+.export-card p{color:#dce5f1}
+.button-primary{background:var(--aru-red);color:#fff}
+.button-primary:hover{background:#b9151c}
+.button-primary:disabled{background:#8894aa;color:#fff}
+.feature-grid article{border-color:var(--line)}
+.ethics-section{background:var(--paper);border-color:var(--line)}
+.privacy-icon{border-color:#b3c2d7;color:var(--navy)}
+.privacy-tag{color:var(--navy);border-color:#a9b9d1}
+dialog{color:var(--ink);border-top:5px solid var(--aru-red)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,
+textarea:focus-visible,.dropzone:focus-visible{outline-color:var(--gold)}
+@media(max-width:600px){.masthead{padding-left:18px;padding-right:18px}}
