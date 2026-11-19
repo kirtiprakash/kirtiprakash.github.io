@@ -82,7 +82,7 @@ async function compose({files,expenses,claim,issues,mode='draft',redact=false,fo
  }
  let general=null;if(generalDocs.length){const start=pdf.getPageCount()+1;for(const d of generalDocs)await appendDocument(d,'GENERAL CORRESPONDENCE',fontBytes);general={start,end:pdf.getPageCount(),count:generalDocs.length};}
  await coverSheet(cover,{groups,toc,claim,issues,mode,general,used});
- addBookmarks([{title:'Claim overview',page:1},...toc.map(r=>({title:`${r.i+1}. ${r.e.title}`,page:r.start})),...(general?[{title:'General correspondence',page:general.start}]:[]),...(issuePages.length?[{title:'Review register',page:1+indexExtras.length}]:[])]);
+ addBookmarks([{title:'Claim overview',page:1},...toc.map(r=>({title:`${r.i+1}. ${r.e.title}`,page:r.start})),...(general?[{title:'General correspondence',page:general.start}]:[]),...(issuePages.length?[{title:'Review register',page:2+indexExtras.length}]:[])]);
  for(let i=0;i<indexExtras.length;i++)await continuedIndex(indexExtras[i],toc.slice(5+i*19,5+(i+1)*19),general);
  for(let i=0;i<issuePages.length;i++)await issueSheet(issuePages[i],issues.slice(i*ISSUES_PER_PAGE,(i+1)*ISSUES_PER_PAGE),i,mode);
  const pages=pdf.getPages();for(let i=0;i<pages.length;i++){const isOriginal=pages[i].__claimweaveOriginal; if(!isOriginal)footer(pages[i],i+1,mode);}
