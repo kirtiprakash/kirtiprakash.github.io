@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Turn receipts, PDFs and Outlook emails into one indexed reimbursement evidence PDF. Documents stay in your browser.">
+  <meta name="description" content="Turn receipts, PDFs and Outlook emails into a reimbursement PDF with a cost summary and supporting documents. Documents stay in your browser.">
   <meta name="theme-color" content="#071a3d">
   <title>ClaimWeave · Expense evidence organiser</title>
   <link rel="stylesheet" href="styles.css?v=claimweave-general-20261119">
@@ -38,7 +38,7 @@
             <div class="dossier-head"><span class="mini-kicker">CLAIM DOSSIER</span><span class="mini-check">✓ COMPILED</span></div>
             <div class="dossier-lines"><span></span><span></span><span></span></div>
             <div class="dossier-docs"><div>▧ <span>Taxi receipt</span><strong>01</strong></div><div>✉ <span>Travel approval</span><strong>02</strong></div><div>▤ <span>Hotel invoice</span><strong>03</strong></div></div>
-            <div class="dossier-foot"><span>EVIDENCE INDEX</span><strong>01 → 03</strong></div>
+            <div class="dossier-foot"><span>SUPPORTING DOCUMENTS</span><strong>01 → 03</strong></div>
           </div>
           <div class="example-note">Receipt and approval documents</div>
         </aside>
@@ -50,7 +50,7 @@
         <div class="section-heading"><div><span class="eyebrow">YOUR WORKSPACE</span><h2 id="workspace-title">Prepare an expense claim</h2><p>Upload documents, enter expenses and review all suggested amounts.</p></div><button type="button" id="reset-btn" class="text-button">↺ Start over</button></div>
 
         <div class="step-grid">
-          <div class="step-label"><div class="step-no">01</div><h3>Claim details</h3><p>These appear on the cover and evidence index.</p></div>
+          <div class="step-label"><div class="step-no">01</div><h3>Claim details</h3><p>These details identify your claim and its supporting documents.</p></div>
           <div class="step-body metadata-card">
             <div class="form-grid">
               <label><span>Claim title</span><input id="claim-title" maxlength="140" placeholder="Travel expenses · November 2026" value="Travel and subsistence reimbursement"></label>
@@ -93,8 +93,8 @@
         </div>
 
         <div class="step-grid export-grid">
-          <div class="step-label"><div class="step-no">04</div><h3>Export PDF</h3><p>The first page summarises costs. Supporting documents and review notes follow.</p></div>
-          <div class="step-body export-card"><div><span class="eyebrow">READY WHEN YOU ARE</span><h3>Export your claim documents</h3><p>The PDF begins with a cost summary, followed by an evidence index, uploaded documents and any review notes.</p><div id="export-status" class="export-status">Add files and an expense to begin.</div></div><div class="export-controls">
+          <div class="step-label"><div class="step-no">04</div><h3>Export PDF</h3><p>The first page summarises costs. Receipts, invoices and emails follow. Review warnings stay in the app.</p></div>
+          <div class="step-body export-card"><div><span class="eyebrow">READY WHEN YOU ARE</span><h3>Export your claim documents</h3><p>The PDF starts with a cost summary followed directly by supporting files. Check outstanding warnings in the app before export.</p><div id="export-status" class="export-status">Add files and an expense to begin.</div></div><div class="export-controls">
               <label class="export-option" style="color:#e8eff9"><input id="redact-email" type="checkbox"> Hide incidental email addresses and phone numbers in rendered email pages</label>
               <label class="export-option" style="color:#e8eff9"><input id="include-manifest" type="checkbox"> Include a detailed evidence manifest with hashes in a separate JSON download</label>
               <label class="font-option"><span>Optional font for searchable Chinese/Hindi text (.ttf/.otf)</span><input id="unicode-font" type="file" accept=".ttf,.otf" aria-label="Optional Unicode font"></label>
