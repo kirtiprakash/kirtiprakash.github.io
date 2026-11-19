@@ -1,0 +1,24 @@
+name: ClaimWeave regression tests
+on:
+  pull_request:
+    paths:
+      - "tools/claimweave/**"
+      - ".github/workflows/claimweave-tests.yml"
+  push:
+    branches:
+      - master
+    paths:
+      - "tools/claimweave/**"
+      - ".github/workflows/claimweave-tests.yml"
+jobs:
+  reconciliation-and-encryption:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run deterministic reconciliation and encryption regressions
+        run: node --test tools/claimweave/tests/*.cjs
