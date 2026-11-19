@@ -56,7 +56,7 @@ async function details(page,rows,y){for(const [label,val] of rows){if(val===unde
   for(const line of wrap(String(val),490,10,regular)){await drawLine(page,line,LEFT,y,10,false,INK);y-=13;}
   y-=9;
  }return y;}
-function currencyAmount(e){return `${e.currency||'GBP'} ${e.amount||'(not entered)'}  /  GBP ${e.claimedGBP||'0.00'}`;}
+function currencyAmount(e){return `${e.currency||'GBP'} ${(e.amount===''||e.amount===undefined?'(not entered)':e.amount)}  /  GBP ${(e.claimedGBP===''||e.claimedGBP===undefined?'(not entered)':e.claimedGBP)}`;}
 function sortEvidence(group){const priority={'Approval':0,'Invoice':1,'Receipt':2,'Statement':3,'Booking / ticket':4,'Exchange rate':5,'Correspondence':6,'Other':7};return [...group].sort((a,b)=>(priority[a.kind]??10)-(priority[b.kind]??10));}
 async function compose({files,expenses,claim,issues,mode='draft',redact=false,fontBytes=null}){
  const lib=window.PDFLib;if(!lib?.PDFDocument)throw new Error('PDF engine missing. Open the site online first to load the pinned PDF library.');
@@ -82,7 +82,7 @@ async function compose({files,expenses,claim,issues,mode='draft',redact=false,fo
  }
  let general=null;if(generalDocs.length){const start=pdf.getPageCount()+1;for(const d of generalDocs)await appendDocument(d,'GENERAL CORRESPONDENCE',fontBytes);general={start,end:pdf.getPageCount(),count:generalDocs.length};}
  await coverSheet(cover,{groups,toc,claim,issues,mode,general,used});
- addBookmarks([{title:'Claim overview',page:1},...toc.map(r=>({title:`${r.i+1}. ${r.e.title}`,page:r.start})),...(general?[{title:'General correspondence',page:general.start}]:[])]);
+ addBookmarks([{title:'Claim overview',page:1},...toc.map(r=>({title:`${r.i+1}. ${r.e.title}`,page:r.start})),...(general?[{title:'General correspondence',page:general.start}]:[]),...(issuePages.length?[{title:'Review register',page:1+indexExtras.length}]:[])]);
  for(let i=0;i<indexExtras.length;i++)await continuedIndex(indexExtras[i],toc.slice(5+i*19,5+(i+1)*19),general);
  for(let i=0;i<issuePages.length;i++)await issueSheet(issuePages[i],issues.slice(i*ISSUES_PER_PAGE,(i+1)*ISSUES_PER_PAGE),i,mode);
  const pages=pdf.getPages();for(let i=0;i<pages.length;i++){const isOriginal=pages[i].__claimweaveOriginal; if(!isOriginal)footer(pages[i],i+1,mode);}
