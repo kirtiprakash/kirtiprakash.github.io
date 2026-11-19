@@ -68,7 +68,7 @@ async function compose({files,expenses,claim,issues,mode='draft',redact=false,fo
  const used=files.filter(f=>f.include&&f.status==='ready');const groups=expenses.map(e=>({e,docs:sortEvidence(used.filter(f=>f.expenseId===e.id))}));
  const generalDocs=sortEvidence(used.filter(f=>f.expenseId==='general'||!expenses.some(e=>e.id===f.expenseId)));
  const cover=newPage('CLAIM OVERVIEW');
- const COSTS_FIRST_PAGE=15, COSTS_LATER_PAGE=21, INDEX_ITEMS_PER_PAGE=17;
+ const COSTS_FIRST_PAGE=15, COSTS_LATER_PAGE=16, INDEX_ITEMS_PER_PAGE=17;
  const overflowCount=Math.max(0,Math.ceil((groups.length-COSTS_FIRST_PAGE)/COSTS_LATER_PAGE));
  const costExtra=Array.from({length:overflowCount},()=>newPage('COST SUMMARY CONTINUED'));
  const indexPages=Array.from({length:Math.max(1,Math.ceil((groups.length+(generalDocs.length?1:0))/INDEX_ITEMS_PER_PAGE))},()=>newPage('EVIDENCE INDEX'));
@@ -145,7 +145,7 @@ async function coverSheet(page,{groups,claim,mode,part=0,start=0,limit=15}){
   const desc=title.length>37?title.slice(0,34)+'…':title;
   await drawLine(page,(e.date||'—').slice(0,10),colDate,y,8,false,INK);
   await drawLine(page,desc,colDesc,y,8,false,INK);
-  await drawLine(page,`${e.currency||'GBP'} ${original}`.slice(0,21),colOriginal,y,8,false,INK);
+  await drawLine(page,`${e.currency||'GBP'} ${original}`.slice(0,15),colOriginal,y,8,false,INK);
   await drawLine(page,claimed,colGBP,y,8,true,INK);
   y-=27;
   page.drawLine({start:{x:LEFT,y:y+10},end:{x:RIGHT,y:y+10},thickness:.35,color:rgb([.85,.88,.9])});
