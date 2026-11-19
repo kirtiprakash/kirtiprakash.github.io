@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Turn receipts, PDFs and Outlook emails into one indexed reimbursement evidence PDF. Documents stay in your browser.">
   <meta name="theme-color" content="#071a3d">
-  <title>ClaimWeave 3.0 · Reconciled reimbursement evidence</title>
-  <link rel="stylesheet" href="styles.css?v=aru-contrast-20261119-2">
+  <title>ClaimWeave · Expense evidence organiser</title>
+  <link rel="stylesheet" href="styles.css?v=claimweave-general-20261119">
   <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
@@ -29,7 +29,7 @@
         <div class="hero-main">
           <span class="eyebrow">REIMBURSEMENT DOCUMENTS <span class="eyebrow-number">/ 01</span></span>
           <h1>Organise your receipts<br>and <em>expense claims.</em></h1>
-          <p class="hero-text">Upload receipts, invoices, PDFs and emails. Match documents to expenses, review amounts and export a PDF for BW or another expenses system.</p>
+          <p class="hero-text">Upload receipts, invoices, PDFs and emails. Match documents to expenses, review costs and export a PDF for your reimbursement system.</p>
           <div class="hero-chips"><span>JPG & PNG</span><span>PDF</span><span>Outlook .MSG</span><span>Email .EML</span><span>Searchable PDF</span><span>Private encrypted case files</span></div>
         </div>
         <aside class="hero-example" aria-label="Evidence dossier illustration">
@@ -53,12 +53,12 @@
           <div class="step-label"><div class="step-no">01</div><h3>Claim details</h3><p>These appear on the cover and evidence index.</p></div>
           <div class="step-body metadata-card">
             <div class="form-grid">
-              <label><span>Claim title</span><input id="claim-title" maxlength="140" placeholder="China teaching visit · Oct 2026" value="Travel and subsistence reimbursement"></label>
+              <label><span>Claim title</span><input id="claim-title" maxlength="140" placeholder="Travel expenses · November 2026" value="Travel and subsistence reimbursement"></label>
               <label><span>Claimant</span><input id="claimant" maxlength="100" placeholder="Your name"></label>
-              <label><span>Reference / trip</span><input id="claim-ref" maxlength="100" placeholder="BW claim or assignment reference"></label>
-              <label><span>Destination system</span><select id="destination"><option>ARU / BW</option><option>Other expenses system</option><option>Personal record</option></select></label>
+              <label><span>Reference / trip</span><input id="claim-ref" maxlength="100" placeholder="Claim number or trip reference"></label>
+              <label><span>Destination system</span><select id="destination"><option>General reimbursement</option><option>Employer expenses</option><option>Travel reimbursement</option><option>Personal record</option></select></label>
             </div>
-            <label class="wide-label"><span>Context or business purpose <small>(optional)</small></span><textarea id="claim-context" rows="2" maxlength="700" placeholder="e.g. Approved travel for the ARU–CJLU teaching assignment. Accommodation and local travel were required for the course."></textarea></label>
+            <label class="wide-label"><span>Context or business purpose <small>(optional)</small></span><textarea id="claim-context" rows="2" maxlength="700" placeholder="e.g. Business travel, accommodation and local transport for an approved work assignment."></textarea></label>
           </div>
         </div>
 
@@ -93,8 +93,8 @@
         </div>
 
         <div class="step-grid export-grid">
-          <div class="step-label"><div class="step-no">04</div><h3>Export PDF</h3><p>Export your evidence as a PDF with an index and linked documents.</p></div>
-          <div class="step-body export-card"><div><span class="eyebrow">READY WHEN YOU ARE</span><h3>Export your claim documents</h3><p>The PDF includes uploaded documents, receipt images and converted emails, organised by expense.</p><div id="export-status" class="export-status">Add files and an expense to begin.</div></div><div class="export-controls">
+          <div class="step-label"><div class="step-no">04</div><h3>Export PDF</h3><p>The first page summarises costs. Supporting documents and review notes follow.</p></div>
+          <div class="step-body export-card"><div><span class="eyebrow">READY WHEN YOU ARE</span><h3>Export your claim documents</h3><p>The PDF begins with a cost summary, followed by an evidence index, uploaded documents and any review notes.</p><div id="export-status" class="export-status">Add files and an expense to begin.</div></div><div class="export-controls">
               <label class="export-option" style="color:#e8eff9"><input id="redact-email" type="checkbox"> Hide incidental email addresses and phone numbers in rendered email pages</label>
               <label class="export-option" style="color:#e8eff9"><input id="include-manifest" type="checkbox"> Include a detailed evidence manifest with hashes in a separate JSON download</label>
               <label class="font-option"><span>Optional font for searchable Chinese/Hindi text (.ttf/.otf)</span><input id="unicode-font" type="file" accept=".ttf,.otf" aria-label="Optional Unicode font"></label>
@@ -107,9 +107,9 @@
 
       <section class="ethics-section"><div class="privacy-icon">⌁</div><div><h3>Local document processing</h3><p>Files are processed in browser memory. The app has no document-upload endpoint and does not write claims to browser storage. Save and restore an AES-GCM encrypted case only when you choose. Libraries and optional OCR language models come from pinned third-party CDNs and can be cached for later offline use; this is not a guarantee of fully offline operation. Use only with university approval for sensitive records. Check the evidence and employer-specific requirements before submitting.</p></div><div class="privacy-tag">NO FILE UPLOAD API</div></section>
     </main>
-    <footer class="site-footer"><div class="footer-brand"><b>ClaimWeave</b><span>Expense evidence organiser</span></div><p>Independent prototype · Not an official ARU or BW service · Financial and email data require human verification</p><span>Review all amounts and evidence before submission.</span></footer>
+    <footer class="site-footer"><div class="footer-brand"><b>ClaimWeave</b><span>Expense evidence organiser</span></div><p>Independent document organiser · Not affiliated with any expense provider · Verify all financial information before submission</p><span>Review all amounts and evidence before submission.</span></footer>
   </div>
   <dialog id="paste-email-dialog"><div class="dialog-head"><h2>Paste an approval or email</h2><button id="close-paste" aria-label="Close email form">×</button></div><p>Use this when Outlook won’t export an email. The text is saved only in this browser session and is clearly labelled as a manually copied message.</p><div class="form-grid"><label><span>Subject</span><input id="paste-subject" placeholder="Approval for taxi reimbursement"></label><label><span>Date</span><input id="paste-date" placeholder="19 Nov 2026"></label><label><span>From</span><input id="paste-from" placeholder="sender@university.ac.uk"></label><label><span>To</span><input id="paste-to" placeholder="you@university.ac.uk"></label></div><label class="wide-label"><span>Message body (paste from Outlook)</span><textarea rows="10" id="paste-body" placeholder="Paste the complete email or approval chain, including relevant wording…"></textarea></label><button type="button" class="button-primary" id="save-paste">Add copied email</button></dialog>
-  <dialog id="help-dialog"><div class="dialog-head"><h2>How ClaimWeave works</h2><button id="close-help" aria-label="Close help">×</button></div><ol><li><strong>Enter the claim context.</strong> Add your name, trip and optional BW reference.</li><li><strong>Upload everything together.</strong> PDFs and images become evidence pages; MSG and EML are parsed into readable email pages.</li><li><strong>Check each expense.</strong> Set the expense name, original amount, original currency and GBP claim. Assign every file to an expense or to “General approvals”.</li><li><strong>Review the warnings.</strong> Amount extraction is only a suggestion. Scanned images do not have automatic OCR. Email attachments can be included automatically.</li><li><strong>Export one PDF.</strong> Review it locally before uploading it to BW. No claim content is intentionally sent to this website's server. Pinned third-party libraries still need an online first load.</li></ol><p><b>Limitations:</b> Encrypted PDFs, unusual Outlook MSG variants, image-only receipt text, non-image email attachments and very large packs may require conversion first. A failed MSG/EML import is excluded rather than silently omitted from a supposed complete pack.</p><button class="button-primary" id="close-help-bottom">Got it</button></dialog>
+  <dialog id="help-dialog"><div class="dialog-head"><h2>How ClaimWeave works</h2><button id="close-help" aria-label="Close help">×</button></div><ol><li><strong>Enter the claim context.</strong> Add your name, claim reference and business purpose.</li><li><strong>Upload everything together.</strong> PDFs and images become evidence pages; MSG and EML are parsed into readable email pages.</li><li><strong>Check each expense.</strong> Set the expense name, original amount, original currency and GBP claim. Assign every file to an expense or to “General approvals”.</li><li><strong>Review the warnings.</strong> Amount extraction is only a suggestion. Scanned images do not have automatic OCR. Email attachments can be included automatically.</li><li><strong>Export one PDF.</strong> Review it locally before submitting it to your expense provider. No claim content is intentionally sent to this website's server. Pinned third-party libraries still need an online first load.</li></ol><p><b>Limitations:</b> Encrypted PDFs, unusual Outlook MSG variants, image-only receipt text, non-image email attachments and very large packs may require conversion first. A failed MSG/EML import is excluded rather than silently omitted from a supposed complete pack.</p><button class="button-primary" id="close-help-bottom">Got it</button></dialog>
 </body>
 </html>

@@ -181,7 +181,7 @@ function audit(expenses,files,metadata={}){
   if(f.approvalCandidates?.length && !f.approvalCandidates.some(a=>a.reviewed))add('review','unreviewed-approval',`${f.name}: approval wording was detected but has not been marked reviewed against the original.`,{fileId:f.id});
  }
  issues.push(...reasonAboutOverlap(expenses,files));
- if(metadata.destination==='ARU / BW'&&!included.some(f=>f.kind==='Approval'||(f.approvalCandidates||[]).length))add('review','no-approval-evidence','No approval evidence identified. Confirm whether your particular ARU/BW claim requires prior approval.');
+ if(!included.some(f=>f.kind==='Approval'||(f.approvalCandidates||[]).length))add('info','no-approval-evidence','No approval evidence identified. Check whether approval is required by your expense provider.');
  if(files.some(f=>/\bcash\b/i.test(f.parsedText||''))&&!included.some(f=>f.kind==='Payment proof'))add('review','cash-payment-proof','Cash payment mentioned. Check whether independent confirmation of payment is required.');
  if(files.reduce((sum,f)=>sum+numeric(f.file?.size),0)>80*1024*1024)add('review','large-files','Large input: your browser may run out of memory.');
  return issues;
