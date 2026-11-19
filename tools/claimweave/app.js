@@ -5,7 +5,7 @@
 'use strict';
 (() => {
   const $ = (id) => document.getElementById(id);
-  const state = { files: [], expenses: [], processing: false, exporting: false, sequence: 0, lastMode: 'draft' };
+  const state = { files: [], expenses: [], processing: false, exporting: false, sequence: 0, lastMode: 'draft', importWarnings: [] };
   const Core = window.ClaimWeaveCore; const Writer=window.ClaimWeavePdf;
   const ALLOWED = ['jpg','jpeg','png','pdf','eml','msg'];
   const ATTACHABLE = new Set(['jpg','jpeg','png','pdf']);
@@ -119,8 +119,8 @@
     for(let i=0;i<list.length;i++){
       const f=list[i];
       $('upload-progress').textContent=`Reading ${i+1} of ${list.length}: ${shortName(f.name)}`;
-      if(!ALLOWED.includes(ext(f.name))){errors.push(`${f.name}: unsupported format`);continue;}
-      try{await addFile(f,sourceEmailId);}catch(e){errors.push(`${f.name}: ${e.message}`);}
+      if(!ALLOWED.includes(ext(f.name))){const message=`${f.name}: unsupported format`;errors.push(message);state.importWarnings.push(message);continue;}
+      try{await addFile(f,sourceEmailId);}catch(e){const message=`${f.name}: ${e.message}`;errors.push(message);state.importWarnings.push(message);}
     }
     state.processing=false;
     $('upload-progress').textContent=errors.length?`Finished with ${errors.length} issue(s). ${errors.slice(0,2).join(' · ')}`:`Added ${list.length} file(s). Review assignments and amounts below.`;
@@ -207,7 +207,7 @@
     });
   }
   function claimMeta(){return {claimant:$('claimant').value,context:$('claim-context').value,title:$('claim-title').value,ref:$('claim-ref').value,destination:$('destination').value};}
-  function getAudit(){return Core.audit(state.expenses,state.files,claimMeta());}
+  function getAudit(){return [...Core.audit(state.expenses,state.files,claimMeta()),...state.importWarnings.map(message=>({level:'review',code:'import-rejected',message}))];}
   function renderAudit(){
     const issues=getAudit(),blockers=issues.filter(x=>x.level==='blocker').length,review=issues.filter(x=>x.level==='review').length;
     $('readiness-count').textContent=`${blockers} blocking · ${review} to review · ${issues.filter(x=>x.level==='info').length} informational`;
@@ -220,7 +220,7 @@
     host.querySelectorAll('[data-link]').forEach(button=>button.addEventListener('click',()=>{const f=state.files.find(x=>x.id===button.dataset.link);if(f){f.expenseId=button.dataset.target;render();}}));
     const approvals=state.files.filter(f=>f.include&&f.email&&f.approvalCandidates?.length).flatMap(f=>f.approvalCandidates.map((x,i)=>({file:f,suggestion:x,i})));
     const box=$('approval-list');box.innerHTML=approvals.length?approvals.slice(0,15).map(a=>`<div class="suggestion"><span><b>${esc(a.file.name)}</b><small>${esc(a.suggestion.excerpt)}</small><small>Automated candidate, not confirmed approval.</small></span><label class="approve-check"><input type="checkbox" data-file="${a.file.id}" data-index="${a.i}" ${a.suggestion.reviewed?'checked':''}> Reviewed</label></div>`).join(''):'<p class="soft-note">No positive approval wording found. Review the original email threads manually.</p>';
-    box.querySelectorAll('[data-file]').forEach(input=>input.addEventListener('change',()=>{const file=state.files.find(f=>f.id===input.dataset.file);if(file?.approvalCandidates?.[Number(input.dataset.index)])file.approvalCandidates[Number(input.dataset.index)].reviewed=input.checked;}));
+    box.querySelectorAll('[data-file]').forEach(input=>input.addEventListener('change',()=>{const file=state.files.find(f=>f.id===input.dataset.file);if(file?.approvalCandidates?.[Number(input.dataset.index)]){file.approvalCandidates[Number(input.dataset.index)].reviewed=input.checked;renderAudit();}}));
   }
   function render(){
     renderFiles();renderExpenses();
@@ -277,7 +277,7 @@
       const obj=await window.ClaimWeaveCase.decrypt(wrapped,pass);
       if(obj.schema!=='claimweave-encrypted-case-v3'||!Array.isArray(obj.files)||!Array.isArray(obj.expenses))throw Error('Invalid case contents.');
       const files=obj.files.map(rec=>({...rec,file:new File([b64ToBytes(rec.file.base64)],rec.file.name,{type:rec.file.type||''})}));
-      state.files=files;state.expenses=obj.expenses;state.sequence=Math.max(state.sequence,...[...files,...obj.expenses].map(v=>Number(String(v.id).slice(1))||0),0);
+      state.files=files;state.expenses=obj.expenses;state.importWarnings=[];state.sequence=Math.max(state.sequence,...[...files,...obj.expenses].map(v=>Number(String(v.id).slice(1))||0),0);
       for(const [k,v] of Object.entries({'claim-title':obj.claim.title,'claimant':obj.claim.claimant,'claim-ref':obj.claim.ref,'claim-context':obj.claim.context,'destination':obj.claim.destination}))if($(k)&&v!==undefined)$(k).value=v;
       render();setStatus(`Restored ${files.length} evidence file(s) from encrypted case.`);
     }catch(err){setStatus('Case could not be decrypted or validated. Check the passphrase and file.',true);}
@@ -323,7 +323,7 @@
     for(const name of ['dragleave','drop'])zone.addEventListener(name,e=>{e.preventDefault();zone.classList.remove('dragover');});
     zone.addEventListener('drop',e=>{if(e.dataTransfer?.files?.length)addFiles(e.dataTransfer.files);});
     $('add-expense').addEventListener('click',()=>{makeExpense();render();});
-    $('reset-btn').addEventListener('click',()=>{if(window.confirm('Clear all in-memory documents, expenses and claim details? Remember to save an encrypted case first.')){state.files=[];state.expenses=[];['claimant','claim-ref','claim-context'].forEach(k=>$(k).value='');render();}});
+    $('reset-btn').addEventListener('click',()=>{if(window.confirm('Clear all in-memory documents, expenses and claim details? Remember to save an encrypted case first.')){state.files=[];state.expenses=[];state.importWarnings=[];['claimant','claim-ref','claim-context'].forEach(k=>$(k).value='');render();}});
     $('export-btn').addEventListener('click',()=>createPdf('submission'));
     $('draft-btn').addEventListener('click',()=>createPdf('draft'));
     $('manifest-btn').addEventListener('click',downloadManifest);
