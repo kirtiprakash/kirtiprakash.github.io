@@ -67,7 +67,7 @@ async function compose({files,expenses,claim,issues,mode='draft',redact=false,fo
  pdf.setCreator('ClaimWeave v3.0 (browser-only)');
  const used=files.filter(f=>f.include&&f.status==='ready');const groups=expenses.map(e=>({e,docs:sortEvidence(used.filter(f=>f.expenseId===e.id))}));
  const generalDocs=sortEvidence(used.filter(f=>f.expenseId==='general'||!expenses.some(e=>e.id===f.expenseId)));
- const cover=newPage('CLAIM OVERVIEW');
+ const cover=newPage('COST SUMMARY');
  const COSTS_FIRST_PAGE=15, COSTS_LATER_PAGE=16, INDEX_ITEMS_PER_PAGE=17;
  const overflowCount=Math.max(0,Math.ceil((groups.length-COSTS_FIRST_PAGE)/COSTS_LATER_PAGE));
  const costExtra=Array.from({length:overflowCount},()=>newPage('COST SUMMARY CONTINUED'));
