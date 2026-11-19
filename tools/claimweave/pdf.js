@@ -68,8 +68,10 @@ async function compose({files,expenses,claim,issues,mode='draft',redact=false,fo
  const used=files.filter(f=>f.include&&f.status==='ready');const groups=expenses.map(e=>({e,docs:sortEvidence(used.filter(f=>f.expenseId===e.id))}));
  const generalDocs=sortEvidence(used.filter(f=>f.expenseId==='general'||!expenses.some(e=>e.id===f.expenseId)));
  const cover=newPage('CLAIM OVERVIEW');
- const coverExtra=Math.max(0,Math.ceil((groups.length-5)/19));
- const indexExtras=Array.from({length:coverExtra},()=>newPage('CONTINUED INDEX'));
+ const COSTS_FIRST_PAGE=15, COSTS_LATER_PAGE=21, INDEX_ITEMS_PER_PAGE=17;
+ const overflowCount=Math.max(0,Math.ceil((groups.length-COSTS_FIRST_PAGE)/COSTS_LATER_PAGE));
+ const costExtra=Array.from({length:overflowCount},()=>newPage('COST SUMMARY CONTINUED'));
+ const indexPages=Array.from({length:Math.max(1,Math.ceil((groups.length+(generalDocs.length?1:0))/INDEX_ITEMS_PER_PAGE))},()=>newPage('EVIDENCE INDEX'));
  const ISSUES_PER_PAGE=8;
  const issuePages=issues.length?Array.from({length:Math.ceil(issues.length/ISSUES_PER_PAGE)},()=>newPage('REVIEW RECORD')):[];
  const toc=[];
@@ -81,9 +83,13 @@ async function compose({files,expenses,claim,issues,mode='draft',redact=false,fo
   toc.push({i,e:g.e,start,end:pdf.getPageCount(),files:g.docs.length});
  }
  let general=null;if(generalDocs.length){const start=pdf.getPageCount()+1;for(const d of generalDocs)await appendDocument(d,'GENERAL CORRESPONDENCE',fontBytes);general={start,end:pdf.getPageCount(),count:generalDocs.length};}
- await coverSheet(cover,{groups,toc,claim,issues,mode,general,used});
- addBookmarks([{title:'Claim overview',page:1},...toc.map(r=>({title:`${r.i+1}. ${r.e.title}`,page:r.start})),...(general?[{title:'General correspondence',page:general.start}]:[]),...(issuePages.length?[{title:'Review register',page:2+indexExtras.length}]:[])]);
- for(let i=0;i<indexExtras.length;i++)await continuedIndex(indexExtras[i],toc.slice(5+i*19,5+(i+1)*19),general);
+ await coverSheet(cover,{groups,claim,mode,part:0,start:0,limit:COSTS_FIRST_PAGE});
+ for(let i=0;i<costExtra.length;i++)await coverSheet(costExtra[i],{groups,claim,mode,part:i+1,start:COSTS_FIRST_PAGE+i*COSTS_LATER_PAGE,limit:COSTS_LATER_PAGE});
+ for(let i=0;i<indexPages.length;i++){
+  const slice=toc.filter(r=>r.i>=i*INDEX_ITEMS_PER_PAGE && r.i<(i+1)*INDEX_ITEMS_PER_PAGE);
+  await continuedIndex(indexPages[i],slice,i===indexPages.length-1?general:null);
+ }
+ addBookmarks([{title:'Cost summary',page:1},...(costExtra.length?[{title:'Cost summary continued',page:2}]:[]),{title:'Evidence index',page:2+costExtra.length},...(issuePages.length?[{title:'Review register',page:2+costExtra.length+indexPages.length}]:[]),...toc.map(r=>({title:`${r.i+1}. ${r.e.title}`,page:r.start})),...(general?[{title:'General correspondence',page:general.start}]:[])]);
  for(let i=0;i<issuePages.length;i++)await issueSheet(issuePages[i],issues.slice(i*ISSUES_PER_PAGE,(i+1)*ISSUES_PER_PAGE),i,mode);
  const pages=pdf.getPages();for(let i=0;i<pages.length;i++){const isOriginal=pages[i].__claimweaveOriginal; if(!isOriginal)footer(pages[i],i+1,mode);}
  const blob=new Blob([await pdf.save({useObjectStreams:true})],{type:'application/pdf'});
@@ -110,31 +116,43 @@ function addBookmarks(items){
   return true;
  }catch(e){return false;}// A failed outline must not damage the underlying evidence pack.
 }
-async function coverSheet(page,{groups,toc,claim,issues,mode,general,used}){
+async function coverSheet(page,{groups,claim,mode,part=0,start=0,limit=15}){
+ const total=groups.reduce((sum,g)=>sum+(Number.isFinite(Number(g.e.claimedGBP))?Number(g.e.claimedGBP):0),0);
  if(mode==='draft'){
-  page.drawRectangle({x:LEFT,y:697,width:RIGHT-LEFT,height:25,color:rgb([.99,.89,.83])});
-  await drawLine(page,'DRAFT - NOT READY FOR SUBMISSION',LEFT+9,705,12,true,[.63,.25,.13]);
+  page.drawRectangle({x:LEFT,y:715,width:RIGHT-LEFT,height:23,color:rgb([.99,.89,.83])});
+  await drawLine(page,'DRAFT - VERIFY BEFORE SUBMISSION',LEFT+9,723,10,true,[.63,.25,.13]);
  }
- let y=mode==='draft'?670:699;
- y=await heading(page,'Reimbursement evidence',y,claim.title||'Expense supporting documents');
- page.drawRectangle({x:LEFT,y:y-47,width:RIGHT-LEFT,height:64,color:rgb(PALE)});
- await drawLine(page,`GBP ${Number(claim.total||0).toFixed(2)}`,LEFT+13,y-10,25,true,CYAN);
- await drawLine(page,`${groups.length} expense line(s)  |  ${used.length} included document(s)`,LEFT+14,y-29,9,false,MUTE);y-=87;
- const meta=[['Claimant',claim.claimant||'Not supplied'],['Reference',claim.ref||'Not supplied'],['Prepared for',claim.destination||'Expenses portal'],['Purpose',claim.context||'Not supplied']];
- for(const [k,v] of meta){await drawLine(page,`${k}:`,LEFT,y,9,true,INK);const lines=wrap(v,390,9,regular).slice(0,2);let dy=y;for(const line of lines){await drawLine(page,line,LEFT+102,dy,9,false,INK);dy-=12;}y-=Math.max(22,lines.length*12+4);}
- y-=9;await drawLine(page,'EVIDENCE INDEX',LEFT,y,10,true,CYAN);y-=19;
- if(!toc.length){await drawLine(page,'No linked evidence entries',LEFT,y,9,false,MUTE);y-=16;}
- for(const r of toc.slice(0,5)){
-  await drawLine(page,`${r.i+1}. ${r.e.title.slice(0,46)}`,LEFT,y,9,true,INK);
-  await drawLine(page,`p. ${r.start}${r.start!==r.end?`-${r.end}`:''}`,RIGHT-75,y,9,false,CYAN);y-=13;
-  await drawLine(page,currencyAmount(r.e).slice(0,80),LEFT+12,y,8,false,MUTE);y-=23;
+ let y=mode==='draft'?676:704;
+ y=await heading(page,part?'Cost summary (continued)':'Cost summary',y,claim.title||'Reimbursement claim');
+ await drawLine(page,part?'Additional expense lines':'Claim amounts',LEFT,y,9,true,CYAN);y-=20;
+ page.drawRectangle({x:LEFT,y:y-52,width:RIGHT-LEFT,height:65,color:rgb(PALE)});
+ await drawLine(page,'TOTAL CLAIMED (GBP)',LEFT+13,y-5,8,true,CYAN);
+ await drawLine(page,`GBP ${total.toFixed(2)}`,LEFT+13,y-36,22,true,INK);y-=85;
+ const colDate=LEFT,colDesc=LEFT+85,colOriginal=RIGHT-170,colGBP=RIGHT-65;
+ page.drawLine({start:{x:LEFT,y:y+14},end:{x:RIGHT,y:y+14},thickness:.8,color:rgb([.75,.8,.84])});
+ await drawLine(page,'DATE',colDate,y,8,true,CYAN);
+ await drawLine(page,'EXPENSE',colDesc,y,8,true,CYAN);
+ await drawLine(page,'ORIGINAL',colOriginal,y,8,true,CYAN);
+ await drawLine(page,'GBP',colGBP,y,8,true,CYAN);
+ y-=24;
+ const rows=groups.slice(start,start+limit);
+ for(let i=0;i<rows.length;i++){
+  const e=rows[i].e;
+  const idx=start+i+1;
+  const original=e.amount===''||e.amount===undefined?'—':String(e.amount);
+  const claimed=e.claimedGBP===''||e.claimedGBP===undefined?'—':Number(e.claimedGBP).toFixed(2);
+  const title=`${idx}. ${e.title||'Untitled expense'}`;
+  const desc=title.length>37?title.slice(0,34)+'…':title;
+  await drawLine(page,(e.date||'—').slice(0,10),colDate,y,8,false,INK);
+  await drawLine(page,desc,colDesc,y,8,false,INK);
+  await drawLine(page,`${e.currency||'GBP'} ${original}`.slice(0,21),colOriginal,y,8,false,INK);
+  await drawLine(page,claimed,colGBP,y,8,true,INK);
+  y-=27;
+  page.drawLine({start:{x:LEFT,y:y+10},end:{x:RIGHT,y:y+10},thickness:.35,color:rgb([.85,.88,.9])});
  }
- if(toc.length>5){await drawLine(page,`+ ${toc.length-5} further item(s) in continued index`,LEFT,y,9,false,CYAN);y-=19;}
- if(general){await drawLine(page,`General supporting correspondence | p. ${general.start}-${general.end}`,LEFT,y,8,false,CYAN);y-=22;}
- if(issues.length){y-=5;await drawLine(page,`${issues.length} REVIEW ITEM(S): ${issues.filter(i=>i.level==='blocker').length} blockers`,LEFT,Math.max(y,111),10,true,[.67,.31,.12]);
-  await drawLine(page,'See complete review record on following page(s).',LEFT,Math.max(y-15,95),8,false,MUTE);
- }
- await drawLine(page,'Source files are preserved as uploaded where technically possible.',LEFT,69,8,false,MUTE);
+ if(!rows.length)await drawLine(page,'No expenses entered.',LEFT,y,10,false,MUTE);
+ if(start+rows.length<groups.length)await drawLine(page,`Continued: ${groups.length-start-rows.length} further expense(s)`,LEFT,91,9,false,CYAN);
+ await drawLine(page,`${groups.length} expense(s) | Totals use the entered GBP claim values.`,LEFT,70,8,false,MUTE);
 }
 async function continuedIndex(page,toc,general){let y=await heading(page,'Evidence index',H-97,'Detailed expense-to-evidence page references');for(const r of toc){
  await drawLine(page,`${r.i+1}. ${r.e.title}`,LEFT,y,10,true,INK);await drawLine(page,`p. ${r.start}-${r.end}`,RIGHT-82,y,9,false,CYAN);y-=17;
