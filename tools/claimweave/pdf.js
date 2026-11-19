@@ -68,12 +68,9 @@ async function compose({files,expenses,claim,issues,mode='draft',redact=false,fo
  const used=files.filter(f=>f.include&&f.status==='ready');const groups=expenses.map(e=>({e,docs:sortEvidence(used.filter(f=>f.expenseId===e.id))}));
  const generalDocs=sortEvidence(used.filter(f=>f.expenseId==='general'||!expenses.some(e=>e.id===f.expenseId)));
  const cover=newPage('COST SUMMARY');
- const COSTS_FIRST_PAGE=15, COSTS_LATER_PAGE=16, INDEX_ITEMS_PER_PAGE=17;
+ const COSTS_FIRST_PAGE=15, COSTS_LATER_PAGE=16;
  const overflowCount=Math.max(0,Math.ceil((groups.length-COSTS_FIRST_PAGE)/COSTS_LATER_PAGE));
  const costExtra=Array.from({length:overflowCount},()=>newPage('COST SUMMARY CONTINUED'));
- const indexPages=Array.from({length:Math.max(1,Math.ceil((groups.length+(generalDocs.length?1:0))/INDEX_ITEMS_PER_PAGE))},()=>newPage('EVIDENCE INDEX'));
- const ISSUES_PER_PAGE=8;
- const issuePages=issues.length?Array.from({length:Math.ceil(issues.length/ISSUES_PER_PAGE)},()=>newPage('REVIEW RECORD')):[];
  const toc=[];
  for(const [i,g] of groups.entries()){
   const start=pdf.getPageCount()+1;
@@ -85,12 +82,7 @@ async function compose({files,expenses,claim,issues,mode='draft',redact=false,fo
  let general=null;if(generalDocs.length){const start=pdf.getPageCount()+1;for(const d of generalDocs)await appendDocument(d,'GENERAL CORRESPONDENCE',fontBytes);general={start,end:pdf.getPageCount(),count:generalDocs.length};}
  await coverSheet(cover,{groups,claim,mode,part:0,start:0,limit:COSTS_FIRST_PAGE});
  for(let i=0;i<costExtra.length;i++)await coverSheet(costExtra[i],{groups,claim,mode,part:i+1,start:COSTS_FIRST_PAGE+i*COSTS_LATER_PAGE,limit:COSTS_LATER_PAGE});
- for(let i=0;i<indexPages.length;i++){
-  const slice=toc.filter(r=>r.i>=i*INDEX_ITEMS_PER_PAGE && r.i<(i+1)*INDEX_ITEMS_PER_PAGE);
-  await continuedIndex(indexPages[i],slice,i===indexPages.length-1?general:null);
- }
- addBookmarks([{title:'Cost summary',page:1},...(costExtra.length?[{title:'Cost summary continued',page:2}]:[]),{title:'Evidence index',page:2+costExtra.length},...(issuePages.length?[{title:'Review register',page:2+costExtra.length+indexPages.length}]:[]),...toc.map(r=>({title:`${r.i+1}. ${r.e.title}`,page:r.start})),...(general?[{title:'General correspondence',page:general.start}]:[])]);
- for(let i=0;i<issuePages.length;i++)await issueSheet(issuePages[i],issues.slice(i*ISSUES_PER_PAGE,(i+1)*ISSUES_PER_PAGE),i,mode);
+ addBookmarks([{title:'Cost summary',page:1},...(costExtra.length?[{title:'Cost summary continued',page:2}]:[]),...toc.map(r=>({title:`${r.i+1}. ${r.e.title}`,page:r.start})),...(general?[{title:'General correspondence',page:general.start}]:[])]);
  const pages=pdf.getPages();for(let i=0;i<pages.length;i++){const isOriginal=pages[i].__claimweaveOriginal; if(!isOriginal)footer(pages[i],i+1,mode);}
  const blob=new Blob([await pdf.save({useObjectStreams:true})],{type:'application/pdf'});
  return {blob,pages:pdf.getPageCount(),nativeSearchable:true,unicodeFont:!!unicode};
@@ -154,14 +146,6 @@ async function coverSheet(page,{groups,claim,mode,part=0,start=0,limit=15}){
  if(start+rows.length<groups.length)await drawLine(page,`Continued: ${groups.length-start-rows.length} further expense(s)`,LEFT,91,9,false,CYAN);
  await drawLine(page,`${groups.length} expense(s) | Totals use the entered GBP claim values.`,LEFT,70,8,false,MUTE);
 }
-async function continuedIndex(page,toc,general){let y=await heading(page,'Evidence index',H-97,'Detailed expense-to-evidence page references');for(const r of toc){
- await drawLine(page,`${r.i+1}. ${r.e.title}`,LEFT,y,10,true,INK);await drawLine(page,`p. ${r.start}-${r.end}`,RIGHT-82,y,9,false,CYAN);y-=17;
- await drawLine(page,currencyAmount(r.e),LEFT+8,y,9,false,MUTE);y-=28;
- }if(general){await drawLine(page,`General approvals | p. ${general.start}-${general.end}`,LEFT,y-11,9,true,CYAN);}}
-async function issueSheet(page,list,index,mode){let y=await heading(page,'Outstanding review items',H-97,'Complete report: warnings are never silently removed from a draft');for(const item of list){
- const label=`${item.level.toUpperCase()}  /  ${item.code}`;await drawLine(page,label,LEFT,y,8,true,item.level==='blocker'?[.7,.25,.15]:CYAN);y-=16;
- for(const line of wrap(item.message,495,9,regular)){await drawLine(page,line,LEFT,y,9,false,INK);y-=13;}y-=10;
- }}
 async function appendDocument(doc,section,fontBytes){
  if(doc.extension==='pdf'){
   const bytes=await doc.file.arrayBuffer();let orig;try{orig=await window.PDFLib.PDFDocument.load(bytes);}catch(e){throw new Error(`Cannot open original PDF: ${doc.name}. Please re-save as unencrypted PDF and retry.`);}
