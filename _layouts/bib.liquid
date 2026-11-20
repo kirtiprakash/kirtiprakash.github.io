@@ -136,16 +136,16 @@
     {% endcomment %}
     <div class="publication-metrics" aria-label="Publication attention and citation metrics">
       {% if entry.doi %}
-        <span class="publication-metric publication-metric--attention" title="Altmetric Attention Score. Click the badge for online mentions and available percentile rankings.">
+        <div class="publication-metric publication-metric--attention" title="Altmetric Attention Score. Click the badge for online mentions and available percentile rankings.">
           <span class="publication-metric-name">Attention</span>
           <span class="publication-metric-placeholder" aria-label="Attention score not reported">—</span>
-          <span class="altmetric-embed" data-doi="{{ entry.doi | escape }}" data-badge-type="donut" data-badge-popover="top" data-link-target="_blank" data-hide-no-mentions="true"></span>
-        </span>
-        <span class="publication-metric publication-metric--citations" title="Live Dimensions citations. Click the badge for detailed citation metrics.">
+          <div class="altmetric-embed" data-doi="{{ entry.doi | escape }}" data-badge-type="donut" data-badge-popover="top" data-link-target="_blank" data-hide-no-mentions="true"></div>
+        </div>
+        <div class="publication-metric publication-metric--citations" title="Live Dimensions citations. Click the badge for detailed citation metrics.">
           <span class="publication-metric-name">Citations</span>
           <span class="publication-metric-placeholder" aria-label="Citation count not reported">—</span>
           <span class="__dimensions_badge_embed__" data-doi="{{ entry.doi | escape }}" data-style="small_rectangle" data-legend="hover-bottom"></span>
-        </span>
+        </div>
         <a class="publication-metric-doi" href="https://doi.org/{{ entry.doi | escape }}" target="_blank" rel="noopener noreferrer">DOI ↗</a>
       {% else %}
         <span class="publication-metrics-unavailable" title="No DOI is listed for this output, so article-level attention and citation badges cannot be matched reliably.">Article metrics not indexed</span>
