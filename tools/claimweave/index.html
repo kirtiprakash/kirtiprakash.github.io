@@ -6,7 +6,7 @@
   <meta name="description" content="Turn receipts, PDFs and Outlook emails into a reimbursement PDF with a cost summary and supporting documents. Documents stay in your browser.">
   <meta name="theme-color" content="#071a3d">
   <title>ClaimWeave · Expense evidence organiser</title>
-  <link rel="stylesheet" href="styles.css?v=claimweave-visitors-20261120">
+  <link rel="stylesheet" href="styles.css?v=claimweave-visitors-cards-20261120">
   <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
@@ -109,16 +109,38 @@
     </main>
     <section class="claim-visitors" aria-labelledby="claim-visitors-heading">
       <div class="claim-visitors-inner">
-        <div class="claim-visitors-copy">
-          <span class="claim-visitors-kicker">SITE STATISTICS</span>
-          <h2 id="claim-visitors-heading">ClaimWeave page views</h2>
-          <p>Page views recorded since the counter was added, including repeat visits.</p>
+        <div class="claim-visitors-head">
+          <div><span class="claim-visitors-kicker">SITE STATISTICS</span>
+            <h2 id="claim-visitors-heading">Visitors around the world</h2></div>
+          <p>Page views and visitor locations for ClaimWeave.</p>
         </div>
-        <div class="claim-visitors-display">
-          <img src="https://visitor-badge.laobi.icu/badge?page_id=kirtiprakash.claimweave.home&amp;left_text=Page%20views&amp;left_color=071a3d&amp;right_color=c7a64b&amp;height=30"
-               alt="Live ClaimWeave page view count" height="30" loading="lazy" referrerpolicy="no-referrer">
-          <small>Counter provided by a third party. It receives standard image-request metadata, but no uploaded claim files.</small>
+        <div class="claim-visitors-grid">
+          <article class="claim-visitor-card">
+            <span class="claim-visitor-label">01 / PAGE VIEWS</span>
+            <h3>Every visit counts</h3>
+            <p>Live page views since the counter was added.</p>
+            <div class="claim-counter-frame">
+              <img src="https://visitor-badge.laobi.icu/badge?page_id=kirtiprakash.claimweave.home&amp;left_text=Page%20views&amp;left_color=071a3d&amp;right_color=c7a64b&amp;height=30"
+                   alt="Live ClaimWeave page views, including repeat visits" height="30" loading="lazy" referrerpolicy="no-referrer">
+            </div>
+            <p class="claim-visitor-note">Includes repeat visits. Earlier traffic is not included.</p>
+          </article>
+          <article class="claim-visitor-card">
+            <span class="claim-visitor-label">02 / VISITOR COUNTRIES</span>
+            <h3>Global reach</h3>
+            <p>Country-by-country visitor statistics.</p>
+            <div class="claim-country-frame">
+              <div class="claim-country-empty">
+                <span class="claim-country-globe" aria-hidden="true">◎</span>
+                <strong>Country counter not connected</strong>
+                <span>ClaimWeave needs its own country counter ID to collect visitor locations independently.</span>
+                <a href="https://liveflagcounter.com/" target="_blank" rel="noopener noreferrer">Create a country counter</a>
+              </div>
+            </div>
+            <p class="claim-visitor-note">The existing ARU–CJLU country counter is not reused, so the two sites' statistics remain separate.</p>
+          </article>
         </div>
+        <p class="claim-visitor-disclosure">Counters are provided by third parties and receive ordinary web-request metadata. No uploaded claim files are shared with them.</p>
       </div>
     </section>
     <footer class="site-footer"><div class="footer-brand"><b>ClaimWeave</b><span>Expense evidence organiser</span></div><p>Independent document organiser · Not affiliated with any expense provider · Verify all financial information before submission</p><span>Review all amounts and evidence before submission.</span></footer>
