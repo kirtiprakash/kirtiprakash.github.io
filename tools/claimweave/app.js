@@ -177,12 +177,122 @@
     if((key==='amount'||key==='fxRate') && e.currency!=='GBP' && number(e.fxRate)>0 && number(e.amount)>0) e.claimedGBP=(number(e.amount)*number(e.fxRate)).toFixed(2);
     render();
   }
+
+  // The editor stores boxes as fractions of the rendered PDF page, not CSS pixels.
+  // No statement content is sent to a server. Export rasterizes every page of a
+  // redacted PDF and never copies the source text, annotations or original streams.
+  const redactEditor={doc:null,pdf:null,page:1,base:null,drag:null,loading:false};
+  const redactCanvas=()=> $('redaction-preview');
+  function redactRects(doc,page){doc.redactions ||= {};return doc.redactions[page] ||= [];}
+  function markRedactionChanged(){if(!redactEditor.doc)return;const d=redactEditor.doc;d.redactionReviewedPages=(d.redactionReviewedPages||[]).filter(n=>n!==redactEditor.page);$('redaction-reviewed').checked=false;updateRedactionStatus();}
+  function drawRedactionPreview(){
+    const c=redactCanvas(),base=redactEditor.base,doc=redactEditor.doc;if(!base||!doc)return;
+    const ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);ctx.drawImage(base,0,0);
+    ctx.fillStyle='#000';
+    for(const box of redactRects(doc,redactEditor.page))ctx.fillRect(box.x*c.width,box.y*c.height,box.w*c.width,box.h*c.height);
+    if(redactEditor.drag){
+      const a=redactEditor.drag,b=redactEditor.drag.current;
+      const x=Math.min(a.x,b.x)*c.width,y=Math.min(a.y,b.y)*c.height,w=Math.abs(a.x-b.x)*c.width,h=Math.abs(a.y-b.y)*c.height;
+      ctx.fillStyle='rgba(0,0,0,.78)';ctx.fillRect(x,y,w,h);ctx.strokeStyle='#d71920';ctx.lineWidth=2;ctx.strokeRect(x,y,w,h);
+    }
+  }
+  function redactionCoords(event){
+    const bounds=redactCanvas().getBoundingClientRect();
+    return {x:Math.max(0,Math.min(1,(event.clientX-bounds.left)/bounds.width)),y:Math.max(0,Math.min(1,(event.clientY-bounds.top)/bounds.height))};
+  }
+  function updateRedactionStatus(){
+    const d=redactEditor.doc;if(!d)return;
+    const count=redactEditor.pdf?.numPages||d.pages||1,verified=new Set(d.redactionReviewedPages||[]);
+    $('redaction-page-status').textContent='Page '+redactEditor.page+' of '+count;
+    $('redaction-progress').textContent=verified.size+' of '+count+' page(s) reviewed. Every page must be reviewed before a redacted PDF can be exported.';
+    $('redaction-prev').disabled=redactEditor.loading||redactEditor.page<=1;
+    $('redaction-next').disabled=redactEditor.loading||redactEditor.page>=count;
+    $('redaction-reviewed').checked=verified.has(redactEditor.page);
+  }
+  async function showRedactionPage(pageNo){
+    const d=redactEditor.doc;if(!d||!redactEditor.pdf||redactEditor.loading)return;
+    redactEditor.loading=true;redactEditor.page=pageNo;redactEditor.base=null;redactEditor.drag=null;
+    $('redaction-progress').textContent='Rendering page locally…';updateRedactionStatus();
+    try{
+      const p=await redactEditor.pdf.getPage(pageNo),natural=p.getViewport({scale:1});
+      const scale=Math.min(1.8,1500/Math.max(natural.width,natural.height));
+      const vp=p.getViewport({scale});
+      const base=document.createElement('canvas');base.width=Math.ceil(vp.width);base.height=Math.ceil(vp.height);
+      await p.render({canvasContext:base.getContext('2d',{alpha:false}),viewport:vp,background:'white'}).promise;
+      redactEditor.base=base;
+      const c=redactCanvas();c.width=base.width;c.height=base.height;drawRedactionPreview();
+    }catch(error){$('redaction-progress').textContent='Cannot display this PDF page: '+String(error.message||error);}
+    finally{redactEditor.loading=false;updateRedactionStatus();}
+  }
+  async function openRedaction(doc){
+    if(!window.pdfjsLib){setStatus('PDF preview library unavailable; reconnect and reload.',true);return;}
+    if(redactEditor.pdf){try{await redactEditor.pdf.destroy();}catch(_){}}
+    redactEditor.doc=doc;redactEditor.pdf=null;redactEditor.page=1;redactEditor.base=null;
+    $('redaction-dialog').showModal();$('redaction-progress').textContent='Loading statement privately in your browser…';
+    try{
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+      const data=new Uint8Array(await doc.file.arrayBuffer());
+      redactEditor.pdf=await window.pdfjsLib.getDocument({data}).promise;
+      doc.pages=redactEditor.pdf.numPages;doc.redactionEnabled=true;
+      doc.redactions ||= {};doc.redactionReviewedPages ||= [];
+      await showRedactionPage(1);
+      render();
+    }catch(error){$('redaction-progress').textContent='Unable to open PDF: '+String(error.message||error);}
+  }
+  async function closeRedaction(){
+    $('redaction-dialog').close();
+    if(redactEditor.pdf){try{await redactEditor.pdf.destroy();}catch(_){}}
+    redactEditor.pdf=null;redactEditor.doc=null;redactEditor.base=null;redactEditor.drag=null;
+    render();
+  }
+  function bindRedaction(){
+    const c=redactCanvas();
+    c.addEventListener('pointerdown',e=>{
+      if(!redactEditor.base||redactEditor.loading||!redactEditor.doc)return;
+      e.preventDefault();c.setPointerCapture(e.pointerId);
+      const point=redactionCoords(e);redactEditor.drag={...point,current:point};drawRedactionPreview();
+    });
+    c.addEventListener('pointermove',e=>{
+      if(!redactEditor.drag)return;redactEditor.drag.current=redactionCoords(e);drawRedactionPreview();
+    });
+    c.addEventListener('pointerup',e=>{
+      if(!redactEditor.drag)return;
+      const a=redactEditor.drag,b=redactionCoords(e);redactEditor.drag=null;
+      const rect={x:Math.min(a.x,b.x),y:Math.min(a.y,b.y),w:Math.abs(a.x-b.x),h:Math.abs(a.y-b.y)};
+      if(rect.w>.003&&rect.h>.003){redactRects(redactEditor.doc,redactEditor.page).push(rect);markRedactionChanged();}
+      drawRedactionPreview();
+    });
+    c.addEventListener('pointercancel',()=>{redactEditor.drag=null;drawRedactionPreview();});
+    $('redaction-prev').addEventListener('click',()=>showRedactionPage(redactEditor.page-1));
+    $('redaction-next').addEventListener('click',()=>showRedactionPage(redactEditor.page+1));
+    $('redaction-undo').addEventListener('click',()=>{const a=redactRects(redactEditor.doc,redactEditor.page);if(a.length){a.pop();markRedactionChanged();drawRedactionPreview();}});
+    $('redaction-black-page').addEventListener('click',()=>{redactRects(redactEditor.doc,redactEditor.page).push({x:0,y:0,w:1,h:1});markRedactionChanged();drawRedactionPreview();});
+    $('redaction-clear-page').addEventListener('click',()=>{redactEditor.doc.redactions[redactEditor.page]=[];markRedactionChanged();drawRedactionPreview();});
+    $('redaction-reviewed').addEventListener('change',ev=>{
+      const d=redactEditor.doc;if(!d)return;
+      d.redactionReviewedPages=Array.from(new Set((d.redactionReviewedPages||[]).filter(x=>x!==redactEditor.page).concat(ev.target.checked?[redactEditor.page]:[]))).sort((a,b)=>a-b);
+      updateRedactionStatus();render();
+    });
+    $('redaction-disable').addEventListener('click',async()=>{
+      if(!window.confirm('Remove all redaction settings and use the original, unredacted PDF in exports?'))return;
+      const d=redactEditor.doc;if(d){d.redactionEnabled=false;d.redactions={};d.redactionReviewedPages=[];}
+      await closeRedaction();
+    });
+    $('redaction-done').addEventListener('click',async()=>{const d=redactEditor.doc;if(!d)return;const total=redactEditor.pdf?.numPages||d.pages||1;
+      if((d.redactionReviewedPages||[]).length<total){$('redaction-progress').textContent='Review and mark every page before finishing. You can close now and resume later.';return;}
+      await closeRedaction();
+    });
+    $('close-redaction').addEventListener('click',closeRedaction);
+    $('redaction-dialog').addEventListener('cancel',()=>{redactEditor.pdf?.destroy().catch(()=>{});redactEditor.pdf=null;redactEditor.doc=null;redactEditor.base=null;render();});
+  }
+
   function renderFiles(){
     $('upload-count').textContent=state.files.length ? `${state.files.length} file(s) · ${fileSize(state.files.reduce((s,x)=>s+x.file.size,0))} total`:'No evidence added yet';
     const expOptions=`<option value="general">General approvals / unassigned</option>`+state.expenses.map((e,i)=>`<option value="${e.id}">${String(i+1).padStart(2,'0')} · ${esc(e.title)}</option>`).join('');
-    $('file-list').innerHTML=state.files.map(f=>`<div class="file-row" data-id="${f.id}" data-status="${f.status}"><div class="file-avatar" aria-hidden="true">${f.extension==='pdf'?'▤':['eml','msg'].includes(f.extension)?'✉':'▧'}</div><div class="file-meta"><strong title="${esc(f.name)}">${esc(shortName(f.name))}</strong><small>${esc(f.extension.toUpperCase())} · ${fileSize(f.file.size)}${f.pages?` · ${f.pages} page(s)`:''}${f.sourceEmailId?' · from email attachment':''}</small>${f.suggestedAmount?`<small class="file-note">Suggested ${esc(f.suggestedCurrency)} ${esc(f.suggestedAmount)} (verify in original)</small>`:''}${f.note?`<small class="file-note">${esc(f.note)}</small>`:''}<label class="include-control"><input type="checkbox" data-role="include" ${f.include?'checked':''} ${f.status==='error'?'disabled':''}> Include in PDF</label></div><select class="file-category" data-role="kind" aria-label="Evidence type for ${esc(f.name)}">${KINDS.map(k=>`<option ${k===f.kind?'selected':''}>${esc(k)}</option>`).join('')}</select><select class="assign-select" data-role="expense" aria-label="Assign ${esc(f.name)} to expense">${expOptions.replace(`value="${f.expenseId}"`,`value="${f.expenseId}" selected`)}</select><button class="delete-file" data-role="delete" aria-label="Remove ${esc(f.name)}">×</button></div>`).join('');
+    $('file-list').innerHTML=state.files.map(f=>`<div class="file-row" data-id="${f.id}" data-status="${f.status}"><div class="file-avatar" aria-hidden="true">${f.extension==='pdf'?'▤':['eml','msg'].includes(f.extension)?'✉':'▧'}</div><div class="file-meta"><strong title="${esc(f.name)}">${esc(shortName(f.name))}</strong><small>${esc(f.extension.toUpperCase())} · ${fileSize(f.file.size)}${f.pages?` · ${f.pages} page(s)`:''}${f.sourceEmailId?' · from email attachment':''}</small>${f.extension==='pdf'?`<button type="button" class="redaction-trigger" data-role="redact" data-redacted="${!!f.redactionEnabled}">${f.redactionEnabled?'Edit blackouts ('+Object.values(f.redactions||{}).reduce((n,a)=>n+a.length,0)+')':'Black out private information'}</button>`:''}${f.suggestedAmount?`<small class="file-note">Suggested ${esc(f.suggestedCurrency)} ${esc(f.suggestedAmount)} (verify in original)</small>`:''}${f.note?`<small class="file-note">${esc(f.note)}</small>`:''}<label class="include-control"><input type="checkbox" data-role="include" ${f.include?'checked':''} ${f.status==='error'?'disabled':''}> Include in PDF</label></div><select class="file-category" data-role="kind" aria-label="Evidence type for ${esc(f.name)}">${KINDS.map(k=>`<option ${k===f.kind?'selected':''}>${esc(k)}</option>`).join('')}</select><select class="assign-select" data-role="expense" aria-label="Assign ${esc(f.name)} to expense">${expOptions.replace(`value="${f.expenseId}"`,`value="${f.expenseId}" selected`)}</select><button class="delete-file" data-role="delete" aria-label="Remove ${esc(f.name)}">×</button></div>`).join('');
     $('file-list').querySelectorAll('.file-row').forEach(row=>{
       const f=state.files.find(x=>x.id===row.dataset.id);
+      row.querySelector('[data-role="redact"]')?.addEventListener('click',()=>openRedaction(f));
       row.querySelector('[data-role="kind"]').addEventListener('change',ev=>{f.kind=ev.target.value;render();});
       row.querySelector('[data-role="include"]').addEventListener('change',ev=>{f.include=ev.target.checked;render();});
       row.querySelector('[data-role="expense"]').addEventListener('change',ev=>{f.expenseId=ev.target.value;render();});
@@ -316,6 +426,7 @@
   function offlineIndicator(){const v=$('offline-indicator');if(!v)return;v.textContent=navigator.onLine?'Online. Pinned libraries may be cached for later offline use.':'Offline. Export requires previously cached PDF libraries.';}
   function installOfflineShell(){if('serviceWorker'in navigator && location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(()=>{});window.addEventListener('online',offlineIndicator);window.addEventListener('offline',offlineIndicator);offlineIndicator();}
   function bind(){
+    bindRedaction();
     const zone=$('dropzone'),input=$('file-input');
     zone.addEventListener('click',()=>input.click());zone.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();input.click();}});
     input.addEventListener('change',async()=>{await addFiles(input.files);input.value='';});
