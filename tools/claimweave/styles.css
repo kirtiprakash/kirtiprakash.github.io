@@ -174,3 +174,22 @@ textarea:focus-visible,.dropzone:focus-visible{outline-color:var(--gold)}
 .redaction-trigger:hover{background:#dce8f3}
 .redaction-trigger[data-redacted="true"]{border-color:#c7a64b;background:#fff9e7}
 @media(max-width:600px){#redaction-dialog{padding:14px;max-height:96vh}#redaction-dialog .dialog-head{top:-14px}.redaction-canvas-frame{padding:4px;max-height:55vh}.redaction-toolbar .button-outline{flex:1}.redaction-toolbar strong{order:-1;flex-basis:100%;text-align:center}}
+
+
+/* Local suggestions for redaction; highlights are proposals only. */
+.redaction-auto{background:#f6f8fc;border:1px solid #d8e1ee;border-radius:11px;padding:16px;margin:12px 0 18px}
+.redaction-auto-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.redaction-auto-heading>div{flex:1;min-width:220px}
+.redaction-auto-heading strong{color:#071a3d;font-size:14px;font-weight:800}
+#redaction-dialog .redaction-auto-heading p{font-size:11px;line-height:1.55;color:#526078;margin:5px 0 10px}
+#redaction-suggestions-status{font-size:11px;color:#425775;margin:6px 0 10px}
+.redaction-suggestions-list{display:grid;gap:7px;max-height:230px;overflow:auto}
+.redaction-suggestion{display:flex;gap:10px;align-items:flex-start;border:1px solid #d8e1ee;background:#fff;border-radius:8px;padding:10px;font-size:11px;cursor:pointer}
+.redaction-suggestion input{accent-color:#d71920;width:17px;height:17px;flex:0 0 17px;margin-top:2px}
+.redaction-suggestion span{min-width:0}
+.redaction-suggestion strong{display:block;color:#071a3d}
+.redaction-suggestion small{display:block;color:#5b6678;line-height:1.5}
+.redaction-suggestion .redaction-sample{margin-top:4px;font-size:10px;overflow-wrap:anywhere;color:#65738b}
+.redaction-empty{color:#5b6678;font-size:11px;margin:7px 0}
+.redaction-auto .text-button{color:#102a56;font-weight:700}
+@media(max-width:600px){.redaction-auto{padding:12px}.redaction-auto-heading{display:block}.redaction-auto-heading .button-outline{margin:5px 0 10px;white-space:normal}.redaction-auto .redaction-toolbar{gap:5px}}
