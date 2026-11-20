@@ -148,6 +148,44 @@ async function coverSheet(page,{groups,claim,mode,part=0,start=0,limit=15}){
 }
 async function appendDocument(doc,section,fontBytes){
  if(doc.extension==='pdf'){
+  // Redacted source PDFs must NEVER be merged/copied into the result.
+  // All source graphics, text objects, annotations, signatures and hidden layers
+  // are removed by rendering each complete page to pixels and burning masks in.
+  if(doc.redactionEnabled){
+   const pdfjs=window.pdfjsLib;
+   if(!pdfjs)throw new Error(`Secure redaction unavailable for ${doc.name}: PDF renderer is missing.`);
+   const bytes=new Uint8Array(await doc.file.arrayBuffer());
+   pdfjs.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+   let source;
+   try{source=await pdfjs.getDocument({data:bytes}).promise;}catch(e){throw new Error(`Cannot securely render ${doc.name}: ${e.message||e}`);}
+   try{
+    const done=new Set(doc.redactionReviewedPages||[]);
+    if(source.numPages!==done.size||Array.from({length:source.numPages},(_,i)=>i+1).some(n=>!done.has(n)))
+      throw new Error(`Review every page of ${doc.name} before exporting. Unreviewed pages must not pass through unredacted.`);
+    for(let n=1;n<=source.numPages;n++){
+      const sourcePage=await source.getPage(n);
+      const size=sourcePage.getViewport({scale:1});
+      const scale=Math.min(1.9,1900/Math.max(size.width,size.height));
+      const vp=sourcePage.getViewport({scale});
+      const canvas=document.createElement('canvas');canvas.width=Math.ceil(vp.width);canvas.height=Math.ceil(vp.height);
+      const context=canvas.getContext('2d',{alpha:false});if(!context)throw new Error('Cannot create secure image context.');
+      await sourcePage.render({canvasContext:context,viewport:vp,background:'white'}).promise;
+      context.fillStyle='#000000';
+      for(const rect of doc.redactions?.[n]||[]){
+       if(![rect.x,rect.y,rect.w,rect.h].every(Number.isFinite)||rect.w<=0||rect.h<=0)throw new Error('Invalid redaction area; please review the statement again.');
+       const x=Math.max(0,Math.floor(rect.x*canvas.width)-3),y=Math.max(0,Math.floor(rect.y*canvas.height)-3);
+       const right=Math.min(canvas.width,Math.ceil((rect.x+rect.w)*canvas.width)+3);
+       const bottom=Math.min(canvas.height,Math.ceil((rect.y+rect.h)*canvas.height)+3);
+       context.fillRect(x,y,Math.max(0,right-x),Math.max(0,bottom-y));
+      }
+      const img=await pdf.embedPng(canvas.toDataURL('image/png'));
+      const output=pdf.addPage([size.width,size.height]);output.drawImage(img,{x:0,y:0,width:size.width,height:size.height});
+      output.__claimweaveOriginal=true; // Do not add overlays containing source metadata.
+      canvas.width=canvas.height=0;
+    }
+   } finally{await source.destroy();}
+   return;
+  }
   const bytes=await doc.file.arrayBuffer();let orig;try{orig=await window.PDFLib.PDFDocument.load(bytes);}catch(e){throw new Error(`Cannot open original PDF: ${doc.name}. Please re-save as unencrypted PDF and retry.`);}
   const pages=await pdf.copyPages(orig,orig.getPageIndices());for(const p of pages){p.__claimweaveOriginal=true;pdf.addPage(p);}return;
  }
