@@ -6,7 +6,7 @@
   <meta name="description" content="Turn receipts, PDFs and Outlook emails into a reimbursement PDF with a cost summary and supporting documents. Documents stay in your browser.">
   <meta name="theme-color" content="#071a3d">
   <title>ClaimWeave · Expense evidence organiser</title>
-  <link rel="stylesheet" href="styles.css?v=claimweave-visitors-simple-20261120">
+  <link rel="stylesheet" href="styles.css?v=claimweave-redaction-20261120">
   <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
@@ -120,6 +120,25 @@
     </section>
     <footer class="site-footer"><div class="footer-brand"><b>ClaimWeave</b><span>Expense evidence organiser</span></div><p>Independent document organiser · Not affiliated with any expense provider · Verify all financial information before submission</p><span>Review all amounts and evidence before submission.</span></footer>
   </div>
+  <dialog id="redaction-dialog" aria-labelledby="redaction-title">
+    <div class="dialog-head"><h2 id="redaction-title">Redact bank statement</h2><button type="button" id="close-redaction" aria-label="Close statement redaction">×</button></div>
+    <p class="redaction-explain">Drag over account numbers, addresses and unrelated transactions to cover them in black. Use generous margins. Redacted PDFs are rebuilt from flattened page images so hidden text cannot be recovered from the exported PDF. Your original file remains unchanged in this browser session and in encrypted working cases.</p>
+    <div class="redaction-toolbar">
+      <button type="button" class="button-outline" id="redaction-prev">← Previous</button>
+      <strong id="redaction-page-status" aria-live="polite">Page 1</strong>
+      <button type="button" class="button-outline" id="redaction-next">Next →</button>
+    </div>
+    <div class="redaction-canvas-frame"><canvas id="redaction-preview" aria-label="Bank statement page; drag to black out confidential information"></canvas></div>
+    <div class="redaction-toolbar">
+      <button type="button" class="button-outline" id="redaction-undo">Undo rectangle</button>
+      <button type="button" class="button-outline" id="redaction-black-page">Black out whole page</button>
+      <button type="button" class="button-outline" id="redaction-clear-page">Clear this page</button>
+    </div>
+    <label class="redaction-review"><input type="checkbox" id="redaction-reviewed"> I have checked every visible area of this page for private information.</label>
+    <p class="redaction-caution" id="redaction-progress" role="status"></p>
+    <div class="redaction-toolbar"><button type="button" id="redaction-done" class="button-primary">Finish redaction</button><button type="button" id="redaction-disable" class="button-outline">Use original PDF instead</button></div>
+    <p class="redaction-caution">Security note: review all pages before export. Keep original bank statements private; the optional evidence manifest and encrypted case may still contain source filenames, hashes and original files. No redaction is applied to the original itself.</p>
+  </dialog>
   <dialog id="paste-email-dialog"><div class="dialog-head"><h2>Paste an approval or email</h2><button id="close-paste" aria-label="Close email form">×</button></div><p>Use this when Outlook won’t export an email. The text is saved only in this browser session and is clearly labelled as a manually copied message.</p><div class="form-grid"><label><span>Subject</span><input id="paste-subject" placeholder="Approval for taxi reimbursement"></label><label><span>Date</span><input id="paste-date" placeholder="19 Nov 2026"></label><label><span>From</span><input id="paste-from" placeholder="sender@university.ac.uk"></label><label><span>To</span><input id="paste-to" placeholder="you@university.ac.uk"></label></div><label class="wide-label"><span>Message body (paste from Outlook)</span><textarea rows="10" id="paste-body" placeholder="Paste the complete email or approval chain, including relevant wording…"></textarea></label><button type="button" class="button-primary" id="save-paste">Add copied email</button></dialog>
   <dialog id="help-dialog"><div class="dialog-head"><h2>How ClaimWeave works</h2><button id="close-help" aria-label="Close help">×</button></div><ol><li><strong>Enter the claim context.</strong> Add your name, claim reference and business purpose.</li><li><strong>Upload everything together.</strong> PDFs and images become evidence pages; MSG and EML are parsed into readable email pages.</li><li><strong>Check each expense.</strong> Set the expense name, original amount, original currency and GBP claim. Assign every file to an expense or to “General approvals”.</li><li><strong>Review the warnings.</strong> Amount extraction is only a suggestion. Scanned images do not have automatic OCR. Email attachments can be included automatically.</li><li><strong>Export one PDF.</strong> Review it locally before submitting it to your expense provider. No claim content is intentionally sent to this website's server. Pinned third-party libraries still need an online first load.</li></ol><p><b>Limitations:</b> Encrypted PDFs, unusual Outlook MSG variants, image-only receipt text, non-image email attachments and very large packs may require conversion first. A failed MSG/EML import is excluded rather than silently omitted from a supposed complete pack.</p><button class="button-primary" id="close-help-bottom">Got it</button></dialog>
 </body>
