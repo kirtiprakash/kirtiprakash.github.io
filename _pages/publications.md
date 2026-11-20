@@ -7,6 +7,8 @@ nav: true
 nav_order: 1
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/publication-metrics.css' | relative_url }}">
+
 <div class="home-page publications-page">
   <section class="home-hero no-portrait" aria-labelledby="publications-title">
     <div class="hero-copy">
@@ -39,5 +41,23 @@ nav_order: 1
     <div class="publications clean-publications">
       {% bibliography %}
     </div>
+    <p class="publication-metrics-note">Live figures from <a href="https://www.altmetric.com/" target="_blank" rel="noopener noreferrer">Altmetric</a> and <a href="https://www.dimensions.ai/" target="_blank" rel="noopener noreferrer">Dimensions</a>. Select a badge for attention sources, available percentile rankings and citation details. A dash means no figure is reported, not zero. Publisher views and downloads are not consistently public; use HTML/PDF above for access.</p>
   </section>
 </div>
+
+<script>
+  // Mark a metric as reported only when the upstream badge confirms it.
+  // Unreported figures remain dashes rather than misleading zeroes.
+  document.querySelectorAll(".publication-metric--attention .altmetric-embed").forEach(function (badge) {
+    badge.addEventListener("altmetric:show", function () {
+      badge.closest(".publication-metric").classList.add("has-data");
+    });
+  });
+  document.querySelectorAll(".publication-metric--citations .__dimensions_badge_embed__").forEach(function (badge) {
+    badge.addEventListener("dimensions_embed:show", function () {
+      badge.closest(".publication-metric").classList.add("has-data");
+    });
+  });
+</script>
+<script defer src="https://embed.altmetric.com/assets/embed.js"></script>
+<script defer src="https://integration-badge.dimensions.ai/static/ai/badge.js"></script>
