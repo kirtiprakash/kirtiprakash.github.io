@@ -42,7 +42,7 @@ function wrap(t,maxWidth=495,size=10,font=regular){
 }
 function newPage(section='EVIDENCE'){
  const page=pdf.addPage([W,H]);page.drawRectangle({x:0,y:H-7,width:W,height:7,color:rgb(CYAN)});
- page.drawText('CLAIMWEAVE  /  '+section,{x:LEFT,y:TOP,font:bold,size:8,color:rgb(CYAN)});
+ page.drawText(section,{x:LEFT,y:TOP,font:bold,size:8,color:rgb(CYAN)});
  return page;
 }
 function footer(page,pageNo,mode){
