@@ -173,6 +173,16 @@ function audit(expenses,files,metadata={}){
  const total=expenses.reduce((s,e)=>s+numeric(e.claimedGBP),0);
  if(expenses.length && total<=0)add('blocker','zero-total','Total claimed is £0.00 despite expense rows.');
  for(const f of files){
+  if(f.include&&f.status==='ready'&&f.extension==='pdf'&&f.redactionEnabled){
+   const pages=Number(f.pages)||0;
+   const reviewed=new Set(f.redactionReviewedPages||[]);
+   if(!pages||Array.from({length:pages},(_,i)=>i+1).some(n=>!reviewed.has(n)))
+     add('blocker','redaction-incomplete',`${f.name}: review and confirm every page in the blackout editor before exporting.`,{fileId:f.id});
+   if(!Object.values(f.redactions||{}).some(rects=>rects.length))
+     add('review','redaction-none',`${f.name}: no blacked-out regions were drawn. Confirm the complete statement is appropriate to share.`,{fileId:f.id});
+  }
+  if(f.include&&f.status==='ready'&&f.extension==='pdf'&&f.kind==='Statement'&&!f.redactionEnabled)
+   add('review','statement-privacy',`${f.name}: this original statement will be included with all transactions and personal details. Consider using Black out private information.`,{fileId:f.id});
   if(f.status==='error')add('review','import-failed',`${f.name}: import failed. ${f.note||''}`,{fileId:f.id});
   if(!f.include && f.status==='ready'&&!f.hashDuplicate)add('info','excluded-file',`${f.name}: deliberately excluded from submission.`,{fileId:f.id});
   if(f.hashDuplicate)add('info','exact-duplicate',`${f.name}: identical-file duplicate excluded.`,{fileId:f.id});
