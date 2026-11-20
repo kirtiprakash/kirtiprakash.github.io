@@ -7,7 +7,7 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
  'use strict';
  const clamp=n=>Math.max(0,Math.min(1,n));
- const money=x=>Number(String(x??'').replace(/[,£€¥₹\s]/g,''));
+ const money=x=>Number(String(x??'').replace(/\b(?:GBP|CNY|RMB|INR|USD|EUR|HKD|JPY|AED|SGD)\b/gi,'').replace(/[,£€¥₹\s]/g,''));
  function normalizeLine(text){return String(text||'').replace(/\s+/g,' ').trim();}
  function normalizedBox(rect,width,height,pad=0){
   const x1=clamp((Math.min(rect.x1,rect.x2)-pad)/width),y1=clamp((Math.min(rect.y1,rect.y2)-pad)/height);
