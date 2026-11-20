@@ -107,6 +107,20 @@
 
       <section class="ethics-section"><div class="privacy-icon">⌁</div><div><h3>Local document processing</h3><p>Files are processed in browser memory. The app has no document-upload endpoint and does not write claims to browser storage. Save and restore an AES-GCM encrypted case only when you choose. Libraries and optional OCR language models come from pinned third-party CDNs and can be cached for later offline use; this is not a guarantee of fully offline operation. Use only with university approval for sensitive records. Check the evidence and employer-specific requirements before submitting.</p></div><div class="privacy-tag">NO FILE UPLOAD API</div></section>
     </main>
+    <section class="claim-visitors" aria-labelledby="claim-visitors-heading">
+      <div class="claim-visitors-inner">
+        <div class="claim-visitors-copy">
+          <span class="claim-visitors-kicker">SITE STATISTICS</span>
+          <h2 id="claim-visitors-heading">ClaimWeave page views</h2>
+          <p>Page views recorded since the counter was added, including repeat visits.</p>
+        </div>
+        <div class="claim-visitors-display">
+          <img src="https://visitor-badge.laobi.icu/badge?page_id=kirtiprakash.claimweave.home&amp;left_text=Page%20views&amp;left_color=071a3d&amp;right_color=c7a64b&amp;height=30"
+               alt="Live ClaimWeave page view count" width="auto" height="30" loading="lazy" referrerpolicy="no-referrer">
+          <small>Counter provided by a third party. It receives standard image-request metadata, but no uploaded claim files.</small>
+        </div>
+      </div>
+    </section>
     <footer class="site-footer"><div class="footer-brand"><b>ClaimWeave</b><span>Expense evidence organiser</span></div><p>Independent document organiser · Not affiliated with any expense provider · Verify all financial information before submission</p><span>Review all amounts and evidence before submission.</span></footer>
   </div>
   <dialog id="paste-email-dialog"><div class="dialog-head"><h2>Paste an approval or email</h2><button id="close-paste" aria-label="Close email form">×</button></div><p>Use this when Outlook won’t export an email. The text is saved only in this browser session and is clearly labelled as a manually copied message.</p><div class="form-grid"><label><span>Subject</span><input id="paste-subject" placeholder="Approval for taxi reimbursement"></label><label><span>Date</span><input id="paste-date" placeholder="19 Nov 2026"></label><label><span>From</span><input id="paste-from" placeholder="sender@university.ac.uk"></label><label><span>To</span><input id="paste-to" placeholder="you@university.ac.uk"></label></div><label class="wide-label"><span>Message body (paste from Outlook)</span><textarea rows="10" id="paste-body" placeholder="Paste the complete email or approval chain, including relevant wording…"></textarea></label><button type="button" class="button-primary" id="save-paste">Add copied email</button></dialog>
