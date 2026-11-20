@@ -1,0 +1,90 @@
+/* Compact, source-linked metrics for the publications bibliography. */
+.publications-page .publication-metrics {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.55rem;
+  margin-top: 0.65rem;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.publications-page .publication-metric {
+  display: inline-flex;
+  min-height: 35px;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.18rem 0.55rem;
+  border: 1px solid #e5e4e0;
+  border-radius: 7px;
+  background: #fbfaf7;
+  color: #4e6272;
+  vertical-align: middle;
+}
+.publications-page .publication-metric-name {
+  color: #556879;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+.publications-page .publication-metric-placeholder {
+  min-width: 0.65em;
+  color: #8a9298;
+  font-size: 0.85rem;
+}
+.publications-page .publication-metric.has-data .publication-metric-placeholder {
+  display: none;
+}
+.publications-page .publication-metric .altmetric-embed,
+.publications-page .publication-metric .__dimensions_badge_embed__ {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.publications-page .publication-metric .altmetric-embed:empty,
+.publications-page .publication-metric .__dimensions_badge_embed__:empty {
+  display: none;
+}
+.publications-page .publication-metric .altmetric-embed a,
+.publications-page .publication-metric .__dimensions_badge_embed__ a {
+  text-decoration: none !important;
+}
+.publications-page .publication-metric-doi {
+  padding: 0.34rem 0.3rem;
+  color: #86652e !important;
+  font-size: 0.77rem;
+  font-weight: 650;
+  text-decoration: none !important;
+}
+.publications-page .publication-metric-doi:hover {
+  text-decoration: underline !important;
+}
+.publications-page .publication-metrics-unavailable {
+  color: #7e8790;
+  font-size: 0.77rem;
+  font-style: italic;
+}
+.publications-page .publication-metrics-note {
+  margin: 0.6rem 0 0;
+  color: #71808a;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+html[data-theme="dark"] .publications-page .publication-metric {
+  border-color: #455668;
+  background: #1b3042;
+  color: #e4ebee;
+}
+html[data-theme="dark"] .publications-page .publication-metric-name,
+html[data-theme="dark"] .publications-page .publication-metric-placeholder,
+html[data-theme="dark"] .publications-page .publication-metrics-unavailable,
+html[data-theme="dark"] .publications-page .publication-metrics-note {
+  color: #b8c5cf;
+}
+html[data-theme="dark"] .publications-page .publication-metric-doi {
+  color: #e0c388 !important;
+}
+@media (max-width: 560px) {
+  .publications-page .publication-metrics { gap: 0.35rem; }
+  .publications-page .publication-metric { padding: 0.16rem 0.42rem; min-height: 33px; }
+  .publications-page .publication-metric-name { font-size: 0.7rem; }
+  .publications-page .publication-metric-doi { font-size: 0.73rem; }
+}
