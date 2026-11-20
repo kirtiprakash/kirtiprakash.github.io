@@ -181,7 +181,7 @@
   // The editor stores boxes as fractions of the rendered PDF page, not CSS pixels.
   // No statement content is sent to a server. Export rasterizes every page of a
   // redacted PDF and never copies the source text, annotations or original streams.
-  const redactEditor={doc:null,pdf:null,page:1,base:null,drag:null,loading:false};
+  const redactEditor={doc:null,pdf:null,page:1,base:null,drag:null,loading:false,suggestions:{},scanning:false};
   const redactCanvas=()=> $('redaction-preview');
   function redactRects(doc,page){doc.redactions ||= {};return doc.redactions[page] ||= [];}
   function markRedactionChanged(){if(!redactEditor.doc)return;const d=redactEditor.doc;d.redactionReviewedPages=(d.redactionReviewedPages||[]).filter(n=>n!==redactEditor.page);$('redaction-reviewed').checked=false;updateRedactionStatus();}
@@ -190,6 +190,10 @@
     const ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);ctx.drawImage(base,0,0);
     ctx.fillStyle='#000';
     for(const box of redactRects(doc,redactEditor.page))ctx.fillRect(box.x*c.width,box.y*c.height,box.w*c.width,box.h*c.height);
+    for(const item of (redactEditor.suggestions[redactEditor.page]||[]).filter(p=>p.selected)){
+      const b=item.rect;ctx.strokeStyle='#d71920';ctx.lineWidth=Math.max(2,2*c.width/900);
+      ctx.setLineDash([9,5]);ctx.strokeRect(b.x*c.width,b.y*c.height,b.w*c.width,b.h*c.height);ctx.setLineDash([]);
+    }
     if(redactEditor.drag){
       const a=redactEditor.drag,b=redactEditor.drag.current;
       const x=Math.min(a.x,b.x)*c.width,y=Math.min(a.y,b.y)*c.height,w=Math.abs(a.x-b.x)*c.width,h=Math.abs(a.y-b.y)*c.height;
@@ -208,7 +212,52 @@
     $('redaction-prev').disabled=redactEditor.loading||redactEditor.page<=1;
     $('redaction-next').disabled=redactEditor.loading||redactEditor.page>=count;
     $('redaction-reviewed').checked=verified.has(redactEditor.page);
+    renderSuggestedBlackouts();
   }
+
+  function renderSuggestedBlackouts(){
+    const node=$('redaction-suggestions'),d=redactEditor.doc;
+    if(!node||!d)return;
+    const items=redactEditor.suggestions[redactEditor.page]||[];
+    const known=Object.keys(redactEditor.suggestions).length;
+    $('redaction-suggestions-status').textContent=redactEditor.scanning?'Scanning PDF text locally…':known ? (items.length+' suggestion(s) on this page; '+known+' page(s) scanned. Select only areas you want covered.'):'Choose “Find suggestions on all pages”. Every suggestion requires your approval.';
+    node.innerHTML=items.length?items.map((p,i)=>'<label class="redaction-suggestion"><input type="checkbox" data-suggest="'+i+'" '+(p.selected?'checked':'')+'><span><strong>'+esc(p.type)+'</strong><small>'+esc(p.reason)+'</small><small class="redaction-sample">'+esc(p.preview)+'</small></span></label>').join(''):(known&&!redactEditor.scanning?'<p class="redaction-empty">No text-based suggestions on this page. Check visually and draw blackouts manually where needed.</p>':'');
+    node.querySelectorAll('[data-suggest]').forEach(input=>input.addEventListener('change',()=>{
+      const p=items[Number(input.dataset.suggest)];if(p){p.selected=input.checked;drawRedactionPreview();renderSuggestedBlackouts();}
+    }));
+    $('redaction-apply-suggestions').disabled=redactEditor.scanning||!items.some(x=>x.selected);
+    $('redaction-scan').disabled=redactEditor.scanning||redactEditor.loading;
+    $('redaction-select-all').disabled=redactEditor.scanning||!items.length;
+    $('redaction-select-none').disabled=redactEditor.scanning||!items.length;
+  }
+  async function scanRedactionSuggestions(){
+    const d=redactEditor.doc,source=redactEditor.pdf,engine=window.ClaimWeaveRedactionSuggestions;
+    if(!d||!source||redactEditor.scanning)return;
+    if(!engine){$('redaction-suggestions-status').textContent='Suggestion engine unavailable. Reload the page.';return;}
+    redactEditor.scanning=true;redactEditor.suggestions={};renderSuggestedBlackouts();
+    try{
+      for(let pageNo=1;pageNo<=source.numPages;pageNo++){
+        const page=await source.getPage(pageNo),viewport=page.getViewport({scale:1});
+        const content=await page.getTextContent();
+        redactEditor.suggestions[pageNo]=engine.propose({items:content.items,viewport,expenses:state.expenses,page:pageNo});
+        // Allow paint events to update between pages.
+        if(pageNo%3===0)await Promise.resolve();
+        if(!redactEditor.doc||redactEditor.doc!==d)break;
+        renderSuggestedBlackouts();
+      }
+    }catch(err){$('redaction-suggestions-status').textContent='Text analysis failed: '+String(err.message||err)+'. You can still redact manually.';}
+    finally{redactEditor.scanning=false;renderSuggestedBlackouts();drawRedactionPreview();}
+  }
+  function applySuggestedBlackouts(){
+    const d=redactEditor.doc;if(!d)return;
+    const chosen=(redactEditor.suggestions[redactEditor.page]||[]).filter(p=>p.selected);
+    if(!chosen.length)return;
+    if(!window.confirm('Apply '+chosen.length+' selected blackouts to page '+redactEditor.page+'? Review the resulting page before marking it complete.'))return;
+    for(const p of chosen){redactRects(d,redactEditor.page).push({...p.rect});}
+    redactEditor.suggestions[redactEditor.page]=(redactEditor.suggestions[redactEditor.page]||[]).filter(p=>!p.selected);
+    markRedactionChanged();renderSuggestedBlackouts();drawRedactionPreview();
+  }
+
   async function showRedactionPage(pageNo){
     const d=redactEditor.doc;if(!d||!redactEditor.pdf||redactEditor.loading)return;
     redactEditor.loading=true;redactEditor.page=pageNo;redactEditor.base=null;redactEditor.drag=null;
@@ -227,7 +276,7 @@
   async function openRedaction(doc){
     if(!window.pdfjsLib){setStatus('PDF preview library unavailable; reconnect and reload.',true);return;}
     if(redactEditor.pdf){try{await redactEditor.pdf.destroy();}catch(_){}}
-    redactEditor.doc=doc;redactEditor.pdf=null;redactEditor.page=1;redactEditor.base=null;
+    redactEditor.doc=doc;redactEditor.pdf=null;redactEditor.page=1;redactEditor.base=null;redactEditor.suggestions={};
     $('redaction-dialog').showModal();$('redaction-progress').textContent='Loading statement privately in your browser…';
     try{
       window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
@@ -242,10 +291,20 @@
   async function closeRedaction(){
     $('redaction-dialog').close();
     if(redactEditor.pdf){try{await redactEditor.pdf.destroy();}catch(_){}}
-    redactEditor.pdf=null;redactEditor.doc=null;redactEditor.base=null;redactEditor.drag=null;
+    redactEditor.pdf=null;redactEditor.doc=null;redactEditor.base=null;redactEditor.drag=null;redactEditor.suggestions={};
     render();
   }
   function bindRedaction(){
+    $('redaction-scan').addEventListener('click',scanRedactionSuggestions);
+    $('redaction-apply-suggestions').addEventListener('click',applySuggestedBlackouts);
+    $('redaction-select-all').addEventListener('click',()=>{
+      (redactEditor.suggestions[redactEditor.page]||[]).forEach(p=>p.selected=true);
+      renderSuggestedBlackouts();drawRedactionPreview();
+    });
+    $('redaction-select-none').addEventListener('click',()=>{
+      (redactEditor.suggestions[redactEditor.page]||[]).forEach(p=>p.selected=false);
+      renderSuggestedBlackouts();drawRedactionPreview();
+    });
     const c=redactCanvas();
     c.addEventListener('pointerdown',e=>{
       if(!redactEditor.base||redactEditor.loading||!redactEditor.doc)return;
