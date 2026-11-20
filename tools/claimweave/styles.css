@@ -156,3 +156,21 @@ textarea:focus-visible,.dropzone:focus-visible{outline-color:var(--gold)}
 .claim-visitors-note{color:var(--muted);font-size:10px;line-height:1.5;margin:0}
 .claim-visitors-badge{display:block;max-width:100%;height:30px;width:auto}
 @media(max-width:600px){.claim-visitors-inner{padding:19px 18px;flex-direction:column;align-items:flex-start;gap:12px}}
+
+
+/* Local bank statement redaction editor. The PDF exporter flattens reviewed pages. */
+#redaction-dialog{width:min(1030px,calc(100% - 22px));max-height:94vh;overflow:auto}
+#redaction-dialog .dialog-head{position:sticky;top:-28px;background:#fff;z-index:4;padding:8px 0;border-bottom:1px solid var(--line)}
+.redaction-explain{max-width:880px;margin:13px 0;color:var(--ink);font-size:12px}
+.redaction-toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:13px 0}
+.redaction-toolbar strong{margin-right:auto;margin-left:auto;font-size:12px;color:var(--navy)}
+.redaction-toolbar .button-outline,.redaction-toolbar .button-primary{font-size:11px;padding:9px 11px}
+.redaction-canvas-frame{background:#d9e0e9;border:1px solid #b9c4d6;border-radius:9px;padding:12px;display:flex;justify-content:center;max-height:59vh;overflow:auto}
+#redaction-preview{display:block;max-width:100%;width:auto;height:auto;box-shadow:0 4px 18px #071a3d33;background:#fff;touch-action:none;cursor:crosshair}
+.redaction-review{display:flex;gap:10px;align-items:start;margin-top:12px;background:#f0f4fa;border-radius:8px;border:1px solid #d6dfec;padding:13px;font-size:12px;font-weight:650;color:#071a3d;cursor:pointer}
+.redaction-review input{accent-color:#d71920;width:18px;height:18px;flex:0 0 18px}
+.redaction-caution{font-size:11px!important;line-height:1.55;color:#5b6678;margin:10px 0}
+.redaction-trigger{display:inline-flex;border:1px solid #a8bed7;background:#f1f5fb;color:#071a3d;border-radius:5px;padding:5px 8px;font-size:10px;font-weight:750;margin-top:4px;cursor:pointer}
+.redaction-trigger:hover{background:#dce8f3}
+.redaction-trigger[data-redacted="true"]{border-color:#c7a64b;background:#fff9e7}
+@media(max-width:600px){#redaction-dialog{padding:14px;max-height:96vh}#redaction-dialog .dialog-head{top:-14px}.redaction-canvas-frame{padding:4px;max-height:55vh}.redaction-toolbar .button-outline{flex:1}.redaction-toolbar strong{order:-1;flex-basis:100%;text-align:center}}
