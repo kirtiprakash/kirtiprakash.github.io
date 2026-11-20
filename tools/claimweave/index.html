@@ -6,13 +6,14 @@
   <meta name="description" content="Turn receipts, PDFs and Outlook emails into a reimbursement PDF with a cost summary and supporting documents. Documents stay in your browser.">
   <meta name="theme-color" content="#071a3d">
   <title>ClaimWeave · Expense evidence organiser</title>
-  <link rel="stylesheet" href="styles.css?v=claimweave-redaction-20261120">
+  <link rel="stylesheet" href="styles.css?v=claimweave-auto-redaction-20261120">
   <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
   <script defer src="core.js"></script>
   <script defer src="pdf.js"></script>
   <script defer src="case.js"></script>
+  <script defer src="redaction-suggestions.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
@@ -123,6 +124,12 @@
   <dialog id="redaction-dialog" aria-labelledby="redaction-title">
     <div class="dialog-head"><h2 id="redaction-title">Redact bank statement</h2><button type="button" id="close-redaction" aria-label="Close statement redaction">×</button></div>
     <p class="redaction-explain">Drag over account numbers, addresses and unrelated transactions to cover them in black. Use generous margins. Redacted PDFs are rebuilt from flattened page images so hidden text cannot be recovered from the exported PDF. Your original file remains unchanged in this browser session and in encrypted working cases.</p>
+    <section class="redaction-auto">
+      <div class="redaction-auto-heading"><div><strong>Suggested blackouts</strong><p>Find account details, contact information, balances and transaction lines that may not match an expense. Suggestions are not applied until you approve them.</p></div><button type="button" id="redaction-scan" class="button-outline">Find suggestions on all pages</button></div>
+      <div id="redaction-suggestions-status" role="status" aria-live="polite">Suggestions use text from the PDF. Scanned statements may require manual blackouts.</div>
+      <div id="redaction-suggestions" class="redaction-suggestions-list"></div>
+      <div class="redaction-toolbar"><button type="button" class="button-outline" id="redaction-apply-suggestions" disabled>Apply selected suggestions on this page</button><button type="button" class="text-button" id="redaction-select-all">Select all on this page</button><button type="button" class="text-button" id="redaction-select-none">Select none</button></div>
+    </section>
     <div class="redaction-toolbar">
       <button type="button" class="button-outline" id="redaction-prev">← Previous</button>
       <strong id="redaction-page-status" aria-live="polite">Page 1</strong>
