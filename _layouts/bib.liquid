@@ -129,6 +129,29 @@
       {% endif %}
     </div>
 
+    {% comment %}
+      Source-owned live metrics: Altmetric tracks online attention (not downloads);
+      Dimensions provides citations. An em dash means no public figure was
+      returned, never a measured zero. The badges link to their source details.
+    {% endcomment %}
+    <div class="publication-metrics" aria-label="Publication attention and citation metrics">
+      {% if entry.doi %}
+        <span class="publication-metric publication-metric--attention" title="Altmetric Attention Score. Click the badge for online mentions and available percentile rankings.">
+          <span class="publication-metric-name">Attention</span>
+          <span class="publication-metric-placeholder" aria-label="Attention score not reported">—</span>
+          <span class="altmetric-embed" data-doi="{{ entry.doi | escape }}" data-badge-type="donut" data-badge-popover="top" data-link-target="_blank" data-hide-no-mentions="true"></span>
+        </span>
+        <span class="publication-metric publication-metric--citations" title="Live Dimensions citations. Click the badge for detailed citation metrics.">
+          <span class="publication-metric-name">Citations</span>
+          <span class="publication-metric-placeholder" aria-label="Citation count not reported">—</span>
+          <span class="__dimensions_badge_embed__" data-doi="{{ entry.doi | escape }}" data-style="small_rectangle" data-legend="hover-bottom"></span>
+        </span>
+        <a class="publication-metric-doi" href="https://doi.org/{{ entry.doi | escape }}" target="_blank" rel="noopener noreferrer">DOI ↗</a>
+      {% else %}
+        <span class="publication-metrics-unavailable" title="No DOI is listed for this output, so article-level attention and citation badges cannot be matched reliably.">Article metrics not indexed</span>
+      {% endif %}
+    </div>
+
     {% if entry.abstract %}
       <div class="abstract hidden publication-abstract">
         <p>{{ entry.abstract }}</p>
