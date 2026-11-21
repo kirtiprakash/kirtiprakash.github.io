@@ -46,17 +46,19 @@ nav_order: 1
 </div>
 
 <script>
-  // Mark a metric as reported only when the upstream badge confirms it.
-  // Unreported figures remain dashes rather than misleading zeroes.
-  document.querySelectorAll(".publication-metric--attention .altmetric-embed").forEach(function (badge) {
-    badge.addEventListener("altmetric:show", function () {
-      badge.closest(".publication-metric").classList.add("has-data");
-    });
-  });
-  document.querySelectorAll(".publication-metric--citations .__dimensions_badge_embed__").forEach(function (badge) {
-    badge.addEventListener("dimensions_embed:show", function () {
-      badge.closest(".publication-metric").classList.add("has-data");
-    });
+  // External badges render asynchronously. Show a dash only until the
+  // provider actually inserts a badge, not next to a real reported figure.
+  document.querySelectorAll(".publication-metric").forEach(function (metric) {
+    var badge = metric.querySelector(".altmetric-embed, .__dimensions_badge_embed__");
+    if (!badge) return;
+    var sync = function () {
+      var rendered = badge.querySelector("a, img, iframe, svg") || badge.textContent.trim().length > 0;
+      metric.classList.toggle("has-data", Boolean(rendered));
+    };
+    new MutationObserver(sync).observe(badge, { childList: true, subtree: true, characterData: true });
+    badge.addEventListener("altmetric:show", function () { metric.classList.add("has-data"); });
+    badge.addEventListener("altmetric:hide", function () { metric.classList.remove("has-data"); });
+    sync();
   });
 </script>
 <script defer src="https://embed.altmetric.com/assets/embed.js"></script>
